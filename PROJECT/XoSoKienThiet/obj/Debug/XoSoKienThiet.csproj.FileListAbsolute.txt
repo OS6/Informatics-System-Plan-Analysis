@@ -1,0 +1,26 @@
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\EntityFramework.dll
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.dll
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\EntityFramework.xml
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.xml
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmDOITAC.resources
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.pdb
+F:\STUDY\Nam3\Phát triển, vận hành và bảo trì phần mềm\Bài tập\Maintance_OnlineHotel\www\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.pdb
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.dll
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.xml
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmDOITAC.resources
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
