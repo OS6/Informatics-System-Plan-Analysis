@@ -12,8 +12,15 @@ namespace XoSoKienThiet.DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHIEUNHANVE()
         {
-            CT_PHIEUNHANVE = new HashSet<CT_PHIEUNHANVE>();
-            PHIEUTRAVEs = new HashSet<PHIEUTRAVE>();
+        }
+
+        public PHIEUNHANVE(string madoitac, int tongsove, DateTime ngaylap, string manhanvienlap, float tongtien)
+        {
+            this.MaDoiTac = madoitac;
+            this.TongSoVe = tongsove;
+            this.NgayLap = ngaylap;
+            this.MaNhanVienLap = manhanvienlap;
+            this.TongTien = tongtien;
         }
 
         [Key]

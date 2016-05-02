@@ -33,7 +33,7 @@ namespace XoSoKienThiet.DAO
                 Direction = ParameterDirection.Output
             };
 
-            _Context.Database.ExecuteSqlCommand("LOAIDOITAC_GetMaLoaiDoitac @Ten, @MaLoaiDoiTac out", _Ten, _MaLoaiDoiTac);
+            _Context.Database.ExecuteSqlCommand("LOAIDOITAC_GetID @Ten, @MaLoaiDoiTac out", _Ten, _MaLoaiDoiTac);
 
             return (string)_MaLoaiDoiTac.Value;
         }
@@ -48,7 +48,7 @@ namespace XoSoKienThiet.DAO
                 Direction = ParameterDirection.Output
             };
 
-            _Context.Database.ExecuteSqlCommand("LOAIDOITAC_GetTenDoitac @MaLoaiDoiTac, @Ten out", _MaLoaiDoiTac, _Ten);
+            _Context.Database.ExecuteSqlCommand("LOAIDOITAC_GetName @MaLoaiDoiTac, @Ten out", _MaLoaiDoiTac, _Ten);
 
             return (string)_Ten.Value;
         }

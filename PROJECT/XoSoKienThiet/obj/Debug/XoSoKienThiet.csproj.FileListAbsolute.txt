@@ -24,3 +24,24 @@ C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJE
 C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmDOITAC.resources
 C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
 C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.pdb
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.dll
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.dll
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.xml
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.xml
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmCOCAUGIAITHUONG.resources
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmDANHSACHLOAIVE.resources
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmDOITAC.resources
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmLOAIVE.resources
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csprojResolveAssemblyReference.cache
+F:\STUDY\Nam3\Phân tích thiết kế hệ thống thông tin\Đồ án\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmPHIEUNHANVE.resources
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmCOCAUGIAITHUONG.resources
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmDANHSACHLOAIVE.resources
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmLOAIVE.resources
+C:\Users\Nguyen Thi Hang\Documents\GitHub\Informatics-System-Plan-Analysis\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmPHIEUNHANVE.resources

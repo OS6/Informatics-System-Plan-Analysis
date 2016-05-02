@@ -56,11 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\CheckError.cs" />
     <Compile Include="BUS\CheckSpecialString.cs" />
+    <Compile Include="BUS\CT_PHIEUNHANVE_BUS.cs" />
+    <Compile Include="BUS\DANHSACHLOAIVE_BUS.cs" />
     <Compile Include="BUS\DOITAC_BUS.cs" />
+    <Compile Include="BUS\GIAITHUONG_BUS.cs" />
     <Compile Include="BUS\LOAIDOITAC_BUS.cs" />
+    <Compile Include="BUS\LOAIVE_BUS.cs" />
+    <Compile Include="BUS\NHANVIEN_BUS.cs" />
+    <Compile Include="BUS\PHIEUNHANVE_BUS.cs" />
+    <Compile Include="DAO\CT_PHIEUNHANVE_DAO.cs" />
+    <Compile Include="DAO\DANHSACHLOAIVE_DAO.cs" />
     <Compile Include="DAO\DOITAC_DAO.cs" />
+    <Compile Include="DAO\GIAITHUONG_DAO.cs" />
     <Compile Include="DAO\LOAIDOITAC_DAO.cs" />
+    <Compile Include="DAO\LOAIVE_DAO.cs" />
+    <Compile Include="DAO\NHANVIEN_DAO.cs" />
+    <Compile Include="DAO\PHIEUNHANVE_DAO.cs" />
     <Compile Include="DTO\BAOCAODOANHTHUTHEODOT.cs" />
     <Compile Include="DTO\BAOCAODOANHTHUTHEONAM.cs" />
     <Compile Include="DTO\BAOCAODOANHTHUTHEOTHANG.cs" />
@@ -69,7 +82,6 @@
     <Compile Include="DTO\BOPHAN.cs" />
     <Compile Include="DTO\CHUCVU.cs" />
     <Compile Include="DTO\COCAUTOCHUC.cs" />
-    <Compile Include="DTO\CODEMASTER.cs" />
     <Compile Include="DTO\CT_BAOCAODOANHTHUTHEONAM.cs" />
     <Compile Include="DTO\CT_BAOCAODOANHTHUTHEOTHANG.cs" />
     <Compile Include="DTO\CT_BAOCAOTINHHINHTIEUTHU.cs" />
@@ -78,6 +90,7 @@
     <Compile Include="DTO\CT_PHIEUDANGKYVE.cs" />
     <Compile Include="DTO\CT_PHIEUNHANVE.cs" />
     <Compile Include="DTO\CT_PHIEUTRARVE.cs" />
+    <Compile Include="DTO\DANHSACHLOAIVE.cs" />
     <Compile Include="DTO\DOITAC.cs" />
     <Compile Include="DTO\DOTPHATHANH.cs" />
     <Compile Include="DTO\GIAITHUONG.cs" />
@@ -93,19 +106,54 @@
     <Compile Include="DTO\PHIEUNHANVE.cs" />
     <Compile Include="DTO\PHIEUTHANHTOAN.cs" />
     <Compile Include="DTO\PHIEUTRAVE.cs" />
-    <Compile Include="DTO\PREFIX.cs" />
     <Compile Include="DTO\VE.cs" />
     <Compile Include="DTO\XoSoKienThietDbContext.cs" />
+    <Compile Include="Presentation\frmCOCAUGIAITHUONG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmCOCAUGIAITHUONG.Designer.cs">
+      <DependentUpon>frmCOCAUGIAITHUONG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmDANHSACHLOAIVE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmDANHSACHLOAIVE.Designer.cs">
+      <DependentUpon>frmDANHSACHLOAIVE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\frmDOITAC.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\frmDOITAC.Designer.cs">
       <DependentUpon>frmDOITAC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmLOAIVE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmLOAIVE.Designer.cs">
+      <DependentUpon>frmLOAIVE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmPHIEUNHANVE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmPHIEUNHANVE.Designer.cs">
+      <DependentUpon>frmPHIEUNHANVE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\frmCOCAUGIAITHUONG.resx">
+      <DependentUpon>frmCOCAUGIAITHUONG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmDANHSACHLOAIVE.resx">
+      <DependentUpon>frmDANHSACHLOAIVE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmDOITAC.resx">
       <DependentUpon>frmDOITAC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmLOAIVE.resx">
+      <DependentUpon>frmLOAIVE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmPHIEUNHANVE.resx">
+      <DependentUpon>frmPHIEUNHANVE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

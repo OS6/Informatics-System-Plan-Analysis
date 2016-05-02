@@ -11,9 +11,11 @@ namespace XoSoKienThiet.BUS
     public class DOITAC_BUS
     {
         DOITAC_DAO _DOITAC_DAO = null;
+        CheckError _CheckError = null;
         public DOITAC_BUS()
         {
             _DOITAC_DAO = new DOITAC_DAO();
+            _CheckError = new CheckError();
         }
 
         public List<DOITAC> Select()
@@ -22,36 +24,48 @@ namespace XoSoKienThiet.BUS
         }
         public string Insert_Update(string maloaidoitac, string ten, string diachi, string sdt, string email, string tilehoahong, string madoitac = null)
         {
-            string sError = "Bạn chưa nhập:\n";
 
             if( ten == "")
             {
-                sError += "Tên đối tác\n";
+                _CheckError.CheckErrorAvailable("Tên đối tác");
+            }
+            else
+            {
+                if (CheckSpecialString.KT_ChuoiKiTuDacBiet(ten) == false)
+                    _CheckError.CheckErrorCharacter("Tên đối tác");
             }
 
             if (diachi == "")
             {
-                sError += "Địa chỉ\n";
+                _CheckError.CheckErrorAvailable("Địa chỉ");
+            }
+            else
+            {
+                if (CheckSpecialString.KT_ChuoiKiTuDacBiet(diachi) == false)
+                    _CheckError.CheckErrorCharacter("Địa chỉ");
             }
 
             if (sdt == "")
             {
-                sError += "SĐT\n ";
+                _CheckError.CheckErrorAvailable("Số điện thoại");
+            }
+            else
+            {
+                try
+                {
+                    int.Parse(sdt);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số điện thoại");
+                }
             }
 
             if (email == "")
             {
-                sError += "Email\n ";
+                _CheckError.CheckErrorAvailable("Email");
             }
-
-            if(tilehoahong.ToString() == "")
-            {
-                sError += "Tỉ lệ hoa hồng\n";
-            }
-            if (CheckSpecialString.KT_ChuoiKiTuDacBiet(ten) == false)
-                sError += "Họ tên không chứa số hoặc kí tự đặc biệt\n";
-
-            if (sError == "Bạn chưa nhập:\n")
+            if (!_CheckError.IsError())
             {
                 DOITAC _DOITAC = new DOITAC(maloaidoitac,
                                        ten,
@@ -62,14 +76,25 @@ namespace XoSoKienThiet.BUS
                 _DOITAC_DAO.Insert_Update(_DOITAC, madoitac);
                 return "";
             }
-
             else
-                return sError;
+                return _CheckError.GetError();
         }
 
         public int Delete(string madoitac)
         {
            return  _DOITAC_DAO.Delete(madoitac);
+        }
+        public string GetMaDoiTac(string tendoitac)
+        {
+            return _DOITAC_DAO.GetMaDoiTac(tendoitac);
+        }
+        public List<DOITAC> SelectAgency()
+        {
+            return _DOITAC_DAO.SelectAgency();
+        }
+        public List<DOITAC> SelectCompany()
+        {
+            return _DOITAC_DAO.SelectCompany();
         }
     }
 }

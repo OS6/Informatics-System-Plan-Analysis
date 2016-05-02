@@ -17,7 +17,10 @@ namespace XoSoKienThiet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDOITAC());
+            //Application.Run(new frmDOITAC());
+            //Application.Run(new frmDANHSACHLOAIVE());
+            //Application.Run(new frmCOCAUGIAITHUONG());
+            Application.Run(new frmPHIEUNHANVE());
         }
     }
 }

@@ -12,7 +12,14 @@ namespace XoSoKienThiet.DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GIAITHUONG()
         {
-            CT_KETQUAXOSO = new HashSet<CT_KETQUAXOSO>();
+        }
+
+        public GIAITHUONG(string maloaive, string ten, int sotientrung, int sogiai)
+        {
+            this.MaLoaiVe = maloaive;
+            this.Ten = ten;
+            this.SoTienTrung = sotientrung;
+            this.SoGiai = sogiai;
         }
 
         [Key]
@@ -30,10 +37,5 @@ namespace XoSoKienThiet.DTO
         public int? SoGiai { get; set; }
 
         public int? TongTienTrung { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_KETQUAXOSO> CT_KETQUAXOSO { get; set; }
-
-        public virtual LOAIVE LOAIVE { get; set; }
     }
 }

@@ -8,6 +8,16 @@ namespace XoSoKienThiet.DTO
 
     public partial class CT_PHIEUNHANVE
     {
+        public CT_PHIEUNHANVE(string maphieunhanve, string madoitac, string madotphathanh, string maloaive, int soluongdk, int soluongnhan, float thanhtien)
+        {
+            this.MaPhieuNhanVe = maphieunhanve;
+            this.MaDoiTac = madoitac;
+            this.MaDotPhatHanh = madotphathanh;
+            this.MaLoaiVe = maloaive;
+            this.SoLuongDangKy = soluongdk;
+            this.SoLuongNhan = soluongnhan;
+            this.ThanhTien = thanhtien;
+        }
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
@@ -32,17 +42,5 @@ namespace XoSoKienThiet.DTO
         public int? SoLuongNhan { get; set; }
 
         public double? ThanhTien { get; set; }
-
-        public virtual DOITAC DOITAC { get; set; }
-
-        public virtual DOITAC DOITAC1 { get; set; }
-
-        public virtual DOTPHATHANH DOTPHATHANH { get; set; }
-
-        public virtual DOTPHATHANH DOTPHATHANH1 { get; set; }
-
-        public virtual LOAIVE LOAIVE { get; set; }
-
-        public virtual PHIEUNHANVE PHIEUNHANVE { get; set; }
     }
 }

@@ -58,14 +58,14 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(428, 43);
+            this.txtSDT.Location = new System.Drawing.Point(92, 166);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(100, 20);
             this.txtSDT.TabIndex = 2;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(92, 166);
+            this.txtEmail.Location = new System.Drawing.Point(428, 43);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 3;

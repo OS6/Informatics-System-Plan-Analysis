@@ -1,11 +1,11 @@
 ﻿namespace XoSoKienThiet.DTO
 {
     using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Spatial;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("DOITAC")]
     public partial class DOITAC
@@ -13,8 +13,9 @@ using System.Data.Entity.Spatial;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DOITAC()
         {
-            //nothing
+           
         }
+
         public DOITAC(string maloaidoitac, string ten, string diachi, string sdt, string email, double tilehoahong, string madoitac = null)
         {
             this.MaLoaiDoiTac = maloaidoitac;
@@ -27,7 +28,7 @@ using System.Data.Entity.Spatial;
 
         [Key]
         [StringLength(10)]
-        [DisplayName( "Mã đối tác")]
+        [DisplayName("Mã đối tác")]
         public string MaDoiTac { get; set; }
 
         [StringLength(10)]
