@@ -1,0 +1,15 @@
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.pdb
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.csprojResolveAssemblyReference.cache
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.frmBASE.resources
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.frmMAIN.resources
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe.licenses
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
+E:\DATA\CODE ZONE\WEB DEV\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.frmTIEPNHANDAILY.resources
+C:\Users\Vegeta\Desktop\XoSoKienThiet\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
+C:\Users\Vegeta\Desktop\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
+C:\Users\Vegeta\Desktop\XoSoKienThiet\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
