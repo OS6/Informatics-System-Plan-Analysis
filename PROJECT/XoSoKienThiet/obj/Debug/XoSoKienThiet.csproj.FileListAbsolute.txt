@@ -59,3 +59,19 @@ C:\Users\Nguyen Thi Hang\Desktop\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.P
 C:\Users\Nguyen Thi Hang\Desktop\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
 C:\Users\Nguyen Thi Hang\Desktop\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
 C:\Users\Nguyen Thi Hang\Desktop\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe.licenses
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csprojResolveAssemblyReference.cache
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.frmMAIN.resources
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Properties.Resources.resources
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.csproj.GenerateResource.Cache
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe.licenses
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\XoSoKienThiet.pdb
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.dll
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.dll
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.xml
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\bin\Debug\EntityFramework.SqlServer.xml
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.ucBASE.resources
+E:\DATA\CODE ZONE\PTTKHTTT\PROJECT\XoSoKienThiet\obj\Debug\XoSoKienThiet.Presentation.ucHoSoDoiTac.resources
