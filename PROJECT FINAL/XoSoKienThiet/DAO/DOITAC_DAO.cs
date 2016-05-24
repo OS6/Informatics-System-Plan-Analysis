@@ -8,21 +8,26 @@ using XoSoKienThiet.DTO;
 
 namespace XoSoKienThiet.DAO
 {
-   public class DOITAC_DAO
+    public class DOITAC_DAO
     {
         XoSoKienThietDbContext _Context = null;
         public DOITAC_DAO()
         {
             _Context = new XoSoKienThietDbContext();
         }
-       public List<DOITAC> SelectAgency()
-       {
-           return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_Agency").ToList();
-       }
+        public List<DOITAC> SelectAgency()
+        {
+            return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_Agency").ToList();
+        }
 
-       public void Insert(DOITAC doitac)
-       {
-           object[] parameters = 
+        public List<DOITAC> SelectCompany()
+        {
+            return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_Company").ToList();
+        }
+
+        public void Insert(DOITAC doitac)
+        {
+            object[] parameters = 
             {
                 new SqlParameter("@MaLoaiDoiTac", doitac.MaLoaiDoiTac),
                 new SqlParameter("@Ten", doitac.Ten),
@@ -30,7 +35,7 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@SDT", doitac.SDT),
                 new SqlParameter("@Email",doitac.Email)
             };
-           _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
-       }
+            _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+        }
     }
 }

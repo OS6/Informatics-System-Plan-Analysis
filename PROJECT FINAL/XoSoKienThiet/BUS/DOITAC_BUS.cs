@@ -22,6 +22,11 @@ namespace XoSoKienThiet.BUS
             return _DOITAC_DAO.SelectAgency();
         }
 
+        public List<DOITAC> SelectCompany()
+        {
+            return _DOITAC_DAO.SelectCompany();
+        }
+
         public string Insert(string maloaidoitac, string ten, string diachi, string sdt, string email)
         {
             _CheckError = new CheckError();

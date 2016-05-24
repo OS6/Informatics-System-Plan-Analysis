@@ -76,7 +76,7 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@MaCongTy", macongty),
                 new SqlParameter("@MaLoaiVe", maloaive)
             };
-           return  _Context.Database.SqlQuery<int>("LOAIVE_GetPrice @MaCongTy, @MaLoaiVe", parameters).ToList();
+            return _Context.Database.SqlQuery<int>("LOAIVE_GetPrice @MaCongTy, @MaLoaiVe", parameters).ToList();
         }
     }
 }
