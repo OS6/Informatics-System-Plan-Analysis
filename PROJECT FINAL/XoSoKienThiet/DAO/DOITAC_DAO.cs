@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,22 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@Email",doitac.Email)
             };
             _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+        }
+
+        public string GetMaDoiTac(string tendoitac)
+        {
+            var _Ten = new SqlParameter("@Ten", SqlDbType.NVarChar, 20)
+            {
+                Value = tendoitac
+            };
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetID @Ten, @MaDoiTac out", _Ten, _MaDoiTac);
+
+            return (string)_MaDoiTac.Value;
         }
     }
 }

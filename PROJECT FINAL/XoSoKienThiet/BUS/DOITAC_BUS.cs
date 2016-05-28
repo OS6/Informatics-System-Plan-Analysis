@@ -83,5 +83,9 @@ namespace XoSoKienThiet.BUS
             else
                 return _CheckError.GetError();
         }
+        public string GetMaDoiTac(string tendoitac)
+        {
+            return _DOITAC_DAO.GetMaDoiTac(tendoitac);
+        }
     }
 }

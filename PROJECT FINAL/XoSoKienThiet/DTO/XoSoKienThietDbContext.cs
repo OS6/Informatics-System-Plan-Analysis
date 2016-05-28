@@ -27,7 +27,7 @@ namespace XoSoKienThiet.DTO
         public virtual DbSet<CT_KETQUAXOSO> CT_KETQUAXOSO { get; set; }
         public virtual DbSet<CT_PHIEUDANGKYVE> CT_PHIEUDANGKYVE { get; set; }
         public virtual DbSet<CT_PHIEUNHANVE> CT_PHIEUNHANVE { get; set; }
-        public virtual DbSet<CT_PHIEUTRAVE> CT_PHIEUTRARVE { get; set; }
+        public virtual DbSet<CT_PHIEUTRAVE> CT_PHIEUTRAVE { get; set; }
         public virtual DbSet<DOITAC> DOITACs { get; set; }
         public virtual DbSet<DOTPHATHANH> DOTPHATHANHs { get; set; }
         public virtual DbSet<GIAITHUONG> GIAITHUONGs { get; set; }
@@ -44,5 +44,6 @@ namespace XoSoKienThiet.DTO
         public virtual DbSet<PHIEUTHANHTOAN> PHIEUTHANHTOANs { get; set; }
         public virtual DbSet<PHIEUTRAVE> PHIEUTRAVEs { get; set; }
         public virtual DbSet<VE> VEs { get; set; }
+
     }
 }

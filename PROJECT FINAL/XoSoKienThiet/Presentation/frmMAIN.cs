@@ -76,5 +76,20 @@ namespace XoSoKienThiet.Presentation
                 f.Show();
             }
         }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTraTonTai(typeof(frmDangKiVe));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmDangKiVe f = new frmDangKiVe();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
