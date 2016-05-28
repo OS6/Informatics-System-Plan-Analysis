@@ -19,6 +19,9 @@ namespace XoSoKienThiet.Presentation
         DOITAC_BUS _DOITAC_BUS = null;
         DOTPHATHANH_BUS _DOTPHATHANH_BUS = null;
         LOAIVE_BUS _LOAIVE_BUS = null;
+        string _MaDotPhatHanh = "", _MaLoaiVe = "", _MaCongTy = "" ;
+        int _SoVeDangKiToiDa;
+        CT_PHIEUDANGKYVE_BUS _CT_PHIEUDANGKYVE_BUS = null;
         public frmDangKiVe()
         {
             InitializeComponent();
@@ -27,6 +30,7 @@ namespace XoSoKienThiet.Presentation
             _DOITAC_BUS = new DOITAC_BUS();
             _DOTPHATHANH_BUS = new DOTPHATHANH_BUS();
             _LOAIVE_BUS = new LOAIVE_BUS();
+            _CT_PHIEUDANGKYVE_BUS = new CT_PHIEUDANGKYVE_BUS();
         }
 
         private void frmDangKiVe_Load(object sender, EventArgs e)
@@ -39,32 +43,52 @@ namespace XoSoKienThiet.Presentation
 
         private void gvBASE_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
+            if (gvBASE.FocusedColumn.FieldName == "MaCongTy")
+            {
+                _MaCongTy = e.Value.ToString();
+                var _ListDotPhatHanh = _DOTPHATHANH_BUS.Select();
+                repositoryItemLookUpEdit2.DataSource = _ListDotPhatHanh;
+                repositoryItemLookUpEdit2.DisplayMember = "NgayPhatHanh";
+                gvBASE.Columns["MaDotPhatHanh"].ColumnEdit = repositoryItemLookUpEdit2;
+
+
+                var _ListLoaiVe = _LOAIVE_BUS.Select_Con_Company(e.Value.ToString());
+                repositoryItemLookUpEdit3.DataSource = _ListLoaiVe;
+                repositoryItemLookUpEdit3.DisplayMember = "MenhGia";
+                gvBASE.Columns["MaLoaiVe"].ColumnEdit = repositoryItemLookUpEdit3;
+            }
+
+            if (gvBASE.FocusedColumn.FieldName == "MaDotPhatHanh")
+            {
+                _MaDotPhatHanh = e.Value.ToString();
+            }
+
+            if (gvBASE.FocusedColumn.FieldName == "MaLoaiVe")
+            {
+                _MaLoaiVe = e.Value.ToString();
+                _SoVeDangKiToiDa = _CT_PHIEUDANGKYVE_BUS.GetAmountOfMaxRegisterTicket(cbTenDoiTac.SelectedValue.ToString(),
+                                                                                            _MaCongTy,
+                                                                                            _MaDotPhatHanh,
+                                                                                            _MaLoaiVe);
+                gvBASE.SetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["SoVeDangKyToiDa"], _SoVeDangKiToiDa);
+                
+            }
+
             if (gvBASE.FocusedColumn.FieldName == "SoVeDangKy")
             {
-                int menhgia = 0;
-                if (!Int32.TryParse(e.Value as String, out menhgia))
+                int sovedangky = 0;
+                if (!Int32.TryParse(e.Value as String, out sovedangky))
                 {
                     e.Valid = false;
                     e.ErrorText = "Số vé đăng ký là số nguyên dương";
                 }
-            }
-        }
-
-        private void gvBASE_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-            if (gvBASE.FocusedColumn.FieldName == "MaCongTy")
-            {
-
-            }
-            if(gvBASE.FocusedColumn.FieldName == "DotPhatHanh")
-            {
-                if(e.Value != null)
-                {
-
-                }
                 else
                 {
-
+                    if (sovedangky > _SoVeDangKiToiDa)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = "Số vé đăng ký không lớn hơn số vé đăng ký tối đa";
+                    }
                 }
             }
         }
@@ -76,25 +100,9 @@ namespace XoSoKienThiet.Presentation
             repositoryItemLookUpEdit1.DataSource = _ListCompany;
             repositoryItemLookUpEdit1.DisplayMember = "Ten";
             repositoryItemLookUpEdit1.ValueMember = "MaDoiTac";
-            gvBASE.Columns[0].ColumnEdit = repositoryItemLookUpEdit1;
-            repositoryItemLookUpEdit1.EditValueChanged += new EventHandler(repositoryItemLookUpEdit1_EditValueChanged);
+            gvBASE.Columns["MaCongTy"].ColumnEdit = repositoryItemLookUpEdit1;
         }
-        void repositoryItemLookUpEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-            string value = (sender as LookUpEdit).EditValue.ToString();
-
-            var _ListDotPhatHanh = _DOTPHATHANH_BUS.Select();
-            repositoryItemLookUpEdit2.DataSource = _ListDotPhatHanh;
-            repositoryItemLookUpEdit2.DisplayMember = "NgayPhatHanh";
-            gvBASE.Columns[1].ColumnEdit = repositoryItemLookUpEdit2;
-
-
-            var _ListLoaiVe = _LOAIVE_BUS.Select_Con_Company(value);
-            repositoryItemLookUpEdit3.DataSource = _ListLoaiVe;
-            repositoryItemLookUpEdit3.DisplayMember = "MenhGia";
-            gvBASE.Columns[2].ColumnEdit = repositoryItemLookUpEdit3;
-        }
-
+   
 
     }
 }

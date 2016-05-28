@@ -288,11 +288,8 @@
             this.colSoVeDangKy});
             this.gvBASE.GridControl = this.gcBASE;
             this.gvBASE.Name = "gvBASE";
-            this.gvBASE.OptionsBehavior.Editable = false;
             this.gvBASE.OptionsView.AllowCellMerge = true;
             this.gvBASE.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-            this.gvBASE.OptionsView.ShowAutoFilterRow = true;
-            this.gvBASE.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvBASE_CellValueChanged);
             this.gvBASE.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvBASE_ValidatingEditor);
             // 
             // colMaChiTietPhieuDangKy
