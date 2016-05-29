@@ -131,6 +131,3 @@ C:\Users\Nguyen Thi Hang\Desktop\PROJECT FINAL\XoSoKienThiet\obj\Debug\XoSoKienT
 C:\Users\Nguyen Thi Hang\Desktop\PROJECT FINAL\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
 C:\Users\Nguyen Thi Hang\Desktop\PROJECT FINAL\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
 C:\Users\Nguyen Thi Hang\Desktop\PROJECT FINAL\XoSoKienThiet\obj\Debug\XoSoKienThiet.csprojResolveAssemblyReference.cache
-C:\Users\Vegeta\Documents\GitHub\Systems-Analysis-and-Design\PROJECT FINAL\XoSoKienThiet\bin\Debug\XoSoKienThiet.exe.config
-C:\Users\Vegeta\Documents\GitHub\Systems-Analysis-and-Design\PROJECT FINAL\XoSoKienThiet\obj\Debug\XoSoKienThiet.exe
-C:\Users\Vegeta\Documents\GitHub\Systems-Analysis-and-Design\PROJECT FINAL\XoSoKienThiet\obj\Debug\XoSoKienThiet.pdb
