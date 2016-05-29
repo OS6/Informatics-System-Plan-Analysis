@@ -44,6 +44,15 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.panelHeader = new DevExpress.XtraEditors.PanelControl();
+            this.lbHeader = new DevExpress.XtraEditors.LabelControl();
+            this.groupInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lcInfo = new DevExpress.XtraLayout.LayoutControl();
+            this.rbtnLoaiDoiTac = new DevExpress.XtraEditors.RadioGroup();
+            this.lcgInfo = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ssLeft = new DevExpress.XtraLayout.SimpleSeparator();
+            this.ssRight = new DevExpress.XtraLayout.SimpleSeparator();
+            this.layoutControlItem0 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupBASE = new DevExpress.XtraEditors.GroupControl();
             this.gcBASE = new DevExpress.XtraGrid.GridControl();
             this.gvBASE = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,47 +65,38 @@
             this.colTiLeHoaHong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTiLeTieuThu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCongNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupInfo = new DevExpress.XtraEditors.GroupControl();
-            this.lcInfo = new DevExpress.XtraLayout.LayoutControl();
-            this.rbtnLoaiDoiTac = new DevExpress.XtraEditors.RadioGroup();
-            this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
-            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
-            this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
             this.txtTenDoiTac = new DevExpress.XtraEditors.TextEdit();
-            this.lcgInfo = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ssLeft = new DevExpress.XtraLayout.SimpleSeparator();
-            this.ssRight = new DevExpress.XtraLayout.SimpleSeparator();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelHeader = new DevExpress.XtraEditors.PanelControl();
-            this.lbHeader = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManagerBASE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).BeginInit();
-            this.groupBASE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvBASE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).BeginInit();
+            this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupInfo)).BeginInit();
             this.groupInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcInfo)).BeginInit();
             this.lcInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnLoaiDoiTac.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenDoiTac.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ssLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ssRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).BeginInit();
+            this.groupBASE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBASE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenDoiTac.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).BeginInit();
-            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManagerBASE
@@ -235,14 +235,117 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 573);
             // 
+            // panelHeader
+            // 
+            this.panelHeader.Controls.Add(this.lbHeader);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 30);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(982, 50);
+            this.panelHeader.TabIndex = 13;
+            // 
+            // lbHeader
+            // 
+            this.lbHeader.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHeader.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbHeader.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lbHeader.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lbHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbHeader.Location = new System.Drawing.Point(2, 2);
+            this.lbHeader.Name = "lbHeader";
+            this.lbHeader.Size = new System.Drawing.Size(978, 46);
+            this.lbHeader.TabIndex = 1;
+            this.lbHeader.Text = "HỒ SƠ ĐỐI TÁC";
+            // 
+            // groupInfo
+            // 
+            this.groupInfo.Controls.Add(this.lcInfo);
+            this.groupInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupInfo.Location = new System.Drawing.Point(0, 80);
+            this.groupInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupInfo.Name = "groupInfo";
+            this.groupInfo.Size = new System.Drawing.Size(982, 118);
+            this.groupInfo.TabIndex = 20;
+            this.groupInfo.Text = "Thông tin đăng kí vé";
+            // 
+            // lcInfo
+            // 
+            this.lcInfo.Controls.Add(this.txtEmail);
+            this.lcInfo.Controls.Add(this.txtDiaChi);
+            this.lcInfo.Controls.Add(this.txtSoDienThoai);
+            this.lcInfo.Controls.Add(this.txtTenDoiTac);
+            this.lcInfo.Controls.Add(this.rbtnLoaiDoiTac);
+            this.lcInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcInfo.Location = new System.Drawing.Point(2, 25);
+            this.lcInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lcInfo.Name = "lcInfo";
+            this.lcInfo.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(956, 240, 947, 692);
+            this.lcInfo.Root = this.lcgInfo;
+            this.lcInfo.Size = new System.Drawing.Size(978, 91);
+            this.lcInfo.TabIndex = 0;
+            this.lcInfo.Text = "layoutControl1";
+            // 
+            // rbtnLoaiDoiTac
+            // 
+            this.rbtnLoaiDoiTac.Location = new System.Drawing.Point(108, 16);
+            this.rbtnLoaiDoiTac.MenuManager = this.barManagerBASE;
+            this.rbtnLoaiDoiTac.Name = "rbtnLoaiDoiTac";
+            this.rbtnLoaiDoiTac.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Công ty"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đại lý")});
+            this.rbtnLoaiDoiTac.Size = new System.Drawing.Size(86, 50);
+            this.rbtnLoaiDoiTac.StyleController = this.lcInfo;
+            this.rbtnLoaiDoiTac.TabIndex = 9;
+            // 
+            // lcgInfo
+            // 
+            this.lcgInfo.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgInfo.GroupBordersVisible = false;
+            this.lcgInfo.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ssLeft,
+            this.ssRight,
+            this.layoutControlItem0,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4});
+            this.lcgInfo.Location = new System.Drawing.Point(0, 0);
+            this.lcgInfo.Name = "Root";
+            this.lcgInfo.OptionsItemText.TextToControlDistance = 4;
+            this.lcgInfo.Size = new System.Drawing.Size(978, 91);
+            this.lcgInfo.TextVisible = false;
+            // 
+            // ssLeft
+            // 
+            this.ssLeft.AllowHotTrack = false;
+            this.ssLeft.Location = new System.Drawing.Point(561, 56);
+            this.ssLeft.Name = "ssLeft";
+            this.ssLeft.Size = new System.Drawing.Size(391, 9);
+            // 
+            // ssRight
+            // 
+            this.ssRight.AllowHotTrack = false;
+            this.ssRight.Location = new System.Drawing.Point(0, 56);
+            this.ssRight.Name = "ssRight";
+            this.ssRight.Size = new System.Drawing.Size(561, 9);
+            // 
+            // layoutControlItem0
+            // 
+            this.layoutControlItem0.Control = this.rbtnLoaiDoiTac;
+            this.layoutControlItem0.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem0.Name = "layoutControlItem0";
+            this.layoutControlItem0.Size = new System.Drawing.Size(184, 56);
+            this.layoutControlItem0.Text = "Loại đối tác: ";
+            this.layoutControlItem0.TextSize = new System.Drawing.Size(88, 17);
+            // 
             // groupBASE
             // 
             this.groupBASE.Controls.Add(this.gcBASE);
             this.groupBASE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBASE.Location = new System.Drawing.Point(0, 228);
+            this.groupBASE.Location = new System.Drawing.Point(0, 198);
             this.groupBASE.Name = "groupBASE";
-            this.groupBASE.Size = new System.Drawing.Size(982, 375);
-            this.groupBASE.TabIndex = 15;
+            this.groupBASE.Size = new System.Drawing.Size(982, 405);
+            this.groupBASE.TabIndex = 21;
             this.groupBASE.Text = "Danh sách đối tác";
             // 
             // gcBASE
@@ -252,7 +355,7 @@
             this.gcBASE.MainView = this.gvBASE;
             this.gcBASE.MenuManager = this.barManagerBASE;
             this.gcBASE.Name = "gcBASE";
-            this.gcBASE.Size = new System.Drawing.Size(978, 348);
+            this.gcBASE.Size = new System.Drawing.Size(978, 378);
             this.gcBASE.TabIndex = 0;
             this.gcBASE.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBASE});
@@ -335,181 +438,77 @@
             this.colCongNo.Visible = true;
             this.colCongNo.VisibleIndex = 8;
             // 
-            // groupInfo
-            // 
-            this.groupInfo.Controls.Add(this.lcInfo);
-            this.groupInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupInfo.Location = new System.Drawing.Point(0, 80);
-            this.groupInfo.Name = "groupInfo";
-            this.groupInfo.Size = new System.Drawing.Size(982, 148);
-            this.groupInfo.TabIndex = 14;
-            this.groupInfo.Text = "Thông tin đối tác";
-            // 
-            // lcInfo
-            // 
-            this.lcInfo.Controls.Add(this.rbtnLoaiDoiTac);
-            this.lcInfo.Controls.Add(this.txtDiaChi);
-            this.lcInfo.Controls.Add(this.txtEmail);
-            this.lcInfo.Controls.Add(this.txtSoDienThoai);
-            this.lcInfo.Controls.Add(this.txtTenDoiTac);
-            this.lcInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcInfo.Location = new System.Drawing.Point(2, 25);
-            this.lcInfo.Name = "lcInfo";
-            this.lcInfo.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(956, 240, 947, 692);
-            this.lcInfo.Root = this.lcgInfo;
-            this.lcInfo.Size = new System.Drawing.Size(978, 121);
-            this.lcInfo.TabIndex = 0;
-            this.lcInfo.Text = "layoutControl1";
-            // 
-            // rbtnLoaiDoiTac
-            // 
-            this.rbtnLoaiDoiTac.Location = new System.Drawing.Point(584, 44);
-            this.rbtnLoaiDoiTac.MenuManager = this.barManagerBASE;
-            this.rbtnLoaiDoiTac.Name = "rbtnLoaiDoiTac";
-            this.rbtnLoaiDoiTac.Properties.Columns = 2;
-            this.rbtnLoaiDoiTac.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Công ty"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đại lý")});
-            this.rbtnLoaiDoiTac.Size = new System.Drawing.Size(378, 50);
-            this.rbtnLoaiDoiTac.StyleController = this.lcInfo;
-            this.rbtnLoaiDoiTac.TabIndex = 8;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Location = new System.Drawing.Point(584, 16);
-            this.txtDiaChi.MenuManager = this.barManagerBASE;
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(378, 22);
-            this.txtDiaChi.StyleController = this.lcInfo;
-            this.txtDiaChi.TabIndex = 7;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(108, 72);
-            this.txtEmail.MenuManager = this.barManagerBASE;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(378, 22);
-            this.txtEmail.StyleController = this.lcInfo;
-            this.txtEmail.TabIndex = 6;
-            // 
-            // txtSoDienThoai
-            // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(108, 44);
-            this.txtSoDienThoai.MenuManager = this.barManagerBASE;
-            this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(378, 22);
-            this.txtSoDienThoai.StyleController = this.lcInfo;
-            this.txtSoDienThoai.TabIndex = 5;
-            // 
             // txtTenDoiTac
             // 
-            this.txtTenDoiTac.Location = new System.Drawing.Point(108, 16);
+            this.txtTenDoiTac.Location = new System.Drawing.Point(292, 16);
             this.txtTenDoiTac.MenuManager = this.barManagerBASE;
             this.txtTenDoiTac.Name = "txtTenDoiTac";
-            this.txtTenDoiTac.Size = new System.Drawing.Size(378, 22);
+            this.txtTenDoiTac.Size = new System.Drawing.Size(279, 22);
             this.txtTenDoiTac.StyleController = this.lcInfo;
-            this.txtTenDoiTac.TabIndex = 4;
-            // 
-            // lcgInfo
-            // 
-            this.lcgInfo.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.lcgInfo.GroupBordersVisible = false;
-            this.lcgInfo.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ssLeft,
-            this.ssRight,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5});
-            this.lcgInfo.Location = new System.Drawing.Point(0, 0);
-            this.lcgInfo.Name = "lcgInfo";
-            this.lcgInfo.OptionsItemText.TextToControlDistance = 4;
-            this.lcgInfo.Size = new System.Drawing.Size(978, 121);
-            this.lcgInfo.TextVisible = false;
-            // 
-            // ssLeft
-            // 
-            this.ssLeft.AllowHotTrack = false;
-            this.ssLeft.Location = new System.Drawing.Point(476, 84);
-            this.ssLeft.Name = "ssLeft";
-            this.ssLeft.Size = new System.Drawing.Size(476, 11);
-            // 
-            // ssRight
-            // 
-            this.ssRight.AllowHotTrack = false;
-            this.ssRight.Location = new System.Drawing.Point(0, 84);
-            this.ssRight.Name = "ssRight";
-            this.ssRight.Size = new System.Drawing.Size(476, 11);
+            this.txtTenDoiTac.TabIndex = 10;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txtTenDoiTac;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(184, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(476, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(377, 28);
             this.layoutControlItem1.Text = "Tên đối tác: ";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(88, 17);
+            // 
+            // txtSoDienThoai
+            // 
+            this.txtSoDienThoai.Location = new System.Drawing.Point(292, 44);
+            this.txtSoDienThoai.MenuManager = this.barManagerBASE;
+            this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.Size = new System.Drawing.Size(279, 22);
+            this.txtSoDienThoai.StyleController = this.lcInfo;
+            this.txtSoDienThoai.TabIndex = 11;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtSoDienThoai;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
+            this.layoutControlItem2.Location = new System.Drawing.Point(184, 28);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(476, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(377, 28);
             this.layoutControlItem2.Text = "Số điện thoại: ";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(88, 17);
             // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Location = new System.Drawing.Point(669, 16);
+            this.txtDiaChi.MenuManager = this.barManagerBASE;
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(293, 22);
+            this.txtDiaChi.StyleController = this.lcInfo;
+            this.txtDiaChi.TabIndex = 12;
+            // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.txtEmail;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 56);
+            this.layoutControlItem3.Control = this.txtDiaChi;
+            this.layoutControlItem3.Location = new System.Drawing.Point(561, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(476, 28);
-            this.layoutControlItem3.Text = "Email: ";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(88, 16);
+            this.layoutControlItem3.Size = new System.Drawing.Size(391, 28);
+            this.layoutControlItem3.Text = "Địa chỉ: ";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(88, 17);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(669, 44);
+            this.txtEmail.MenuManager = this.barManagerBASE;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(293, 22);
+            this.txtEmail.StyleController = this.lcInfo;
+            this.txtEmail.TabIndex = 13;
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.txtDiaChi;
-            this.layoutControlItem4.Location = new System.Drawing.Point(476, 0);
+            this.layoutControlItem4.Control = this.txtEmail;
+            this.layoutControlItem4.Location = new System.Drawing.Point(561, 28);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(476, 28);
-            this.layoutControlItem4.Text = "Địa chỉ: ";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(88, 17);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.rbtnLoaiDoiTac;
-            this.layoutControlItem5.Location = new System.Drawing.Point(476, 28);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(148, 33);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(476, 56);
-            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.Text = "Loại đối tác: ";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(88, 17);
-            // 
-            // panelHeader
-            // 
-            this.panelHeader.Controls.Add(this.lbHeader);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 30);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(982, 50);
-            this.panelHeader.TabIndex = 13;
-            // 
-            // lbHeader
-            // 
-            this.lbHeader.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHeader.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbHeader.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lbHeader.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lbHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbHeader.Location = new System.Drawing.Point(2, 2);
-            this.lbHeader.Name = "lbHeader";
-            this.lbHeader.Size = new System.Drawing.Size(978, 46);
-            this.lbHeader.TabIndex = 1;
-            this.lbHeader.Text = "HỒ SƠ ĐỐI TÁC";
+            this.layoutControlItem4.Size = new System.Drawing.Size(391, 28);
+            this.layoutControlItem4.Text = "Email: ";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(88, 16);
             // 
             // frmHoSoDoiTac
             // 
@@ -526,29 +525,29 @@
             this.Name = "frmHoSoDoiTac";
             this.Text = "Hồ sơ đối tác";
             ((System.ComponentModel.ISupportInitialize)(this.barManagerBASE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).EndInit();
-            this.groupBASE.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvBASE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).EndInit();
+            this.panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupInfo)).EndInit();
             this.groupInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcInfo)).EndInit();
             this.lcInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rbtnLoaiDoiTac.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenDoiTac.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ssLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ssRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).EndInit();
+            this.groupBASE.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBASE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenDoiTac.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).EndInit();
-            this.panelHeader.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,6 +569,8 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.PanelControl panelHeader;
+        private DevExpress.XtraEditors.LabelControl lbHeader;
         private DevExpress.XtraEditors.GroupControl groupBASE;
         private DevExpress.XtraGrid.GridControl gcBASE;
         private DevExpress.XtraGrid.Views.Grid.GridView gvBASE;
@@ -584,20 +585,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCongNo;
         private DevExpress.XtraEditors.GroupControl groupInfo;
         private DevExpress.XtraLayout.LayoutControl lcInfo;
-        private DevExpress.XtraEditors.RadioGroup rbtnLoaiDoiTac;
-        private DevExpress.XtraEditors.TextEdit txtDiaChi;
-        private DevExpress.XtraEditors.TextEdit txtEmail;
-        private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
         private DevExpress.XtraEditors.TextEdit txtTenDoiTac;
+        private DevExpress.XtraEditors.RadioGroup rbtnLoaiDoiTac;
         private DevExpress.XtraLayout.LayoutControlGroup lcgInfo;
         private DevExpress.XtraLayout.SimpleSeparator ssLeft;
         private DevExpress.XtraLayout.SimpleSeparator ssRight;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem0;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.TextEdit txtDiaChi;
+        private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraEditors.PanelControl panelHeader;
-        private DevExpress.XtraEditors.LabelControl lbHeader;
     }
 }
