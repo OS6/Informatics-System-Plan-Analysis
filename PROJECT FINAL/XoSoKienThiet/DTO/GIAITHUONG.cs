@@ -1,7 +1,8 @@
-namespace XoSoKienThiet.DTO
+﻿namespace XoSoKienThiet.DTO
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -30,12 +31,16 @@ namespace XoSoKienThiet.DTO
         public string MaLoaiVe { get; set; }
 
         [StringLength(25)]
+        [DisplayName("Tên giải thưởng")]
         public string Ten { get; set; }
 
+        [DisplayName("Số tiền trúng")]
         public int? SoTienTrung { get; set; }
 
+        [DisplayName("Số giải")]
         public int? SoGiai { get; set; }
 
+        [DisplayName("Tổng tiền trúng")]
         public int? TongTienTrung { get; set; }
     }
 }

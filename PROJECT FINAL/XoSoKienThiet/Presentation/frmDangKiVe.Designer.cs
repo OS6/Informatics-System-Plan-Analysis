@@ -46,6 +46,7 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupBASE = new DevExpress.XtraEditors.GroupControl();
             this.gcBASE = new DevExpress.XtraGrid.GridControl();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gvBASE = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaChiTietPhieuDangKy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaPhieuDangKy = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).BeginInit();
             this.groupBASE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBASE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
@@ -162,6 +164,7 @@
             this.btnThem.Id = 1;
             this.btnThem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnThem.LargeGlyph")));
             this.btnThem.Name = "btnThem";
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnSua
             // 
@@ -256,6 +259,7 @@
             // 
             // gcBASE
             // 
+            this.gcBASE.DataSource = this.bindingSource1;
             this.gcBASE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcBASE.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcBASE.Location = new System.Drawing.Point(2, 20);
@@ -275,6 +279,11 @@
             this.gcBASE.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBASE});
             this.gcBASE.Load += new System.EventHandler(this.gcBASE_Load);
+            this.gcBASE.Validating += new System.ComponentModel.CancelEventHandler(this.gcBASE_Validating);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(XoSoKienThiet.DTO.CT_PHIEUDANGKYVE);
             // 
             // gvBASE
             // 
@@ -288,9 +297,10 @@
             this.colSoVeDangKy});
             this.gvBASE.GridControl = this.gcBASE;
             this.gvBASE.Name = "gvBASE";
-            this.gvBASE.OptionsView.AllowCellMerge = true;
-            this.gvBASE.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gvBASE.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
+            this.gvBASE.OptionsView.ShowAutoFilterRow = true;
             this.gvBASE.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvBASE_ValidatingEditor);
+            this.gvBASE.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.gvBASE_InvalidValueException);
             // 
             // colMaChiTietPhieuDangKy
             // 
@@ -427,6 +437,8 @@
             // 
             // txtTongSoVe
             // 
+            this.txtTongSoVe.EditValue = "0";
+            this.txtTongSoVe.Enabled = false;
             this.txtTongSoVe.Location = new System.Drawing.Point(486, 36);
             this.txtTongSoVe.MenuManager = this.barManagerBASE;
             this.txtTongSoVe.Name = "txtTongSoVe";
@@ -436,7 +448,7 @@
             // 
             // deNgayLap
             // 
-            this.deNgayLap.EditValue = null;
+            this.deNgayLap.EditValue = new System.DateTime(2016, 5, 28, 17, 48, 31, 400);
             this.deNgayLap.Location = new System.Drawing.Point(76, 37);
             this.deNgayLap.MenuManager = this.barManagerBASE;
             this.deNgayLap.Name = "deNgayLap";
@@ -450,6 +462,7 @@
             // 
             // lkNguoiLap
             // 
+            this.lkNguoiLap.EditValue = "<Null>";
             this.lkNguoiLap.Location = new System.Drawing.Point(486, 12);
             this.lkNguoiLap.MenuManager = this.barManagerBASE;
             this.lkNguoiLap.Name = "lkNguoiLap";
@@ -573,6 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).EndInit();
             this.groupBASE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBASE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
@@ -651,5 +665,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

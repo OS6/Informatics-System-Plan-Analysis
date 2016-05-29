@@ -69,6 +69,7 @@ namespace XoSoKienThiet.BUS
             _SoVeDangKy = int.Parse(sovedangky);
             _SoVeDangKyToiDa = int.Parse(sovedktoida);
             CT_PHIEUDANGKYVE _CT_PHIEUDANGKYVE = new CT_PHIEUDANGKYVE(maphieudangkyve, macongtyphathanh, madotphathanh, maloaive, _SoVeDangKyToiDa, _SoVeDangKy);
+            _CT_PHIEUDANGKYVE_DAO.Insert(_CT_PHIEUDANGKYVE);
         }
     }
 }

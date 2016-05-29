@@ -8,7 +8,7 @@ using XoSoKienThiet.DTO;
 
 namespace XoSoKienThiet.BUS
 {
-    class NHANVIEN_BUS
+    public class NHANVIEN_BUS
     {
         NHANVIEN_DAO _NHANVIEN_DAO = null;
         CheckError _CheckError = null;

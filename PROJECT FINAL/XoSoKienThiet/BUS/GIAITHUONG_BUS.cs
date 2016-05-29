@@ -17,6 +17,10 @@ namespace XoSoKienThiet.BUS
             _GIAITHUONG_DAO = new GIAITHUONG_DAO();
         }
 
+        public List<GIAITHUONG> Select(string maloaive)
+        {
+            return _GIAITHUONG_DAO.Select(maloaive);
+        }
         public string CheckErrorBeforeInsert( string ten, string sotientrung, string sogiai)
         {
             _CheckError = new CheckError();

@@ -91,5 +91,20 @@ namespace XoSoKienThiet.Presentation
                 f.Show();
             }
         }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTraTonTai(typeof(frmCoCauGiaiThuong));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmCoCauGiaiThuong f = new frmCoCauGiaiThuong();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

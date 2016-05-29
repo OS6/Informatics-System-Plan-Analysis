@@ -15,9 +15,13 @@ namespace XoSoKienThiet.DAO
         {
             _Context = new XoSoKienThietDbContext();
         }
-        public List<LOAIVE> Select()
+        public List<GIAITHUONG> Select(string maloaive)
         {
-            return _Context.Database.SqlQuery<LOAIVE>("LOAIVE_Sel").ToList();
+            object[] parameters = 
+            {
+                new SqlParameter("@MaLoaiVe", maloaive)
+            };
+            return _Context.Database.SqlQuery<GIAITHUONG>("GIAITHUONG_Sel @MaLoaiVe", parameters).ToList();
         }
         public void Insert(GIAITHUONG giaithuong)
         {

@@ -30,5 +30,32 @@ namespace XoSoKienThiet.BUS
             PHIEUDANGKYVE _PHIEUDANGKYVE = new PHIEUDANGKYVE(madoitac, manhanvienlap, _NgayLap, _TongSoVeDangKy);
             return _PHIEUDANGKYVE_DAO.Insert(_PHIEUDANGKYVE);
         }
+        public string CheckErrorBeforeInsert(string madoitac, string manhanvienlap, string ngaylap, string tongsovedk)
+        {
+            _CheckError = new CheckError();
+
+            if (madoitac == "")
+            {
+                _CheckError.CheckErrorAvailable("Đối tác");
+            }
+
+            if (manhanvienlap == "<Null>") // do debug = "" no khong nhay vao if
+            {
+                _CheckError.CheckErrorAvailable("Nhân viên lập");
+            }
+
+            if(ngaylap == "")
+            {
+                _CheckError.CheckErrorAvailable("Ngày lập");
+            }
+            if (_CheckError.IsError())
+            {
+                return _CheckError.GetError();
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }
