@@ -106,20 +106,5 @@ namespace XoSoKienThiet.Presentation
                 f.Show();
             }
         }
-
-        private void barbtnPhieuNhanVe_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form frm = this.KiemTraTonTai(typeof(frmPhieuNhanVe));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmPhieuNhanVe f = new frmPhieuNhanVe();
-                f.MdiParent = this;
-                f.Show();
-            }
-        }
     }
 }
