@@ -31,7 +31,6 @@ namespace XoSoKienThiet.DTO
         [StringLength(10)]
         public string MaNhanVienLap { get; set; }
 
-        [StringLength(10)]
         [StringLength(50)]
         public string TenNguoiNop { get; set; }
 

@@ -106,5 +106,35 @@ namespace XoSoKienThiet.Presentation
                 f.Show();
             }
         }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTraTonTai(typeof(frmPhieuNhanVe));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmPhieuNhanVe f = new frmPhieuNhanVe();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTraTonTai(typeof(frmPhieuTraVe));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmPhieuTraVe f = new frmPhieuTraVe();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

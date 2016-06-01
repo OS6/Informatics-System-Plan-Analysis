@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace XoSoKienThiet.Presentation
 {
-    public partial class frmPhieuNhanVe : Form
+    public partial class frmPhieuNhanVe : DevExpress.XtraEditors.XtraForm
     {
         public frmPhieuNhanVe()
         {

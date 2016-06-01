@@ -123,7 +123,6 @@
     <Compile Include="DTO\KETQUAXOSO.cs" />
     <Compile Include="DTO\LOAIDOITAC.cs" />
     <Compile Include="DTO\LOAIVE.cs" />
-    <Compile Include="DTO\NGUOINOP.cs" />
     <Compile Include="DTO\NHANVIEN.cs" />
     <Compile Include="DTO\NHANVIEN_VIEW.cs" />
     <Compile Include="DTO\PHIEUCHI.cs" />
@@ -164,6 +163,18 @@
     <Compile Include="Presentation\frmMAIN.Designer.cs">
       <DependentUpon>frmMAIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmPhieuNhanVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmPhieuNhanVe.Designer.cs">
+      <DependentUpon>frmPhieuNhanVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmPhieuTraVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmPhieuTraVe.designer.cs">
+      <DependentUpon>frmPhieuTraVe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\frmTiepNhanNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmMAIN.resx">
       <DependentUpon>frmMAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmPhieuNhanVe.resx">
+      <DependentUpon>frmPhieuNhanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmPhieuTraVe.resx">
+      <DependentUpon>frmPhieuTraVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmTiepNhanNhanVien.resx">
       <DependentUpon>frmTiepNhanNhanVien.cs</DependentUpon>
