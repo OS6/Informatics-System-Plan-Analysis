@@ -157,6 +157,12 @@
     <Compile Include="Presentation\frmHoSoDoiTac.Designer.cs">
       <DependentUpon>frmHoSoDoiTac.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmKetQuaXoSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmKetQuaXoSo.Designer.cs">
+      <DependentUpon>frmKetQuaXoSo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\frmMAIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmHoSoDoiTac.resx">
       <DependentUpon>frmHoSoDoiTac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmKetQuaXoSo.resx">
+      <DependentUpon>frmKetQuaXoSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmMAIN.resx">
       <DependentUpon>frmMAIN.cs</DependentUpon>
