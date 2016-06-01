@@ -169,6 +169,12 @@
     <Compile Include="Presentation\frmPhieuNhanVe.Designer.cs">
       <DependentUpon>frmPhieuNhanVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmPhieuThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmPhieuThanhToan.Designer.cs">
+      <DependentUpon>frmPhieuThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\frmPhieuTraVe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmPhieuNhanVe.resx">
       <DependentUpon>frmPhieuNhanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmPhieuThanhToan.resx">
+      <DependentUpon>frmPhieuThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmPhieuTraVe.resx">
       <DependentUpon>frmPhieuTraVe.cs</DependentUpon>
