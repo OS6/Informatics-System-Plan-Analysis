@@ -1,7 +1,8 @@
-namespace XoSoKienThiet.DTO
+﻿namespace XoSoKienThiet.DTO
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -23,6 +24,7 @@ namespace XoSoKienThiet.DTO
         }
         [Key]
         [StringLength(10)]
+        [DisplayName("Mã phiếu đăng ký")]
         public string MaPhieuDangKy { get; set; }
 
         [StringLength(10)]

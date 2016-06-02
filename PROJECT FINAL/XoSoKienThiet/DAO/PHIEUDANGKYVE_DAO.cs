@@ -17,14 +17,20 @@ namespace XoSoKienThiet.DAO
             _Context = new XoSoKienThietDbContext();
         }
 
-        public List<PHIEUDANGKYVE> Select(string maphieudangky)
+        public List<PHIEUDANGKYVE> Select_ID(string maphieudangky)
         {
             var _MaPhieuDangKy = new SqlParameter("@MaPhieuDangKy", SqlDbType.NChar, 10)
             {
                 Value = maphieudangky
             };
-            return _Context.Database.SqlQuery<PHIEUDANGKYVE>("PHIEUDANGKYVE_Sel @MaPhieuDangKy ", _MaPhieuDangKy).ToList();
+            return _Context.Database.SqlQuery<PHIEUDANGKYVE>("PHIEUDANGKYVE_Sel_ID @MaPhieuDangKy ", _MaPhieuDangKy).ToList();
         }
+
+        public List<PHIEUDANGKYVE> Select()
+        {
+            return _Context.Database.SqlQuery<PHIEUDANGKYVE>("PHIEUDANGKYVE_Sel").ToList();
+        }
+
         public string Insert(PHIEUDANGKYVE phieudangkyve)
         {
             var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)

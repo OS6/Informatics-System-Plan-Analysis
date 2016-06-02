@@ -29,7 +29,21 @@ namespace XoSoKienThiet.DAO
         {
             return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_Company").ToList();
         }
+        public bool IsYourCompany(string madoitac)
+        {
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
 
+            var _IsYourCompany = new SqlParameter("@IsYourCompany", SqlDbType.Bit)
+            {
+                Direction = ParameterDirection.Output
+            };
+            _Context.Database.ExecuteSqlCommand("DOITAC_IsYourCompany @MaDoiTac, @IsYourCompany out", _MaDoiTac, _IsYourCompany);
+
+            return (bool)_IsYourCompany.Value;
+        }
         public void Insert(DOITAC doitac)
         {
             object[] parameters = 
@@ -57,6 +71,36 @@ namespace XoSoKienThiet.DAO
             _Context.Database.ExecuteSqlCommand("DOITAC_GetID @Ten, @MaDoiTac out", _Ten, _MaDoiTac);
 
             return (string)_MaDoiTac.Value;
+        }
+        public float GetPercentage(string madoitac)
+        {
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
+            var _TiLeHoaHong = new SqlParameter("@TiLeHoaHong", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetPercentage @MaDoiTac, @TiLeHoaHong out", _MaDoiTac, _TiLeHoaHong);
+
+            return float.Parse(_TiLeHoaHong.Value.ToString()); // 
+        }
+        public float GetPercentageConsume(string madoitac)
+        {
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
+            var _TiLeTieuThu = new SqlParameter("@TiLeTieuThu", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetPercentageConsume @MaDoiTac, @TiLeTieuThu out", _MaDoiTac, _TiLeTieuThu);
+
+            return float.Parse(_TiLeTieuThu.Value.ToString());
         }
     }
 }

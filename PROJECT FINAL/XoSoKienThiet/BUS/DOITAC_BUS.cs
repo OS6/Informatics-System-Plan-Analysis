@@ -31,7 +31,10 @@ namespace XoSoKienThiet.BUS
         {
             return _DOITAC_DAO.SelectCompany();
         }
-
+        public bool IsYourCompany(string madoitac)
+        {
+            return _DOITAC_DAO.IsYourCompany(madoitac);
+        }
         public string Insert(string maloaidoitac, string ten, string diachi, string sdt, string email)
         {
             _CheckError = new CheckError();
@@ -91,6 +94,16 @@ namespace XoSoKienThiet.BUS
         public string GetMaDoiTac(string tendoitac)
         {
             return _DOITAC_DAO.GetMaDoiTac(tendoitac);
+        }
+        // Tỉ lệ hoa hồng
+        public float GetPercentage(string madoitac)
+        {
+            return _DOITAC_DAO.GetPercentage(madoitac);
+        }
+        // Tỉ lệ tiêu thụ
+        public float GetPercentageConsume(string madoitac)
+        {
+            return _DOITAC_DAO.GetPercentageConsume(madoitac);
         }
     }
 }

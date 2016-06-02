@@ -18,9 +18,14 @@ namespace XoSoKienThiet.BUS
             _CheckError = new CheckError();
         }
 
-        public PHIEUDANGKYVE Select(string maphieudangky)
+        public List<PHIEUDANGKYVE> Select()
         {
-            return _PHIEUDANGKYVE_DAO.Select(maphieudangky).SingleOrDefault();
+            return _PHIEUDANGKYVE_DAO.Select();
+        }
+
+        public PHIEUDANGKYVE Select_ID(string maphieudangky)
+        {
+            return _PHIEUDANGKYVE_DAO.Select_ID(maphieudangky).SingleOrDefault();
         }
         public string Insert(string madoitac, string manhanvienlap, string ngaylap, string tongsovedk)
         {

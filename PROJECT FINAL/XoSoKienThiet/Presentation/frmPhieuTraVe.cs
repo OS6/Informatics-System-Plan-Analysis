@@ -27,20 +27,20 @@ namespace XoSoKienThiet.Presentation
         {
             #region Init lookup tên đối tác
             var _ListCompany = _DOITAC_BUS.SelectCompany();
-            lkTenDoiTac.Properties.DataSource = _ListCompany;
+            lkMaPhieuNhanVe.Properties.DataSource = _ListCompany;
 
-            lkTenDoiTac.Properties.DisplayMember = "Ten";
-            lkTenDoiTac.Properties.ValueMember = "MaDoiTac";
+            lkMaPhieuNhanVe.Properties.DisplayMember = "Ten";
+            lkMaPhieuNhanVe.Properties.ValueMember = "MaDoiTac";
 
             //tùy chỉnh lookup - hiển thị mã, tên, địa chỉ, sdt
-            lkTenDoiTac.Properties.ForceInitialize();
-            lkTenDoiTac.Properties.PopulateColumns();
+            lkMaPhieuNhanVe.Properties.ForceInitialize();
+            lkMaPhieuNhanVe.Properties.PopulateColumns();
 
-            lkTenDoiTac.Properties.Columns["MaLoaiDoiTac"].Visible = false;
-            lkTenDoiTac.Properties.Columns["Email"].Visible = false;
-            lkTenDoiTac.Properties.Columns["TiLeHoaHong"].Visible = false;
-            lkTenDoiTac.Properties.Columns["TiLeTieuThu"].Visible = false;
-            lkTenDoiTac.Properties.Columns["CongNo"].Visible = false;
+            lkMaPhieuNhanVe.Properties.Columns["MaLoaiDoiTac"].Visible = false;
+            lkMaPhieuNhanVe.Properties.Columns["Email"].Visible = false;
+            lkMaPhieuNhanVe.Properties.Columns["TiLeHoaHong"].Visible = false;
+            lkMaPhieuNhanVe.Properties.Columns["TiLeTieuThu"].Visible = false;
+            lkMaPhieuNhanVe.Properties.Columns["CongNo"].Visible = false;
             #endregion
 
             #region Init lookup nhân viên
@@ -58,21 +58,6 @@ namespace XoSoKienThiet.Presentation
             lkNguoiLap.Properties.Columns["SDT"].Visible = false;
             #endregion
 
-        }
-
-        //update danh sách đối tác tương ứng loại đối tác
-        private void rbtnLoaiDoiTac_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (rbtnLoaiDoiTac.SelectedIndex == 0)
-            {
-                var _ListCompany = _DOITAC_BUS.SelectCompany();
-                lkTenDoiTac.Properties.DataSource = _ListCompany;
-            }
-            else
-            {
-                var _ListAgency = _DOITAC_BUS.SelectAgency();
-                lkTenDoiTac.Properties.DataSource = _ListAgency;
-            }
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
