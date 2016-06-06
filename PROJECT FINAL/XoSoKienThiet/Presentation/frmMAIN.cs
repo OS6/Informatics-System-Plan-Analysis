@@ -139,14 +139,29 @@ namespace XoSoKienThiet.Presentation
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmTest));
+            Form frm = this.KiemTraTonTai(typeof(frmPhieuThanhToan));
             if (frm != null)
             {
                 frm.Activate();
             }
             else
             {
-                frmTest f = new frmTest();
+                frmPhieuThanhToan f = new frmPhieuThanhToan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTraTonTai(typeof(frmKetQuaXoSo));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmKetQuaXoSo f = new frmKetQuaXoSo();
                 f.MdiParent = this;
                 f.Show();
             }

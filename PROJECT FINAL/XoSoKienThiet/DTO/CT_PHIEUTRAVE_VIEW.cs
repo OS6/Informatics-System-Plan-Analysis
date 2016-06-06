@@ -9,9 +9,6 @@
 
     public partial class CT_PHIEUTRAVE_VIEW
     {
-        [StringLength(10)]
-        public string MaPhieuDangKy { get; set; }
-
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
@@ -27,14 +24,25 @@
         [StringLength(10)]
         public string MaLoaiVe { get; set; }
 
+        [Key]
+        [Column(Order = 3)]
+        [StringLength(10)]
+        public string MaChiTietPhieuTra { get; set; }
+
         [StringLength(100)]
+        [DisplayName("Công ty phát hành")]
         public string Ten { get; set; }
 
         [Column(TypeName = "smalldatetime")]
+        [DisplayName("Ngày phát hành")]
         public DateTime? NgayPhatHanh { get; set; }
-
+         [DisplayName("Mệnh giá")]
         public int? MenhGia { get; set; }
-
-        public int? SoVeDangKy { get; set; }
+        [DisplayName("Số lượng nhận")]
+         public int? SoVeNhan { get; set; }
+        [DisplayName("Số lượng trả")]
+        public int? SoVeTra { get; set; }
+        [DisplayName("Số tiền phải trả")]
+        public double? SoTienPhaiTra { get; set; }
     }
 }

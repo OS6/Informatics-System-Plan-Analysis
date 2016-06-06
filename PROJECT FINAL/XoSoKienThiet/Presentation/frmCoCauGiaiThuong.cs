@@ -19,7 +19,7 @@ namespace XoSoKienThiet.Presentation
     {
         LOAIVE_BUS _LOAIVE_BUS = null;
         GIAITHUONG_BUS _GIAITHUONG_BUS = null;
-        string _TenGiai, _SoTienTrung, _SoGiai, _TongTien;
+        string  _SoTienTrung, _SoGiai, _TongTien;
         public frmCoCauGiaiThuong()
         {
             InitializeComponent();

@@ -49,5 +49,6 @@
         public int? SoLuongNhan { get; set; }
         [DisplayName("Thành tiền")]
         public double? ThanhTien { get; set; }
+        public bool? DaTra { get; set; }
     }
 }

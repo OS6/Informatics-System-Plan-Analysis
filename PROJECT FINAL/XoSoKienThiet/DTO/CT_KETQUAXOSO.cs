@@ -8,30 +8,28 @@ namespace XoSoKienThiet.DTO
 
     public partial class CT_KETQUAXOSO
     {
-        [Key]
-        [Column(Order = 0)]
-        [StringLength(10)]
-        public string MaChiTietKetQua { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CT_KETQUAXOSO()
+        {
+            DANHSACHVETRUNGs = new HashSet<DANHSACHVETRUNG>();
+        }
 
         [Key]
-        [Column(Order = 1)]
         [StringLength(10)]
-        public string MaKetQua { get; set; }
+        public string MaChiTietKQXS { get; set; }
 
         [StringLength(10)]
-        public string MaVeTrung { get; set; }
+        public string MaKetQuaXoSo { get; set; }
 
         [StringLength(10)]
         public string MaGiaiThuong { get; set; }
 
-        public int? SoLuongVeTrung { get; set; }
-
-        public double? TongTien { get; set; }
-
-        public virtual GIAITHUONG GIAITHUONG { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? TongTien { get; set; }
 
         public virtual KETQUAXOSO KETQUAXOSO { get; set; }
 
-        public virtual VE VE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANHSACHVETRUNG> DANHSACHVETRUNGs { get; set; }
     }
 }

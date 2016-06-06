@@ -9,6 +9,26 @@ namespace XoSoKienThiet.DTO
     [Table("PHIEUTHANHTOAN")]
     public partial class PHIEUTHANHTOAN
     {
+        public PHIEUTHANHTOAN() 
+        {
+
+        }
+
+        public PHIEUTHANHTOAN(string madoitac, string madotphathanh, double sotienno, double sotienthu, double sotienconlai, DateTime ngaylap, string manhanvienlap, string tennguoinop, string sdt, string diachi, string email)
+        {
+            this.MaDoiTac = madoitac;
+            this.MaDotPhatHanh = madotphathanh;
+            this.SoTienNo = sotienno;
+            this.SoTienThu = sotienthu;
+            this.SoTienConLai = sotienconlai;
+            this.NgayLap = ngaylap;
+            this.MaNhanVienLap = manhanvienlap;
+            this.TenNguoiNop = tennguoinop;
+            this.SDT = sdt;
+            this.DiaChi = diachi;
+            this.Email = email;
+        }
+
         [Key]
         [StringLength(10)]
         public string MaPhieuThanhToan { get; set; }
@@ -42,11 +62,5 @@ namespace XoSoKienThiet.DTO
 
         [StringLength(50)]
         public string Email { get; set; }
-
-        public virtual DOITAC DOITAC { get; set; }
-
-        public virtual DOTPHATHANH DOTPHATHANH { get; set; }
-
-        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

@@ -15,21 +15,19 @@ namespace XoSoKienThiet.DTO
             CT_KETQUAXOSO = new HashSet<CT_KETQUAXOSO>();
         }
 
-        [Key]
-        [StringLength(10)]
-        public string MaKetQua { get; set; }
-
+        [Required]
         [StringLength(10)]
         public string MaDotPhatHanh { get; set; }
 
+        [Required]
         [StringLength(10)]
         public string MaLoaiVe { get; set; }
 
+        [Key]
+        [StringLength(10)]
+        public string MaKetQuaXoSo { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_KETQUAXOSO> CT_KETQUAXOSO { get; set; }
-
-        public virtual DOTPHATHANH DOTPHATHANH { get; set; }
-
-        public virtual LOAIVE LOAIVE { get; set; }
     }
 }

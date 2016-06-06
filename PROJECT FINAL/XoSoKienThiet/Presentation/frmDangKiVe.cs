@@ -81,6 +81,8 @@ namespace XoSoKienThiet.Presentation
             if (gvBASE.FocusedColumn.FieldName == "MaDotPhatHanh")
             {
                 _MaDotPhatHanh = e.Value.ToString();
+                gvBASE.SetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["SoVeDangKyToiDa"], 0);
+                gvBASE.SetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["SoVeDangKy"], 0);
             }
 
             if (gvBASE.FocusedColumn.FieldName == "MaLoaiVe")

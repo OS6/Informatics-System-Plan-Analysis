@@ -8,10 +8,18 @@ namespace XoSoKienThiet.DTO
 
     public partial class CT_KEHOACHPHATHANH
     {
+        public CT_KEHOACHPHATHANH() { }
+        public CT_KEHOACHPHATHANH(string makehoach, string maloaive, int sovedukien, int sovethucte)
+        {
+            this.MaKeHoachPhatHanh = makehoach;
+            this.MaLoaiVe = maloaive;
+            this.SoVePhatHanhDuKien = sovedukien;
+            this.SoVePhatHanhThucTe = sovethucte;
+        }
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
-        public string MaDotPhatHanh { get; set; }
+        public string MaKeHoachPhatHanh { get; set; }
 
         [Key]
         [Column(Order = 1)]

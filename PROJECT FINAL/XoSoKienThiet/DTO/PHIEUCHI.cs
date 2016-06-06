@@ -9,6 +9,16 @@ namespace XoSoKienThiet.DTO
     [Table("PHIEUCHI")]
     public partial class PHIEUCHI
     {
+        public PHIEUCHI() { }
+        public PHIEUCHI( string madotphathanh, string madonvi, string manhanvienlap, DateTime ngaylap, string noidungchi, int sotienchi)
+        {
+            this.MaDotPhatHanh = madotphathanh;
+            this.MaDonVi = madonvi;
+            this.NoiDungChi = noidungchi;
+            this.MaNhanVienLap = manhanvienlap;
+            this.SoTienChi = sotienchi;
+            this.NgayLap = ngaylap;
+        }
         [Key]
         [StringLength(10)]
         public string MaPhieuChi { get; set; }
@@ -19,6 +29,8 @@ namespace XoSoKienThiet.DTO
         [StringLength(10)]
         public string MaDonVi { get; set; }
 
+        [Column(TypeName = "smalldatetime")]
+        public DateTime? NgayLap { get; set; }
         [StringLength(10)]
         public string MaNhanVienLap { get; set; }
 

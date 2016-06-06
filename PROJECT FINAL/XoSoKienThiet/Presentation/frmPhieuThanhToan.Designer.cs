@@ -52,7 +52,7 @@
             this.lkDotPhatHanh = new DevExpress.XtraEditors.LookUpEdit();
             this.lkTenDoiTac = new DevExpress.XtraEditors.LookUpEdit();
             this.deNgayLap = new DevExpress.XtraEditors.DateEdit();
-            this.txtTienThu = new DevExpress.XtraEditors.TextEdit();
+            this.txtTienNo = new DevExpress.XtraEditors.TextEdit();
             this.txtTienTra = new DevExpress.XtraEditors.TextEdit();
             this.rbtnLoaiDoiTac = new DevExpress.XtraEditors.RadioGroup();
             this.lkNguoiLap = new DevExpress.XtraEditors.LookUpEdit();
@@ -95,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkTenDoiTac.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienThu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnLoaiDoiTac.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkNguoiLap.Properties)).BeginInit();
@@ -186,6 +186,7 @@
             this.btnThem.Id = 1;
             this.btnThem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnThem.LargeGlyph")));
             this.btnThem.Name = "btnThem";
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnSua
             // 
@@ -308,7 +309,7 @@
             this.lcInfo.Controls.Add(this.lkDotPhatHanh);
             this.lcInfo.Controls.Add(this.lkTenDoiTac);
             this.lcInfo.Controls.Add(this.deNgayLap);
-            this.lcInfo.Controls.Add(this.txtTienThu);
+            this.lcInfo.Controls.Add(this.txtTienNo);
             this.lcInfo.Controls.Add(this.txtTienTra);
             this.lcInfo.Controls.Add(this.rbtnLoaiDoiTac);
             this.lcInfo.Controls.Add(this.lkNguoiLap);
@@ -336,9 +337,12 @@
             this.lkDotPhatHanh.Location = new System.Drawing.Point(338, 44);
             this.lkDotPhatHanh.MenuManager = this.barManagerBASE;
             this.lkDotPhatHanh.Name = "lkDotPhatHanh";
+            this.lkDotPhatHanh.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
             this.lkDotPhatHanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkDotPhatHanh.Properties.NullText = "";
+            this.lkDotPhatHanh.Properties.PopupSizeable = false;
+            this.lkDotPhatHanh.Properties.PopupWidth = 380;
             this.lkDotPhatHanh.Size = new System.Drawing.Size(256, 22);
             this.lkDotPhatHanh.StyleController = this.lcInfo;
             this.lkDotPhatHanh.TabIndex = 18;
@@ -354,6 +358,7 @@
             this.lkTenDoiTac.Size = new System.Drawing.Size(624, 22);
             this.lkTenDoiTac.StyleController = this.lcInfo;
             this.lkTenDoiTac.TabIndex = 17;
+            this.lkTenDoiTac.EditValueChanged += new System.EventHandler(this.lkTenDoiTac_EditValueChanged);
             // 
             // deNgayLap
             // 
@@ -370,14 +375,14 @@
             this.deNgayLap.StyleController = this.lcInfo;
             this.deNgayLap.TabIndex = 15;
             // 
-            // txtTienThu
+            // txtTienNo
             // 
-            this.txtTienThu.Location = new System.Drawing.Point(703, 44);
-            this.txtTienThu.MenuManager = this.barManagerBASE;
-            this.txtTienThu.Name = "txtTienThu";
-            this.txtTienThu.Size = new System.Drawing.Size(259, 22);
-            this.txtTienThu.StyleController = this.lcInfo;
-            this.txtTienThu.TabIndex = 13;
+            this.txtTienNo.Location = new System.Drawing.Point(703, 44);
+            this.txtTienNo.MenuManager = this.barManagerBASE;
+            this.txtTienNo.Name = "txtTienNo";
+            this.txtTienNo.Size = new System.Drawing.Size(259, 22);
+            this.txtTienNo.StyleController = this.lcInfo;
+            this.txtTienNo.TabIndex = 13;
             // 
             // txtTienTra
             // 
@@ -387,6 +392,7 @@
             this.txtTienTra.Size = new System.Drawing.Size(259, 22);
             this.txtTienTra.StyleController = this.lcInfo;
             this.txtTienTra.TabIndex = 12;
+            this.txtTienTra.EditValueChanged += new System.EventHandler(this.txtTienTra_EditValueChanged);
             // 
             // rbtnLoaiDoiTac
             // 
@@ -399,6 +405,7 @@
             this.rbtnLoaiDoiTac.Size = new System.Drawing.Size(110, 106);
             this.rbtnLoaiDoiTac.StyleController = this.lcInfo;
             this.rbtnLoaiDoiTac.TabIndex = 9;
+            this.rbtnLoaiDoiTac.SelectedIndexChanged += new System.EventHandler(this.rbtnLoaiDoiTac_SelectedIndexChanged);
             // 
             // lkNguoiLap
             // 
@@ -514,11 +521,11 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.txtTienThu;
+            this.layoutControlItem5.Control = this.txtTienNo;
             this.layoutControlItem5.Location = new System.Drawing.Point(584, 28);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(368, 28);
-            this.layoutControlItem5.Text = "Số tiền thu: ";
+            this.layoutControlItem5.Text = "Số tiền nợ: ";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(99, 17);
             // 
             // groupControl1
@@ -694,6 +701,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmPhieuThanhToan";
             this.Text = "Phiếu thanh toán";
+            this.Load += new System.EventHandler(this.frmPhieuThanhToan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManagerBASE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).EndInit();
             this.panelHeader.ResumeLayout(false);
@@ -706,7 +714,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkTenDoiTac.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgayLap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTienThu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnLoaiDoiTac.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkNguoiLap.Properties)).EndInit();
@@ -767,7 +775,7 @@
         private DevExpress.XtraLayout.LayoutControl lcInfo;
         private DevExpress.XtraEditors.LookUpEdit lkTenDoiTac;
         private DevExpress.XtraEditors.DateEdit deNgayLap;
-        private DevExpress.XtraEditors.TextEdit txtTienThu;
+        private DevExpress.XtraEditors.TextEdit txtTienNo;
         private DevExpress.XtraEditors.TextEdit txtTienTra;
         private DevExpress.XtraEditors.RadioGroup rbtnLoaiDoiTac;
         private DevExpress.XtraEditors.LookUpEdit lkNguoiLap;

@@ -24,7 +24,7 @@ namespace XoSoKienThiet.BUS
         {
             return _PHIEUNHANVE_DAO.Select(maphieunhanve).SingleOrDefault();
         }
-        public string Insert(string madoitac, string tongsove, string ngaylap, string manhanvienlap, string tongtien)
+        public string Insert(string maphieudangky, string tongsove, string ngaylap, string manhanvienlap, string tongtien)
         {
             DateTime _NgayLap;
             int _TongSoVe;
@@ -33,7 +33,7 @@ namespace XoSoKienThiet.BUS
             _TongSoVe = int.Parse(tongsove);
             _TongTien = float.Parse(tongtien);
 
-            PHIEUNHANVE _PHIEUNHANVE = new PHIEUNHANVE(madoitac, _TongSoVe, _NgayLap, manhanvienlap, _TongTien);
+            PHIEUNHANVE _PHIEUNHANVE = new PHIEUNHANVE(maphieudangky, _TongSoVe, _NgayLap, manhanvienlap, _TongTien);
             return _PHIEUNHANVE_DAO.Insert(_PHIEUNHANVE);
         }
         public string CheckErrorBeforeInsert(string madoitac, string manhanvienlap, string ngaylap)

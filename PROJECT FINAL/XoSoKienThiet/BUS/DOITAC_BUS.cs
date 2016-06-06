@@ -35,7 +35,7 @@ namespace XoSoKienThiet.BUS
         {
             return _DOITAC_DAO.IsYourCompany(madoitac);
         }
-        public string Insert(string maloaidoitac, string ten, string diachi, string sdt, string email)
+        public string Insert_UpDate(string maloaidoitac, string ten, string diachi, string sdt, string email, string madoitac = "")
         {
             _CheckError = new CheckError();
             if (ten == "")
@@ -84,8 +84,8 @@ namespace XoSoKienThiet.BUS
                                        ten,
                                         diachi,
                                         sdt,
-                                        email);
-                _DOITAC_DAO.Insert(_DOITAC);
+                                        email, madoitac);
+                _DOITAC_DAO.Insert_UpDate(_DOITAC);
                 return "";
             }
             else
@@ -95,15 +95,37 @@ namespace XoSoKienThiet.BUS
         {
             return _DOITAC_DAO.GetMaDoiTac(tendoitac);
         }
+        public string GetTenDoiTac(string madoitac)
+        {
+            return _DOITAC_DAO.GetTenDoiTac(madoitac);
+        }
         // Tỉ lệ hoa hồng
         public float GetPercentage(string madoitac)
         {
             return _DOITAC_DAO.GetPercentage(madoitac);
         }
+        //Công nợ
+        public float GetDebt(string madoitac)
+        {
+            return _DOITAC_DAO.GetDebt(madoitac);
+        }
         // Tỉ lệ tiêu thụ
         public float GetPercentageConsume(string madoitac)
         {
             return _DOITAC_DAO.GetPercentageConsume(madoitac);
+        }
+        public void Update_Debt(string macongty, string congno)
+        {
+            int _CongNo = 0;
+            try
+            {
+                _CongNo = int.Parse(congno);
+            }
+            catch
+            {
+
+            }
+            _DOITAC_DAO.Update_Debt(macongty, _CongNo);
         }
     }
 }

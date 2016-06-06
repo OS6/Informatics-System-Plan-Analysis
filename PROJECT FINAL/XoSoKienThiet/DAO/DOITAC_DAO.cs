@@ -44,9 +44,11 @@ namespace XoSoKienThiet.DAO
 
             return (bool)_IsYourCompany.Value;
         }
-        public void Insert(DOITAC doitac)
+        public void Insert_UpDate(DOITAC doitac)
         {
-            object[] parameters = 
+            if (doitac.MaDoiTac == "")
+            {
+                object[] parameters = 
             {
                 new SqlParameter("@MaLoaiDoiTac", doitac.MaLoaiDoiTac),
                 new SqlParameter("@Ten", doitac.Ten),
@@ -54,7 +56,22 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@SDT", doitac.SDT),
                 new SqlParameter("@Email",doitac.Email)
             };
-            _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+                _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+            }
+            else
+            {
+                object[] parameters = 
+            {
+                new SqlParameter("@MaDoiTac", doitac.MaDoiTac),
+                new SqlParameter("@MaLoaiDoiTac", doitac.MaLoaiDoiTac),
+                new SqlParameter("@Ten", doitac.Ten),
+                new SqlParameter("@DiaChi", doitac.DiaChi),
+                new SqlParameter("@SDT", doitac.SDT),
+                new SqlParameter("@Email",doitac.Email)
+            };
+                _Context.Database.ExecuteSqlCommand("DOITAC_Upd @MaDoiTac, @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+            }
+
         }
 
         public string GetMaDoiTac(string tendoitac)
@@ -72,6 +89,22 @@ namespace XoSoKienThiet.DAO
 
             return (string)_MaDoiTac.Value;
         }
+
+        public string GetTenDoiTac(string madoitac)
+        {
+            var _Ten = new SqlParameter("@Ten", SqlDbType.NVarChar, 100)
+            {
+                Direction = ParameterDirection.Output
+            };
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
+
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetName @MaDoiTac, @Ten out", _MaDoiTac, _Ten);
+
+            return (string)_Ten.Value;
+        }
         public float GetPercentage(string madoitac)
         {
             var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
@@ -87,6 +120,21 @@ namespace XoSoKienThiet.DAO
 
             return float.Parse(_TiLeHoaHong.Value.ToString()); // 
         }
+        public float GetDebt(string madoitac)
+        {
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
+            var _CongNo = new SqlParameter("@CongNo", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetDebt @MaDoiTac, @CongNo out", _MaDoiTac, _CongNo);
+
+            return float.Parse(_CongNo.Value.ToString()); // 
+        }
         public float GetPercentageConsume(string madoitac)
         {
             var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
@@ -101,6 +149,16 @@ namespace XoSoKienThiet.DAO
             _Context.Database.ExecuteSqlCommand("DOITAC_GetPercentageConsume @MaDoiTac, @TiLeTieuThu out", _MaDoiTac, _TiLeTieuThu);
 
             return float.Parse(_TiLeTieuThu.Value.ToString());
+        }
+        // Cập nhật công nợ
+        public void Update_Debt(string madoitac, int congno)
+        {
+            object[] parameters = 
+            {
+                new SqlParameter("@MaDoiTac", madoitac),
+                new SqlParameter("@CongNo", congno)
+            };
+            _Context.Database.ExecuteSqlCommand("DOITAC_Upd_Debt @MaDoiTac, @CongNo", parameters);
         }
     }
 }

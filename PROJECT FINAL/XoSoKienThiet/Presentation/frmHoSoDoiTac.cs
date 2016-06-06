@@ -17,6 +17,7 @@ namespace XoSoKienThiet.Presentation
     {
         DOITAC_BUS _DOITAC_BUS = null;
         string _MaLoaiDoiTac = "LDT0000001";
+        string _MaDoiTac;
         public frmHoSoDoiTac()
         {
             InitializeComponent();
@@ -32,28 +33,55 @@ namespace XoSoKienThiet.Presentation
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string _Error = _DOITAC_BUS.Insert(_MaLoaiDoiTac, txtTenDoiTac.Text, txtDiaChi.Text, txtSoDienThoai.Text, txtEmail.Text);
-            if(_Error == "")
+            string _Error = _DOITAC_BUS.Insert_UpDate(_MaLoaiDoiTac, txtTenDoiTac.Text, txtDiaChi.Text, txtSoDienThoai.Text, txtEmail.Text);
+            if (_Error == "")
             {
-                 MessageBox.Show("Thêm thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 bindingSource1.DataSource = _DOITAC_BUS.Select();
+                MessageBox.Show("Thêm thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bindingSource1.DataSource = _DOITAC_BUS.Select();
             }
             else
             {
-                 MessageBox.Show(_Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(_Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void rbtnLoaiDoiTac_Click(object sender, EventArgs e)
         {
-           if(rbtnLoaiDoiTac.SelectedIndex  == 0)
-           {
-               _MaLoaiDoiTac = "LDT0000001";
-           }
-           else
-           {
-               _MaLoaiDoiTac = "LDT0000002";
-           }
+            if (rbtnLoaiDoiTac.SelectedIndex == 0)
+            {
+                _MaLoaiDoiTac = "LDT0000001";
+            }
+            else
+            {
+                _MaLoaiDoiTac = "LDT0000002";
+            }
+        }
+        private void gvBASE_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            _MaDoiTac = _DOITAC_BUS.GetTenDoiTac(gvBASE.GetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["MaDoiTac"]).ToString());
+            txtTenDoiTac.Text = _DOITAC_BUS.GetTenDoiTac(gvBASE.GetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["MaDoiTac"]).ToString());
+            txtSoDienThoai.Text = gvBASE.GetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["SDT"]).ToString();
+            txtEmail.Text = gvBASE.GetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["Email"]).ToString();
+            txtDiaChi.Text = gvBASE.GetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["DiaChi"]).ToString();
+        }
+
+        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string _Error = _DOITAC_BUS.Insert_UpDate(_MaLoaiDoiTac, txtTenDoiTac.Text, txtDiaChi.Text, txtSoDienThoai.Text, txtEmail.Text, _MaDoiTac);
+            if (_Error == "")
+            {
+                MessageBox.Show("Cập nhật thành công", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bindingSource1.DataSource = _DOITAC_BUS.Select();
+            }
+            else
+            {
+                MessageBox.Show(_Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

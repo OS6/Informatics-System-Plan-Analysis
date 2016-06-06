@@ -13,11 +13,12 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DOITAC()
         {
-           
+
         }
 
-        public DOITAC(string maloaidoitac, string ten, string diachi, string sdt, string email,  string madoitac = null)
+        public DOITAC(string maloaidoitac, string ten, string diachi, string sdt, string email, string madoitac = "")
         {
+            this.MaDoiTac = madoitac;
             this.MaLoaiDoiTac = maloaidoitac;
             this.Ten = ten;
             this.DiaChi = diachi;
@@ -49,11 +50,14 @@
         [StringLength(30)]
         [DisplayName("Email")]
         public string Email { get; set; }
+
         [DisplayName("Tỉ lệ hoa hồng")]
         public double? TiLeHoaHong { get; set; }
 
+        [DisplayName("Tỉ lệ tiêu thụ")]
         public double? TiLeTieuThu { get; set; }
 
-        public int? CongNo{get;set;}
+        [DisplayName("Công nợ")]
+        public int? CongNo { get; set; }
     }
 }

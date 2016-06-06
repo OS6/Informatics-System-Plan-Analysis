@@ -22,7 +22,7 @@ namespace XoSoKienThiet.BUS
             return _NHANVIEN_DAO.Select();
         }
 
-        public string Insert(string macocautochuc, string ten, string sdt, string diachi, string email)
+        public string Insert_Upd(string macocautochuc, string ten, string sdt, string diachi, string email, string manhanvien = "")
         {
             _CheckError = new CheckError();
             if (ten == "")
@@ -66,8 +66,8 @@ namespace XoSoKienThiet.BUS
                                        ten,
                                         sdt,
                                         diachi,
-                                        email);
-                _NHANVIEN_DAO.Insert(_NHANVIEN);
+                                        email, manhanvien);
+                _NHANVIEN_DAO.Insert_Upd(_NHANVIEN);
                 return "";
             }
             else

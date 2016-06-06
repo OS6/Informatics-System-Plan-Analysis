@@ -39,8 +39,11 @@
 
         [DisplayName("Số giải")]
         public int? SoGiai { get; set; }
+          [DisplayName("Số lượng vé trúng")]
+        public int? SoLuongVeTrung { get; set; }
 
         [DisplayName("Tổng tiền trúng")]
         public int? TongTienTrung { get; set; }
+        
     }
 }

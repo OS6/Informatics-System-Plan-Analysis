@@ -186,40 +186,40 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(842, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(982, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 490);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 603);
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(842, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(982, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 466);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 573);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(842, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(982, 30);
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 466);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 573);
             // 
             // panelHeader
             // 
             this.panelHeader.Controls.Add(this.lbHeader);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 24);
+            this.panelHeader.Location = new System.Drawing.Point(0, 30);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(842, 41);
+            this.panelHeader.Size = new System.Drawing.Size(982, 50);
             this.panelHeader.TabIndex = 14;
             // 
             // lbHeader
@@ -232,7 +232,7 @@
             this.lbHeader.Location = new System.Drawing.Point(2, 2);
             this.lbHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbHeader.Name = "lbHeader";
-            this.lbHeader.Size = new System.Drawing.Size(838, 37);
+            this.lbHeader.Size = new System.Drawing.Size(978, 46);
             this.lbHeader.TabIndex = 1;
             this.lbHeader.Text = "DANH SÁCH LOẠI VÉ";
             // 
@@ -240,10 +240,10 @@
             // 
             this.groupInfo.Controls.Add(this.layoutControl1);
             this.groupInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupInfo.Location = new System.Drawing.Point(0, 65);
+            this.groupInfo.Location = new System.Drawing.Point(0, 80);
             this.groupInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupInfo.Name = "groupInfo";
-            this.groupInfo.Size = new System.Drawing.Size(842, 72);
+            this.groupInfo.Size = new System.Drawing.Size(982, 89);
             this.groupInfo.TabIndex = 15;
             this.groupInfo.Text = "Thông tin công ty phát hành";
             // 
@@ -251,18 +251,18 @@
             // 
             this.layoutControl1.Controls.Add(this.lkTenCongTy);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl1.Location = new System.Drawing.Point(2, 25);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(100, 240, 947, 692);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(838, 50);
+            this.layoutControl1.Size = new System.Drawing.Size(978, 62);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // lkTenCongTy
             // 
-            this.lkTenCongTy.Location = new System.Drawing.Point(80, 12);
+            this.lkTenCongTy.Location = new System.Drawing.Point(96, 16);
             this.lkTenCongTy.MenuManager = this.barManagerBASE;
             this.lkTenCongTy.Name = "lkTenCongTy";
             this.lkTenCongTy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -270,7 +270,7 @@
             this.lkTenCongTy.Properties.NullText = "";
             this.lkTenCongTy.Properties.PopupSizeable = false;
             this.lkTenCongTy.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkTenCongTy.Size = new System.Drawing.Size(746, 20);
+            this.lkTenCongTy.Size = new System.Drawing.Size(866, 22);
             this.lkTenCongTy.StyleController = this.layoutControl1;
             this.lkTenCongTy.TabIndex = 4;
             this.lkTenCongTy.EditValueChanged += new System.EventHandler(this.lkTenCongTy_EditValueChanged);
@@ -284,7 +284,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(838, 50);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(978, 62);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -292,18 +292,18 @@
             this.layoutControlItem1.Control = this.lkTenCongTy;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(818, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(952, 36);
             this.layoutControlItem1.Text = "Tên công ty: ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(64, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(76, 16);
             // 
             // groupBASE
             // 
             this.groupBASE.Controls.Add(this.gcBASE);
             this.groupBASE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBASE.Location = new System.Drawing.Point(0, 137);
+            this.groupBASE.Location = new System.Drawing.Point(0, 169);
             this.groupBASE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBASE.Name = "groupBASE";
-            this.groupBASE.Size = new System.Drawing.Size(842, 353);
+            this.groupBASE.Size = new System.Drawing.Size(982, 434);
             this.groupBASE.TabIndex = 16;
             this.groupBASE.Text = "Danh sách loại vé của công ty";
             // 
@@ -311,12 +311,12 @@
             // 
             this.gcBASE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcBASE.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcBASE.Location = new System.Drawing.Point(2, 20);
+            this.gcBASE.Location = new System.Drawing.Point(2, 25);
             this.gcBASE.MainView = this.gvBASE;
             this.gcBASE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcBASE.MenuManager = this.barManagerBASE;
             this.gcBASE.Name = "gcBASE";
-            this.gcBASE.Size = new System.Drawing.Size(838, 331);
+            this.gcBASE.Size = new System.Drawing.Size(978, 407);
             this.gcBASE.TabIndex = 1;
             this.gcBASE.UseEmbeddedNavigator = true;
             this.gcBASE.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -353,9 +353,9 @@
             // 
             // frmDanhSachLoaiVe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 490);
+            this.ClientSize = new System.Drawing.Size(982, 603);
             this.Controls.Add(this.groupBASE);
             this.Controls.Add(this.groupInfo);
             this.Controls.Add(this.panelHeader);
