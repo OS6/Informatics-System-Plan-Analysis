@@ -8,18 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-using DevExpress.XtraTab;
-using DevExpress.XtraTab.ViewInfo;
 
 namespace XoSoKienThiet.Presentation
 {
-    public partial class frmMAIN : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmMAIN()
+        public frmMain()
         {
             InitializeComponent();
         }
-
         private Form KiemTraTonTai(Type formType)
         {
             foreach (Form f in this.MdiChildren)
@@ -32,7 +29,49 @@ namespace XoSoKienThiet.Presentation
             return null;
         }
 
-        private void barbtnHoSoDoiTac_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnDangKyVe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnNhanVe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnTraVe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnKeHoachPhatHanh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnPhieuChi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnPhieuNhanGiai_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnPhieuThanhToan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnGhiNhanKQXS_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+
+
+        private void rbtnHoSoDoiTac_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form frm = this.KiemTraTonTai(typeof(frmHoSoDoiTac));
             if (frm != null)
@@ -47,125 +86,69 @@ namespace XoSoKienThiet.Presentation
             }
         }
 
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnTinhHinhTieuThuDoiTac_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmHoSoDoiTac));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmHoSoDoiTac f = new frmHoSoDoiTac();
-                f.Text = "Cập nhật đối tác";
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnCongNoDaiLy_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmTiepNhanNhanVien));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmTiepNhanNhanVien f = new frmTiepNhanNhanVien();
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnBaoCaoLoiNhuan_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmDangKiVe));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmDangKiVe f = new frmDangKiVe();
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnKetQuaXoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmCoCauGiaiThuong));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmCoCauGiaiThuong f = new frmCoCauGiaiThuong();
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnQuyDinh_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmPhieuNhanVe));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmPhieuNhanVe f = new frmPhieuNhanVe();
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnTiepNhanNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmPhieuTraVe));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmPhieuTraVe f = new frmPhieuTraVe();
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnDanhSachLoaiVe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmPhieuThanhToan));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmPhieuThanhToan f = new frmPhieuThanhToan();
-                f.MdiParent = this;
-                f.Show();
-            }
+
         }
 
-        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnCoCauGiaiThuong_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTraTonTai(typeof(frmKetQuaXoSo));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmKetQuaXoSo f = new frmKetQuaXoSo();
-                f.MdiParent = this;
-                f.Show();
-            }
+
+        }
+
+        private void rbtnThemMoi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnCapNhat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnAbout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void rbtnHelp_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

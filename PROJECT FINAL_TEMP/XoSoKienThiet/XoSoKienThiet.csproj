@@ -215,11 +215,11 @@
     <Compile Include="Presentation\frmKetQuaXoSo.Designer.cs">
       <DependentUpon>frmKetQuaXoSo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\frmMAIN.cs">
+    <Compile Include="Presentation\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\frmMAIN.Designer.cs">
-      <DependentUpon>frmMAIN.cs</DependentUpon>
+    <Compile Include="Presentation\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frmPhieuChi.cs">
       <SubType>Form</SubType>
@@ -271,8 +271,8 @@
     <EmbeddedResource Include="Presentation\frmKetQuaXoSo.resx">
       <DependentUpon>frmKetQuaXoSo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\frmMAIN.resx">
-      <DependentUpon>frmMAIN.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmPhieuChi.resx">
       <DependentUpon>frmPhieuChi.cs</DependentUpon>
@@ -292,18 +292,19 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -315,7 +316,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
