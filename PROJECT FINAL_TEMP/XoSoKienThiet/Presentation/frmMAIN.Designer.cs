@@ -61,6 +61,9 @@
             this.rbtnKetQuaXoSo = new DevExpress.XtraBars.BarButtonItem();
             this.rbtnTinhHinhTieuThuDoiTac = new DevExpress.XtraBars.BarButtonItem();
             this.rbtnCongNoDaiLy = new DevExpress.XtraBars.BarButtonItem();
+            this.rbtnBaoCaoDoanThuTheoDot = new DevExpress.XtraBars.BarButtonItem();
+            this.rbtnBaoCaoDoanThuTheoThang = new DevExpress.XtraBars.BarButtonItem();
+            this.rbtnBaoCaoDoanThuTheoNam = new DevExpress.XtraBars.BarButtonItem();
             this.pageTrangChu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pgLapKeHoach = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgChiTieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -124,9 +127,12 @@
             this.rbtnHoSoDoiTac,
             this.rbtnKetQuaXoSo,
             this.rbtnTinhHinhTieuThuDoiTac,
-            this.rbtnCongNoDaiLy});
+            this.rbtnCongNoDaiLy,
+            this.rbtnBaoCaoDoanThuTheoDot,
+            this.rbtnBaoCaoDoanThuTheoThang,
+            this.rbtnBaoCaoDoanThuTheoNam});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 10;
+            this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageTrangChu,
@@ -416,6 +422,33 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.rbtnCongNoDaiLy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.rbtnCongNoDaiLy_ItemClick);
             // 
+            // rbtnBaoCaoDoanThuTheoDot
+            // 
+            this.rbtnBaoCaoDoanThuTheoDot.Caption = "Báo cáo doanh thu theo đợt";
+            this.rbtnBaoCaoDoanThuTheoDot.Glyph = ((System.Drawing.Image)(resources.GetObject("rbtnBaoCaoDoanThuTheoDot.Glyph")));
+            this.rbtnBaoCaoDoanThuTheoDot.Id = 10;
+            this.rbtnBaoCaoDoanThuTheoDot.Name = "rbtnBaoCaoDoanThuTheoDot";
+            this.rbtnBaoCaoDoanThuTheoDot.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // rbtnBaoCaoDoanThuTheoThang
+            // 
+            this.rbtnBaoCaoDoanThuTheoThang.Caption = "Báo cáo doanh thu theo tháng";
+            this.rbtnBaoCaoDoanThuTheoThang.Glyph = ((System.Drawing.Image)(resources.GetObject("rbtnBaoCaoDoanThuTheoThang.Glyph")));
+            this.rbtnBaoCaoDoanThuTheoThang.Id = 11;
+            this.rbtnBaoCaoDoanThuTheoThang.Name = "rbtnBaoCaoDoanThuTheoThang";
+            this.rbtnBaoCaoDoanThuTheoThang.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // rbtnBaoCaoDoanThuTheoNam
+            // 
+            this.rbtnBaoCaoDoanThuTheoNam.Caption = "Báo cáo doanh thu theo năm";
+            this.rbtnBaoCaoDoanThuTheoNam.Glyph = ((System.Drawing.Image)(resources.GetObject("rbtnBaoCaoDoanThuTheoNam.Glyph")));
+            this.rbtnBaoCaoDoanThuTheoNam.Id = 12;
+            this.rbtnBaoCaoDoanThuTheoNam.Name = "rbtnBaoCaoDoanThuTheoNam";
+            this.rbtnBaoCaoDoanThuTheoNam.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
             // pageTrangChu
             // 
             this.pageTrangChu.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -474,6 +507,9 @@
             // pgCongTy
             // 
             this.pgCongTy.ItemLinks.Add(this.rbtnBaoCaoLoiNhuan);
+            this.pgCongTy.ItemLinks.Add(this.rbtnBaoCaoDoanThuTheoDot);
+            this.pgCongTy.ItemLinks.Add(this.rbtnBaoCaoDoanThuTheoThang);
+            this.pgCongTy.ItemLinks.Add(this.rbtnBaoCaoDoanThuTheoNam);
             this.pgCongTy.Name = "pgCongTy";
             this.pgCongTy.Text = "Công ty";
             // 
@@ -663,5 +699,8 @@
         private DevExpress.XtraBars.BarButtonItem rbtnTinhHinhTieuThuDaiLy;
         private DevExpress.XtraBars.BarButtonItem rbtnTinhHinhTieuThuDoiTac;
         private DevExpress.XtraBars.BarButtonItem rbtnCongNoDaiLy;
+        private DevExpress.XtraBars.BarButtonItem rbtnBaoCaoDoanThuTheoDot;
+        private DevExpress.XtraBars.BarButtonItem rbtnBaoCaoDoanThuTheoThang;
+        private DevExpress.XtraBars.BarButtonItem rbtnBaoCaoDoanThuTheoNam;
     }
 }
