@@ -25,6 +25,25 @@ namespace XoSoKienThiet.DAO
 
             return _Context.Database.SqlQuery<CT_PHIEUDANGKYVE>("CT_PHIEUDANGKYVE_Sel @MaPhieuDangKyVe ", _MaPhieuDangKyVe).ToList();
         }
+        public List<CT_PHIEUDANGKYVE_VIEW> SelectView(string maphieudangkyve)
+        {
+            var _MaPhieuDangKyVe = new SqlParameter("@MaPhieuDangKyVe", SqlDbType.NChar, 10)
+            {
+                Value = maphieudangkyve
+            };
+
+            return _Context.Database.SqlQuery<CT_PHIEUDANGKYVE_VIEW>("CT_PHIEUDANGKYVE_VIEW_Sel @MaPhieuDangKyVe ", _MaPhieuDangKyVe).ToList();
+        }
+        
+             public List<CT_PHIEUDANGKYVE_VIEW> SelectViewNotReCeive(string maphieudangkyve)
+        {
+            var _MaPhieuDangKyVe = new SqlParameter("@MaPhieuDangKyVe", SqlDbType.NChar, 10)
+            {
+                Value = maphieudangkyve
+            };
+
+            return _Context.Database.SqlQuery<CT_PHIEUDANGKYVE_VIEW>("CT_PHIEUDANGKYVE_VIEW_NotReCeive @MaPhieuDangKyVe ", _MaPhieuDangKyVe).ToList();
+        }
         public int GetAmountOfRegisterTicket(string madoitac, string macongty, string madotphathanh, string maloaive)
         {
             var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)

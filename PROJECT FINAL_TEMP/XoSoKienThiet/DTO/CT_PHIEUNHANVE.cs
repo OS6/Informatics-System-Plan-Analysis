@@ -12,7 +12,7 @@ namespace XoSoKienThiet.DTO
         {
 
         }
-        public CT_PHIEUNHANVE(string maphieunhanve, string macongtyphathanh, string madotphathanh, string maloaive, int soluongdk, int soluongnhan, float thanhtien)
+        public CT_PHIEUNHANVE(string maphieunhanve, string macongtyphathanh, string madotphathanh, string maloaive, int soluongdk, int soluongnhan, decimal thanhtien, string machitietnhan = "")
         {
             this.MaPhieuNhanVe = maphieunhanve;
             this.MaCongTyPhatHanh = macongtyphathanh;
@@ -21,6 +21,7 @@ namespace XoSoKienThiet.DTO
             this.SoLuongDangKy = soluongdk;
             this.SoLuongNhan = soluongnhan;
             this.ThanhTien = thanhtien;
+            this.MaChiTietPhieuNhan = machitietnhan;
         }
         [Key]
         [Column(Order = 0)]
@@ -45,6 +46,7 @@ namespace XoSoKienThiet.DTO
 
         public int? SoLuongNhan { get; set; }
 
-        public double? ThanhTien { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? ThanhTien { get; set; }
     }
 }

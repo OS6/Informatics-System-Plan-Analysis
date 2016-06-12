@@ -26,26 +26,19 @@ namespace XoSoKienThiet.BUS
         }
         public string Insert(string maphieudangky, string tongsove, string ngaylap, string manhanvienlap, string tongtien)
         {
-            DateTime _NgayLap;
+            DateTime _NgayLap = DateTime.Now;
             int _TongSoVe;
-            float _TongTien;
-            _NgayLap = Convert.ToDateTime(ngaylap);
-            _TongSoVe = int.Parse(tongsove);
-            _TongTien = float.Parse(tongtien);
+            decimal _TongTien = 0;
 
-            PHIEUNHANVE _PHIEUNHANVE = new PHIEUNHANVE(maphieudangky, _TongSoVe, _NgayLap, manhanvienlap, _TongTien);
-            return _PHIEUNHANVE_DAO.Insert(_PHIEUNHANVE);
-        }
-        public string CheckErrorBeforeInsert(string madoitac, string manhanvienlap, string ngaylap)
-        {
+            _TongSoVe = int.Parse(tongsove);
             _CheckError = new CheckError();
 
-            if (madoitac == "")
+            if (maphieudangky == "")
             {
-                _CheckError.CheckErrorAvailable("Đối tác");
+                _CheckError.CheckErrorAvailable("Mã phiếu đăng ký");
             }
 
-            if (manhanvienlap == "<Null>") // do debug = "" no khong nhay vao if
+            if (manhanvienlap == "")
             {
                 _CheckError.CheckErrorAvailable("Nhân viên lập");
             }
@@ -54,12 +47,98 @@ namespace XoSoKienThiet.BUS
             {
                 _CheckError.CheckErrorAvailable("Ngày lập");
             }
+            else
+            {
+                try
+                {
+                    _NgayLap = Convert.ToDateTime(ngaylap);
+                }
+                catch (Exception)
+                {
+                    _CheckError.CheckErrorConstraint("Ngày lập nhập chưa đúng");
+                }
+            }
+            if (tongtien == "")
+            {
+                _CheckError.CheckErrorAvailable("Số tiền trúng");
+            }
+            else
+            {
+                try
+                {
+                    _TongTien = decimal.Parse(tongtien);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số tiền trúng");
+                }
+            }
             if (_CheckError.IsError())
             {
                 return _CheckError.GetError();
             }
             else
             {
+                PHIEUNHANVE _PHIEUNHANVE = new PHIEUNHANVE(maphieudangky, _TongSoVe, _NgayLap, manhanvienlap, _TongTien);
+                return _PHIEUNHANVE_DAO.Insert(_PHIEUNHANVE);
+            }
+        }
+        public string CheckBeforeInsert(string maphieudangky, string tongsove, string ngaylap, string manhanvienlap, string tongtien)
+        {
+            DateTime _NgayLap = DateTime.Now;
+            int _TongSoVe;
+            decimal _TongTien = 0;
+
+            _TongSoVe = int.Parse(tongsove);
+            _CheckError = new CheckError();
+
+            if (maphieudangky == "")
+            {
+                _CheckError.CheckErrorAvailable("Mã phiếu đăng ký");
+            }
+
+            if (manhanvienlap == "")
+            {
+                _CheckError.CheckErrorAvailable("Nhân viên lập");
+            }
+
+            if (ngaylap == "")
+            {
+                _CheckError.CheckErrorAvailable("Ngày lập");
+            }
+            else
+            {
+                try
+                {
+                    _NgayLap = Convert.ToDateTime(ngaylap);
+                }
+                catch (Exception)
+                {
+                    _CheckError.CheckErrorConstraint("Ngày lập nhập chưa đúng");
+                }
+            }
+            if (tongtien == "")
+            {
+                _CheckError.CheckErrorAvailable("Số tiền trúng");
+            }
+            else
+            {
+                try
+                {
+                    _TongTien = decimal.Parse(tongtien);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số tiền trúng");
+                }
+            }
+            if (_CheckError.IsError())
+            {
+                return _CheckError.GetError();
+            }
+            else
+            {
+                PHIEUNHANVE _PHIEUNHANVE = new PHIEUNHANVE(maphieudangky, _TongSoVe, _NgayLap, manhanvienlap, _TongTien);
                 return "";
             }
         }

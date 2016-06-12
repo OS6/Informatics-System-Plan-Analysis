@@ -21,11 +21,15 @@ namespace XoSoKienThiet.BUS
         {
             return _GIAITHUONG_DAO.Select(maloaive);
         }
-        public string CheckErrorBeforeInsert( string ten, string sotientrung, string sogiai)
+        public string Insert_Update(string maloaive, string ten, string sotientrung, string sogiai, string magiaithuong = "")
         {
             _CheckError = new CheckError();
-            int _SoTienTrung = 0, _SoGiai = 0;
-
+            decimal _SoTienTrung = 0;
+            int _SoGiai = 0;
+            if (maloaive == "")
+            {
+                _CheckError.CheckErrorAvailable("Mã loại vé");
+            }
             if (ten == "")
             {
                 _CheckError.CheckErrorAvailable("Tên giải thưởng");
@@ -39,7 +43,7 @@ namespace XoSoKienThiet.BUS
             {
                 try
                 {
-                    _SoTienTrung = int.Parse(sotientrung);
+                    _SoTienTrung = decimal.Parse(sotientrung);
                 }
                 catch
                 {
@@ -67,6 +71,11 @@ namespace XoSoKienThiet.BUS
 
             if (!_CheckError.IsError())
             {
+                var _GIAITHUONG = new GIAITHUONG(maloaive,
+                                          ten,
+                                           _SoTienTrung,
+                                           _SoGiai, magiaithuong);
+                _GIAITHUONG_DAO.Insert_Update(_GIAITHUONG);
                 return "";
             }
 
@@ -74,18 +83,6 @@ namespace XoSoKienThiet.BUS
             {
                 return _CheckError.GetError();
             }
-        }
-
-        public void Insert(string maloaive, string ten, string sotientrung, string sogiai)
-        {
-            int _SoTienTrung = 0, _SoGiai = 0;
-            _SoGiai = int.Parse(sogiai);
-            _SoTienTrung = int.Parse(sotientrung);
-             GIAITHUONG _GIAITHUONG = new GIAITHUONG(maloaive,
-                                       ten,
-                                        _SoTienTrung,
-                                        _SoGiai);
-                _GIAITHUONG_DAO.Insert(_GIAITHUONG);
         }
 
     }

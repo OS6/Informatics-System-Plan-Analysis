@@ -41,14 +41,19 @@
         [Column(TypeName = "smalldatetime")]
         [DisplayName("Ngày phát hành")]
         public DateTime? NgayPhatHanh { get; set; }
+
         [DisplayName("Mệnh giá")]
+        [DisplayFormat(DataFormatString = "N0")]
         public int? MenhGia { get; set; }
         [DisplayName("Số lượng đăng ký")]
         public int? SoLuongDangKy { get; set; }
         [DisplayName("Số lượng nhận")]
         public int? SoLuongNhan { get; set; }
+
         [DisplayName("Thành tiền")]
-        public double? ThanhTien { get; set; }
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? ThanhTien { get; set; }
         public bool? DaTra { get; set; }
     }
 }

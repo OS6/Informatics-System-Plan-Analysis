@@ -10,7 +10,7 @@ namespace XoSoKienThiet.DTO
     public partial class DANHSACHSOTRUNG
     {
         public DANHSACHSOTRUNG() { }
-        public DANHSACHSOTRUNG(string mact_ketqua, string sotrung)
+        public DANHSACHSOTRUNG(string mact_ketqua, int sotrung)
         {
             this.MaChiTietKQXS = mact_ketqua;
             this.SoTrung = sotrung;
@@ -23,7 +23,6 @@ namespace XoSoKienThiet.DTO
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(6)]
-        public string SoTrung { get; set; }
+        public int? SoTrung { get; set; }
     }
 }

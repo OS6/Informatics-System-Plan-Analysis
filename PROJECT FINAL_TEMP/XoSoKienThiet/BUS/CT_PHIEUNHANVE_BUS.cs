@@ -11,6 +11,7 @@ namespace XoSoKienThiet.BUS
     public class CT_PHIEUNHANVE_BUS
     {
         CT_PHIEUNHANVE_DAO _CT_PHIEUNHANVE_DAO = null;
+        CheckError _CheckError = null;
         public CT_PHIEUNHANVE_BUS()
         {
             _CT_PHIEUNHANVE_DAO = new CT_PHIEUNHANVE_DAO();
@@ -20,15 +21,72 @@ namespace XoSoKienThiet.BUS
         {
             return _CT_PHIEUNHANVE_DAO.Select(maphieunhanve);
         }
-        public int Insert(string maphieunhanve, string macongty, string madotphathanh, string maloaive, string soluongdk, string soluongnhan, string thanhtien)
+        public List<CT_PHIEUNHANVE_VIEW> SelectReCeiveView(string maphieunhanve)
         {
+            return _CT_PHIEUNHANVE_DAO.SelectReCeiveView(maphieunhanve);
+        }
+        public List<CT_PHIEUNHANVE_VIEW> SelectNotPayView(string maphieunhanve)
+        {
+            return _CT_PHIEUNHANVE_DAO.SelectNotPayView(maphieunhanve);
+        }
+        public string Insert(string maphieunhanve, string macongty, string madotphathanh, string maloaive, string soluongdk, string soluongnhan, string thanhtien)
+        {
+            _CheckError = new CheckError();
             int _SoLuongDangKy, _SoLuongNhan;
-            float _ThanhTien;
+            decimal _ThanhTien = 0;
             _SoLuongDangKy = int.Parse(soluongdk);
             _SoLuongNhan = int.Parse(soluongnhan);
-            _ThanhTien = float.Parse(thanhtien);
-            CT_PHIEUNHANVE _CT_PHIEUNHANVE = new CT_PHIEUNHANVE(maphieunhanve, macongty, madotphathanh, maloaive, _SoLuongDangKy, _SoLuongNhan, _ThanhTien);
-           return  _CT_PHIEUNHANVE_DAO.Insert(_CT_PHIEUNHANVE);
+            if (thanhtien == "")
+            {
+                _CheckError.CheckErrorAvailable("Số tiền trúng");
+            }
+            else
+            {
+                try
+                {
+                    _ThanhTien = decimal.Parse(thanhtien);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số tiền trúng");
+                }
+            }
+            if (!_CheckError.IsError())
+            {
+                CT_PHIEUNHANVE _CT_PHIEUNHANVE = new CT_PHIEUNHANVE(maphieunhanve, macongty, madotphathanh, maloaive, _SoLuongDangKy, _SoLuongNhan, _ThanhTien);
+                 _CT_PHIEUNHANVE_DAO.Insert(_CT_PHIEUNHANVE);
+                return "";
+            }
+            else
+                return _CheckError.GetError();
+        }
+        public void Delete(string machitietnhan,string maphieunhanve, string maphieudangky,string macongty, string madotphathanh, string maloaive, string soluongdk,  string soluongnhan, string thanhtien)
+        {
+              _CheckError = new CheckError();
+            int _SoLuongDangKy, _SoLuongNhan;
+            decimal _ThanhTien = 0;
+            _SoLuongDangKy = int.Parse(soluongdk);
+            _SoLuongNhan = int.Parse(soluongnhan);
+            if (thanhtien == "")
+            {
+                _CheckError.CheckErrorAvailable("Số tiền trúng");
+            }
+            else
+            {
+                try
+                {
+                    _ThanhTien = decimal.Parse(thanhtien);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số tiền trúng");
+                }
+            }
+            if (!_CheckError.IsError())
+            {
+                CT_PHIEUNHANVE _CT_PHIEUNHANVE = new CT_PHIEUNHANVE(maphieunhanve, macongty, madotphathanh, maloaive, _SoLuongDangKy, _SoLuongNhan, _ThanhTien, machitietnhan);
+                _CT_PHIEUNHANVE_DAO.Delete(_CT_PHIEUNHANVE, maphieudangky);
+            }
         }
         public float PercentageAmountofTicketReceive(string macongtyphathanh, string madotphathanh, string maloaive)
         {

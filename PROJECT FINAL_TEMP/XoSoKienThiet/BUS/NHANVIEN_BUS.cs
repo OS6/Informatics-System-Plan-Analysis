@@ -21,8 +21,11 @@ namespace XoSoKienThiet.BUS
         {
             return _NHANVIEN_DAO.Select();
         }
-
-        public string Insert(string macocautochuc, string ten, string sdt, string diachi, string email)
+        public List<NHANVIEN_VIEW> SelectView()
+        {
+            return _NHANVIEN_DAO.SelectView();
+        }
+        public string Insert_Update(string macocautochuc, string ten, string sdt, string diachi, string email, string manhanvien = "")
         {
             _CheckError = new CheckError();
             if (ten == "")
@@ -60,14 +63,18 @@ namespace XoSoKienThiet.BUS
                 _CheckError.CheckErrorAvailable("Email");
             }
 
+            if (macocautochuc == "")
+            {
+                _CheckError.CheckErrorAvailable("Cơ cấu tổ chức");
+            }
             if (!_CheckError.IsError())
             {
                 NHANVIEN _NHANVIEN = new NHANVIEN(macocautochuc,
                                        ten,
                                         sdt,
                                         diachi,
-                                        email);
-                _NHANVIEN_DAO.Insert(_NHANVIEN);
+                                        email, manhanvien);
+                _NHANVIEN_DAO.Insert_Update(_NHANVIEN);
                 return "";
             }
             else

@@ -71,7 +71,7 @@ namespace XoSoKienThiet.DAO
                 TongVePhatHanh = GetAmountofTicketMax(madotphathanh, item.MaLoaiVe);
                 ct_kehoachphathanh.SoVePhatHanhDuKien = TongVeDuKien;
                 ct_kehoachphathanh.SoVePhatHanhThucTe = TongVePhatHanh;
-                ct_kehoachphathanh.MenhGia = int.Parse(_LOAIVE_DAO.GetPrice("DT00000001", item.MaLoaiVe).SingleOrDefault().ToString());
+                ct_kehoachphathanh.MenhGia = int.Parse(_LOAIVE_DAO.GetPrice(item.MaLoaiVe).SingleOrDefault().ToString());
                 List_KeHoachPhatHanh.Add(ct_kehoachphathanh);
             }
             return List_KeHoachPhatHanh;

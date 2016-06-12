@@ -30,7 +30,7 @@ namespace XoSoKienThiet.DAO
              {
                  Value = ct_ketqua.SoLuongVeTrung
              };
-             var TongTien = new SqlParameter("@TongTien", SqlDbType.Int)
+             var TongTien = new SqlParameter("@TongTien", SqlDbType.Decimal)
              {
                  Value = ct_ketqua.TongTien
              };

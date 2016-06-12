@@ -14,19 +14,19 @@
         public LOAIVE()
         {
         }
-
-        public LOAIVE(string macongty, int menhgia)
+        public LOAIVE(string macongty, int menhgia, string maloaive = "")
         {
-            this.MaCongty = macongty;
+            this.MaCongTy = macongty;
             this.MenhGia = menhgia;
+            this.MaLoaiVe = maloaive;
         }
         [Key]
         [StringLength(10)]
         [DisplayName("Mã loại vé")]
         public string MaLoaiVe { get; set; }
 
-        [DisplayName("Công ty")]
-        public string MaCongty { get; set; }
+        [DisplayName("Mã công ty")]
+        public string MaCongTy { get; set; }
         [DisplayName("Mệnh giá")]
         public int? MenhGia { get; set; }
     }

@@ -17,9 +17,10 @@ namespace XoSoKienThiet.BUS
         }
         public string Insert(string maketquaxoso, string magiaithuong, string soluongvetrung, string tongtien, string machitietketqua = "")
         {
-            int SoLuongVeTrung, TongTien;
+            int SoLuongVeTrung;
+            decimal TongTien;
             SoLuongVeTrung = int.Parse(soluongvetrung);
-            TongTien = int.Parse(tongtien);
+            TongTien = Convert.ToDecimal(tongtien);
             CT_KETQUAXOSO ct_ketqua = new CT_KETQUAXOSO(maketquaxoso, magiaithuong, SoLuongVeTrung, TongTien, machitietketqua);
             return _CT_KETQUAXOSO_DAO.Insert(ct_ketqua);
         }

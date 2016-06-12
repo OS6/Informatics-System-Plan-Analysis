@@ -15,6 +15,11 @@ namespace XoSoKienThiet.BUS
         {
             _DOTPHATHANH_DAO = new DOTPHATHANH_DAO();
         }
+
+        public void Insert(string ngayphathanh, string ngayxoso, string gioxoso, string macongty)
+        {
+            DOTPHATHANH _DOTPHATHANH = new DOTPHATHANH(Convert.ToDateTime(ngayphathanh), Convert.ToDateTime(ngayxoso), Convert.ToInt32(gioxoso), macongty);
+        }
         public List<DOTPHATHANH> Select()
         {
             return _DOTPHATHANH_DAO.Select();
@@ -22,6 +27,10 @@ namespace XoSoKienThiet.BUS
         public List<DOTPHATHANH> Select_Con_Company(string macongty)
         {
             return _DOTPHATHANH_DAO.Select_Con_Company(macongty);
+        }
+        public List<DOTPHATHANH> Select_Your_Company()
+        {
+            return _DOTPHATHANH_DAO.Select_Your_Company();
         }
     }
 }

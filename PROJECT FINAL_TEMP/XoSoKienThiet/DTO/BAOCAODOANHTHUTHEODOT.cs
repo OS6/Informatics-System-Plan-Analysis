@@ -15,14 +15,14 @@ namespace XoSoKienThiet.DTO
 
         [StringLength(10)]
         public string MaDotPhatHanh { get; set; }
-
-        public double? TongThu { get; set; }
-
-        public double? TongChi { get; set; }
-
-        public double? LoiNhuan { get; set; }
-
-        public double? CongQuy { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? TongThu { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? TongChi { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? LoiNhuan { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? CongQuy { get; set; }
 
         public virtual DOTPHATHANH DOTPHATHANH { get; set; }
     }

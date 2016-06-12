@@ -35,14 +35,27 @@ namespace XoSoKienThiet.DAO
             };
             return _Context.Database.SqlQuery<LOAIVE>(" LOAIVE_Sel_Con_Company @MaCongTy", parameters).ToList();
         }
-        public int Insert(LOAIVE loaive)
+        public void Insert_Update(LOAIVE loaive)
         {
-            object[] parameters = 
+            if (loaive.MaLoaiVe == "")
             {
-                new SqlParameter("@MaCongTy", loaive.MaCongty),
+                object[] parameters = 
+            {
+                new SqlParameter("@MaCongTy", loaive.MaCongTy),
                 new SqlParameter("@MenhGia", loaive.MenhGia)
             };
-            return _Context.Database.ExecuteSqlCommand("LOAIVE_Ins @MaCongTy, @MenhGia", parameters);
+                _Context.Database.ExecuteSqlCommand("LOAIVE_Ins @MaCongTy, @MenhGia", parameters);
+            }
+            else
+            {
+                object[] parameters = 
+            {
+                new SqlParameter("@MaLoaiVe", loaive.MaLoaiVe),
+                new SqlParameter("@MenhGia", loaive.MenhGia)
+            };
+                _Context.Database.ExecuteSqlCommand("LOAIVE_Upd @MaLoaiVe, @MenhGia", parameters);
+            }
+
         }
         public List<LOAIVE> GetTypeofTicketnotInCompany(string macongty)
         {
@@ -69,14 +82,13 @@ namespace XoSoKienThiet.DAO
             return (string)_MaLoaiVe.Value;
         }
 
-        public List<int> GetPrice(string macongty, string maloaive)
+        public List<int> GetPrice(string maloaive)
         {
             object[] parameters = 
             {
-                new SqlParameter("@MaCongTy", macongty),
                 new SqlParameter("@MaLoaiVe", maloaive)
             };
-            return _Context.Database.SqlQuery<int>("LOAIVE_GetPrice @MaCongTy, @MaLoaiVe", parameters).ToList();
+            return _Context.Database.SqlQuery<int>("LOAIVE_GetPrice  @MaLoaiVe", parameters).ToList();
         }
     }
 }

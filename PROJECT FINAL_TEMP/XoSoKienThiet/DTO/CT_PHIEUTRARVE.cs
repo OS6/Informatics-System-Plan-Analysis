@@ -13,7 +13,7 @@ namespace XoSoKienThiet.DTO
 
         }
 
-        public CT_PHIEUTRAVE(string maphieutrave, string macongtyphathanh, string madotphathanh, string maloaive, int sovenhan, int sovetra, int sotienphaitra)
+        public CT_PHIEUTRAVE(string maphieutrave, string macongtyphathanh, string madotphathanh, string maloaive, int sovenhan, int sovetra, decimal sotienphaitra)
         {
             this.MaPhieuTraVe = maphieutrave;
             this.MaCongTyPhatHanh = macongtyphathanh;
@@ -42,7 +42,8 @@ namespace XoSoKienThiet.DTO
         public int? SoVeNhan { get; set; }
 
         public int? SoVeTra { get; set; }
-
-        public double? SoTienPhaiTra { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? SoTienPhaiTra { get; set; }
+        public bool? HoanThanh { get; set; }
     }
 }

@@ -16,6 +16,24 @@ namespace XoSoKienThiet.DAO
         {
             _Context = new XoSoKienThietDbContext();
         }
+
+        public List<CT_KQXS_GIAITHUONG_VIEW> Select(string madotphathanh, string maloaive, int sotrung)
+        {
+            var MaDotPhatHanh = new SqlParameter("@MaDotPhatHanh", SqlDbType.NChar, 10)
+            {
+                Value = madotphathanh
+            };
+            var MaLoaiVe = new SqlParameter("@MaLoaiVe", SqlDbType.NChar, 10)
+            {
+                Value = maloaive
+            };
+            var SoTrung = new SqlParameter("@SoTrung", SqlDbType.Int)
+            {
+                Value = sotrung
+            };
+            return _Context.Database.SqlQuery<CT_KQXS_GIAITHUONG_VIEW>("KETQUAXOSO_SearchResult @MaDotPhatHanh, @MaLoaiVe,@SoTrung",
+                                                                                                MaDotPhatHanh, MaLoaiVe, SoTrung).ToList();
+        }
         public string Insert(KETQUAXOSO ketqua)
         {
             var MaDotPhatHanh = new SqlParameter("@MaDotPhatHanh", SqlDbType.NChar, 10)

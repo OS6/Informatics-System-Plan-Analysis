@@ -14,7 +14,7 @@ namespace XoSoKienThiet.DTO
            
         }
 
-        public CT_KETQUAXOSO(string maketquaxoso, string magiaithuong, int soluongvetrung, int tongtien, string machitietketqua = "")
+        public CT_KETQUAXOSO(string maketquaxoso, string magiaithuong, int soluongvetrung, decimal tongtien, string machitietketqua = "")
         {
             this.MaKetQuaXoSo = maketquaxoso;
             this.MaGiaiThuong = magiaithuong;

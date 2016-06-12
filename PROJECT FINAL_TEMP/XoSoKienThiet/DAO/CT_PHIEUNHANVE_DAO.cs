@@ -26,9 +26,28 @@ namespace XoSoKienThiet.DAO
 
              return _Context.Database.SqlQuery<CT_PHIEUNHANVE>("CT_PHIEUNHANVE_Sel @MaPhieuNhanVe ", _MaPhieuNhanVe).ToList();
          }
-        public int Insert(CT_PHIEUNHANVE ct_phieunhanve)
+        
+             public List<CT_PHIEUNHANVE_VIEW> SelectNotPayView(string maphieunhanve)
+         {
+             var _MaPhieuNhanVe = new SqlParameter("@MaPhieuNhanVe", SqlDbType.NChar, 10)
+             {
+                 Value = maphieunhanve
+             };
+
+             return _Context.Database.SqlQuery<CT_PHIEUNHANVE_VIEW>("CT_PHIEUNHANVE_VIEW_NotPay @MaPhieuNhanVe ", _MaPhieuNhanVe).ToList();
+         }
+              public List<CT_PHIEUNHANVE_VIEW> SelectReCeiveView(string maphieunhanve)
+         {
+             var _MaPhieuNhanVe = new SqlParameter("@MaPhieuNhanVe", SqlDbType.NChar, 10)
+             {
+                 Value = maphieunhanve
+             };
+
+             return _Context.Database.SqlQuery<CT_PHIEUNHANVE_VIEW>("CT_PHIEUNHANVE_VIEW_ReCeive @MaPhieuNhanVe ", _MaPhieuNhanVe).ToList();
+         }
+        public void Insert(CT_PHIEUNHANVE ct_phieunhanve)
         {
-            object[] parameters = 
+                object[] parameters = 
             {
                 new SqlParameter("@MaPhieuNhanVe", ct_phieunhanve.MaPhieuNhanVe),
                 new SqlParameter("@MaCongTyPhatHanh", ct_phieunhanve.MaCongTyPhatHanh),
@@ -38,7 +57,25 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@SoLuongNhan",ct_phieunhanve.SoLuongNhan),
                 new SqlParameter("@ThanhTien", ct_phieunhanve.ThanhTien)
             };
-            return _Context.Database.ExecuteSqlCommand("CT_PHIEUNHANVE_Ins @MaPhieuNhanVe,@MaCongTyPhatHanh, @MaDotPhatHanh, @MaLoaiVe, @SoLuongDangKy, @SoLuongNhan, @ThanhTien", parameters);
+                 _Context.Database.ExecuteSqlCommand("CT_PHIEUNHANVE_Ins @MaPhieuNhanVe,@MaCongTyPhatHanh, @MaDotPhatHanh, @MaLoaiVe, @SoLuongDangKy, @SoLuongNhan, @ThanhTien", parameters);
+         
+        }
+
+        public void Delete(CT_PHIEUNHANVE ct_phieunhanve, string maphieudangky)
+        {
+            object[] parameters = 
+            {
+                 new SqlParameter("@MaChiTietNhanVe", ct_phieunhanve.MaChiTietPhieuNhan),
+                new SqlParameter("@MaPhieuNhanVe", ct_phieunhanve.MaPhieuNhanVe),
+                 new SqlParameter("@MaPhieuDangKy", maphieudangky),
+                new SqlParameter("@MaCongTyPhatHanh", ct_phieunhanve.MaCongTyPhatHanh),
+                new SqlParameter("@MaDotPhatHanh", ct_phieunhanve.MaDotPhatHanh),
+                new SqlParameter("@MaLoaiVe",ct_phieunhanve.MaLoaiVe),
+                new SqlParameter("@SoLuongNhan",ct_phieunhanve.SoLuongNhan),
+                new SqlParameter("@ThanhTien", ct_phieunhanve.ThanhTien)
+            };
+            _Context.Database.ExecuteSqlCommand("CT_PHIEUNHANVE_Del @MaChiTietNhanVe, @MaPhieuNhanVe,@MaPhieuDangKy,@MaCongTyPhatHanh, @MaDotPhatHanh, @MaLoaiVe,  @SoLuongNhan, @ThanhTien", parameters);
+
         }
         public float PercentageAmountofTicketReceive(string macongtyphathanh, string madotphathanh, string maloaive)
         {

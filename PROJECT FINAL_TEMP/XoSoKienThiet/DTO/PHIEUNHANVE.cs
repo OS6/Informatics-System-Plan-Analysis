@@ -14,7 +14,7 @@ namespace XoSoKienThiet.DTO
         {
         }
 
-        public PHIEUNHANVE(string maphieudangky, int tongsove, DateTime ngaylap, string manhanvienlap, float tongtien)
+        public PHIEUNHANVE(string maphieudangky, int tongsove, DateTime ngaylap, string manhanvienlap, decimal tongtien)
         {
             this.MaPhieuDangKy = maphieudangky;
             this.TongSoVe = tongsove;
@@ -38,16 +38,9 @@ namespace XoSoKienThiet.DTO
         [StringLength(10)]
         public string MaNhanVienLap { get; set; }
 
-        public double? TongTien { get; set; }
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? TongTien { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_PHIEUNHANVE> CT_PHIEUNHANVE { get; set; }
-
-        public virtual DOITAC DOITAC { get; set; }
-
-        public virtual NHANVIEN NHANVIEN { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUTRAVE> PHIEUTRAVEs { get; set; }
     }
 }

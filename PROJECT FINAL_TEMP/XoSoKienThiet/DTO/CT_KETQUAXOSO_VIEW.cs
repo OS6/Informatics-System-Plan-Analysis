@@ -11,7 +11,7 @@
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
+        [StringLength(40)]
         public string MaChiTietKQXS { get; set; }
 
         [Key]
@@ -24,7 +24,8 @@
         public string Ten { get; set; }
         [Column(TypeName = "money")]
         [DisplayName("Số tiền trúng")]
-        public int? SoTienTrung { get; set; }
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? SoTienTrung { get; set; }
         [DisplayName("Số giải")]
         public int? SoGiai { get; set; }
         [DisplayName("Số lượng vé trúng")]
@@ -32,6 +33,7 @@
 
         [Column(TypeName = "money")]
         [DisplayName("Tổng tiền")]
+        [DisplayFormat(DataFormatString = "N0")]
         public decimal? TongTien { get; set; }
     }
 }

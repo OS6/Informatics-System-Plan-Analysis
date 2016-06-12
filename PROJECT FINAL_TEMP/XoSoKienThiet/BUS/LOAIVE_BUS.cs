@@ -16,7 +16,6 @@ namespace XoSoKienThiet.BUS
         public LOAIVE_BUS()
         {
             _LOAIVE_DAO = new LOAIVE_DAO();
-            _CheckError = new CheckError();
         }
 
         public List<LOAIVE> Select()
@@ -32,29 +31,14 @@ namespace XoSoKienThiet.BUS
         {
             return _LOAIVE_DAO.Select_Con_Company(macongty);
         }
-        public void Insert(string macongty, string menhgia)
+        public string Insert_Update(string macongty, string menhgia, string maloaive = "")
         {
-            int _MenhGia;
-            _MenhGia = int.Parse(menhgia);
-            _LOAIVE = new LOAIVE(macongty, _MenhGia);
-            _LOAIVE_DAO.Insert(_LOAIVE);
-
-        }
-
-        public string GetID(string menhgia)
-        {
-            return _LOAIVE_DAO.GetID(int.Parse(menhgia));
-        }
-
-        public int GetPrice(string macongty, string maloaive)
-        {
-            int _MenhGia = int.Parse(_LOAIVE_DAO.GetPrice(macongty, maloaive).SingleOrDefault().ToString());
-            return _MenhGia;
-        }
-
-        public string CheckBeforeInsert(string menhgia)
-        {
+            _CheckError = new CheckError();
             int _MenhGia = 0;
+            if(macongty == "")
+            {
+                _CheckError.CheckErrorAvailable("Công ty");
+            }
             if (menhgia == "")
             {
                 _CheckError.CheckErrorAvailable("Mệnh giá");
@@ -75,7 +59,24 @@ namespace XoSoKienThiet.BUS
             {
                 return _CheckError.GetError();
             }
-            return "";
+            else
+            {
+                _LOAIVE = new LOAIVE(macongty, _MenhGia, maloaive);
+                _LOAIVE_DAO.Insert_Update(_LOAIVE);
+                return "";
+            }
         }
+
+        public string GetID(string menhgia)
+        {
+            return _LOAIVE_DAO.GetID(int.Parse(menhgia));
+        }
+
+        public int GetPrice(string maloaive)
+        {
+            int _MenhGia = int.Parse(_LOAIVE_DAO.GetPrice(maloaive).SingleOrDefault().ToString());
+            return _MenhGia;
+        }
+
     }
 }

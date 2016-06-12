@@ -15,12 +15,13 @@
         {
         }
 
-        public GIAITHUONG(string maloaive, string ten, int sotientrung, int sogiai)
+        public GIAITHUONG(string maloaive, string ten, decimal sotientrung, int sogiai, string magiaithuong = "")
         {
             this.MaLoaiVe = maloaive;
             this.Ten = ten;
             this.SoTienTrung = sotientrung;
             this.SoGiai = sogiai;
+            this.MaGiaiThuong = magiaithuong;
         }
 
         [Key]
@@ -34,11 +35,18 @@
         [DisplayName("Tên giải thưởng")]
         public string Ten { get; set; }
 
+        [Column(TypeName = "money")]
         [DisplayName("Số tiền trúng")]
-        public int? SoTienTrung { get; set; }
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? SoTienTrung { get; set; }
 
         [DisplayName("Số giải")]
         public int? SoGiai { get; set; }
+
+        [DisplayName("Tổng tiền trúng")]
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? TongTienTrung { get; set; }
         
     }
 }

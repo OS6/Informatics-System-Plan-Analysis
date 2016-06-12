@@ -22,6 +22,14 @@ namespace XoSoKienThiet.BUS
         {
             return _CT_PHIEUDANGKYVE_DAO.Select(maphieudangkyve);
         }
+        public List<CT_PHIEUDANGKYVE_VIEW> SelectView(string maphieudangkyve)
+        {
+            return _CT_PHIEUDANGKYVE_DAO.SelectView(maphieudangkyve);
+        }
+        public List<CT_PHIEUDANGKYVE_VIEW> SelectViewNotReCeive(string maphieudangkyve)
+        {
+            return _CT_PHIEUDANGKYVE_DAO.SelectViewNotReCeive(maphieudangkyve);
+        }
         public int GetAmountOfRegisterTicket(string madoitac, string macongty, string madotphathanh, string maloaive)
         {
             return _CT_PHIEUDANGKYVE_DAO.GetAmountOfRegisterTicket(madoitac, macongty, madotphathanh, maloaive);
@@ -31,7 +39,7 @@ namespace XoSoKienThiet.BUS
             return _CT_PHIEUDANGKYVE_DAO.GetAmountOfMaxRegisterTicket(madoitac, macongty, madotphathanh, maloaive);
         }
 
-        public string CheckErrorBeforeInsert(string macongtyphathanh, string madotphathanh, string maloaive, string sovedktoida, string sovedangky)
+        public string Insert(string maphieudangkyve, string macongtyphathanh, string madotphathanh, string maloaive, string sovedktoida, string sovedangky)
         {
             _CheckError = new CheckError();
             int _SoVeDangKyToiDa = 0, _SoVeDangKy = 0;
@@ -40,14 +48,17 @@ namespace XoSoKienThiet.BUS
             {
                 _CheckError.CheckErrorAvailable("Số vé đăng ký");
             }
-            try
+            else
             {
-                _SoVeDangKy = int.Parse(sovedangky);
-                _SoVeDangKyToiDa = int.Parse(sovedktoida);
-            }
-            catch
-            {
-                _CheckError.CheckErrorNumber("Số vé đăng ký");
+                try
+                {
+                    _SoVeDangKy = int.Parse(sovedangky);
+                    _SoVeDangKyToiDa = int.Parse(sovedktoida);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số vé đăng ký");
+                }
             }
 
             if (_SoVeDangKy > _SoVeDangKyToiDa)
@@ -60,16 +71,11 @@ namespace XoSoKienThiet.BUS
             }
             else
             {
+                CT_PHIEUDANGKYVE _CT_PHIEUDANGKYVE = new CT_PHIEUDANGKYVE(maphieudangkyve, macongtyphathanh, madotphathanh, maloaive, _SoVeDangKyToiDa, _SoVeDangKy);
+                _CT_PHIEUDANGKYVE_DAO.Insert(_CT_PHIEUDANGKYVE);
                 return "";
             }
-        }
-        public void Insert(string maphieudangkyve, string macongtyphathanh, string madotphathanh, string maloaive, string sovedktoida, string sovedangky)
-        {
-            int _SoVeDangKyToiDa = 0, _SoVeDangKy = 0;
-            _SoVeDangKy = int.Parse(sovedangky);
-            _SoVeDangKyToiDa = int.Parse(sovedktoida);
-            CT_PHIEUDANGKYVE _CT_PHIEUDANGKYVE = new CT_PHIEUDANGKYVE(maphieudangkyve, macongtyphathanh, madotphathanh, maloaive, _SoVeDangKyToiDa, _SoVeDangKy);
-            _CT_PHIEUDANGKYVE_DAO.Insert(_CT_PHIEUDANGKYVE);
+
         }
     }
 }

@@ -15,12 +15,13 @@ namespace XoSoKienThiet.DTO
             
         }
 
-        public PHIEUTRAVE(string maphieunhanve, string manhanvienlap, DateTime ngaylap, int tongsovetra)
+        public PHIEUTRAVE(string maphieunhanve, string manhanvienlap, DateTime ngaylap, int tongsovetra, decimal tongtienphaitra)
         {
             this.MaPhieuNhanVe = maphieunhanve;
             this.MaNhanVienLap = manhanvienlap;
             this.NgayLap = ngaylap;
             this.TongSoVeTra = tongsovetra;
+            this.TongTienPhaiTra = tongtienphaitra;
         }
 
         [Key]
@@ -37,7 +38,7 @@ namespace XoSoKienThiet.DTO
         public DateTime? NgayLap { get; set; }
 
         public int TongSoVeTra { get; set; }
-
-       
+        [Column(TypeName = "money")]
+        public decimal? TongTienPhaiTra { get; set; }
     }
 }

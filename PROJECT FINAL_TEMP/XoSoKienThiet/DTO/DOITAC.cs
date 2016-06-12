@@ -16,12 +16,13 @@
            
         }
 
-        public DOITAC(string maloaidoitac, string ten, string diachi, string sdt, string email,  string madoitac = null)
+        public DOITAC(string maloaidoitac, string ten, string diachi, string sdt, string email,  string madoitac = "")
         {
             this.MaLoaiDoiTac = maloaidoitac;
             this.Ten = ten;
             this.DiaChi = diachi;
             this.SDT = sdt;
+            this.MaDoiTac = madoitac;
             this.Email = email;
         }
 
@@ -35,7 +36,7 @@
         public string MaLoaiDoiTac { get; set; }
 
         [StringLength(100)]
-        [DisplayName("Tên")]
+        [DisplayName("Đối tác")]
         public string Ten { get; set; }
 
         [StringLength(250)]
@@ -52,6 +53,7 @@
         [DisplayName("Tỉ lệ hoa hồng")]
         public double? TiLeHoaHong { get; set; }
 
+         [DisplayFormat(DataFormatString = "P2")]
         public double? TiLeTieuThu { get; set; }
 
         public int? CongNo{get;set;}

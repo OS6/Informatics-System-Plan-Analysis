@@ -10,14 +10,14 @@ namespace XoSoKienThiet.DAO
 {
     class PHIEUTHANHTOAN_DAO
     {
-          XoSoKienThietDbContext _Context = null;
-          public PHIEUTHANHTOAN_DAO()
+        XoSoKienThietDbContext _Context = null;
+        public PHIEUTHANHTOAN_DAO()
         {
             _Context = new XoSoKienThietDbContext();
         }
-          public void Insert(PHIEUTHANHTOAN phieuthanhtoan)
-          {
-              object[] parameters = 
+        public void Insert(PHIEUTHANHTOAN phieuthanhtoan)
+        {
+            object[] parameters = 
             {
                 new SqlParameter("@MaDoiTac", phieuthanhtoan.MaDoiTac),
                 new SqlParameter("@MaDotPhatHanh", phieuthanhtoan.MaDotPhatHanh),
@@ -31,8 +31,16 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@DiaChi", phieuthanhtoan.DiaChi),
                 new SqlParameter("@Email", phieuthanhtoan.Email)
             };
-              _Context.Database.ExecuteSqlCommand(@"PHIEUTHANHTOAN_Ins @MaDoiTac, @MaDotPhatHanh, @SoTienNo, 
+            _Context.Database.ExecuteSqlCommand(@"PHIEUTHANHTOAN_Ins @MaDoiTac, @MaDotPhatHanh, @SoTienNo, 
                                                         @SoTienThu, @SoTienConLai, @NgayLap,@MaNhanVienLap, @TenNguoiNop, @SDT, @DiaChi , @Email", parameters);
-          }
+        }
+        public List<PHIEUTHANHTOAN> Select(string madoitac = "")
+        {
+            object[] parameters = 
+            {
+                new SqlParameter("@MaDoiTac", madoitac)
+            };
+            return _Context.Database.SqlQuery<PHIEUTHANHTOAN>("PHIEUTHANHTOAN_Sel @MaDoiTac", parameters).ToList();
+        }
     }
 }

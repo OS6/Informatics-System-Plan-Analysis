@@ -20,7 +20,34 @@ namespace XoSoKienThiet.BUS
         public string Insert(string madotphathanh, string madonvi,string manhanvienlap, string ngaylap, string noidungchi, string sotienchi)
         {
             _CheckError = new CheckError();
+            DateTime NgayLap;
             int SoTienChi = 0;
+            if (madotphathanh == "")
+            {
+                _CheckError.CheckErrorAvailable("Đợt phát hành");
+            }
+            if (madonvi == "")
+            {
+                _CheckError.CheckErrorAvailable("Đơn vị");
+            }
+            if (manhanvienlap == "")
+            {
+                _CheckError.CheckErrorAvailable("Nhân viên lập");
+            }
+            if (ngaylap == "")
+            {
+                _CheckError.CheckErrorAvailable("Ngày lập");
+            }
+            else
+            {
+                try
+                {
+                    NgayLap = Convert.ToDateTime(ngaylap);
+                }
+                catch (Exception)
+                {
+                }
+            }
             if (noidungchi == "")
             {
                 _CheckError.CheckErrorAvailable("Nội dung chi");
@@ -34,11 +61,15 @@ namespace XoSoKienThiet.BUS
             {
                 _CheckError.CheckErrorAvailable("Số tiền chi");
             }
-            else
+            else 
             {
                 try
                 {
                     SoTienChi = int.Parse(sotienchi);
+                    if(SoTienChi <= 0)
+                    {
+                        _CheckError.CheckErrorConstraint("Số tiền chi phải lớn hơn 0");
+                    }
                 }
                 catch
                 {

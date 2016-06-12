@@ -16,9 +16,30 @@ namespace XoSoKienThiet.DAO
         {
             _Context = new XoSoKienThietDbContext();
         }
-        public List<DOITAC> Select()
+        public List<DOITAC> Select(string madoitac = "")
         {
-            return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel").ToList();
+            var MaDoiTac = new SqlParameter("@MaDoiTac", madoitac);
+            return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel @MaDoiTac",MaDoiTac).ToList();
+        }
+
+        public float GetPercentagenDot(string madoitac, int sodot)
+        {
+            var MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
+            var SoDot = new SqlParameter("@SoDot", SqlDbType.Int)
+            {
+                Value = sodot
+            };
+            var TiLe = new SqlParameter("@TiLe", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetPercentageN @MaDoiTac, @SoDot,@TiLe out", MaDoiTac, SoDot, TiLe);
+
+            return float.Parse(TiLe.Value.ToString()); 
         }
         public List<DOITAC> SelectAgency()
         {
@@ -28,6 +49,15 @@ namespace XoSoKienThiet.DAO
         public List<DOITAC> SelectCompany()
         {
             return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_Company").ToList();
+        }
+        public List<DOITAC> SelectYourCompany()
+        {
+            return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_YourCompany").ToList();
+        }
+
+        public List<DOITAC> SelectNotYourCompany()
+        {
+            return _Context.Database.SqlQuery<DOITAC>("DOITAC_Sel_Not_YourCompany").ToList();
         }
         public bool IsYourCompany(string madoitac)
         {
@@ -44,9 +74,11 @@ namespace XoSoKienThiet.DAO
 
             return (bool)_IsYourCompany.Value;
         }
-        public void Insert(DOITAC doitac)
+        public void Insert_UpDate(DOITAC doitac)
         {
-            object[] parameters = 
+            if (doitac.MaDoiTac == "")
+            {
+                object[] parameters = 
             {
                 new SqlParameter("@MaLoaiDoiTac", doitac.MaLoaiDoiTac),
                 new SqlParameter("@Ten", doitac.Ten),
@@ -54,23 +86,38 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@SDT", doitac.SDT),
                 new SqlParameter("@Email",doitac.Email)
             };
-            _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+                _Context.Database.ExecuteSqlCommand("DOITAC_Ins @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+            }
+            else
+            {
+                object[] parameters = 
+            {
+                new SqlParameter("@MaDoiTac", doitac.MaDoiTac),
+                new SqlParameter("@MaLoaiDoiTac", doitac.MaLoaiDoiTac),
+                new SqlParameter("@Ten", doitac.Ten),
+                new SqlParameter("@DiaChi", doitac.DiaChi),
+                new SqlParameter("@SDT", doitac.SDT),
+                new SqlParameter("@Email",doitac.Email)
+            };
+                _Context.Database.ExecuteSqlCommand("DOITAC_Upd @MaDoiTac, @MaLoaiDoiTac, @Ten, @DiaChi, @SDT, @Email", parameters);
+            }
+
         }
 
-        public string GetMaDoiTac(string tendoitac)
+        public string GetTenDoiTac(string madoitac)
         {
-            var _Ten = new SqlParameter("@Ten", SqlDbType.NVarChar, 20)
-            {
-                Value = tendoitac
-            };
-            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            var _Ten = new SqlParameter("@Ten", SqlDbType.NVarChar, 100)
             {
                 Direction = ParameterDirection.Output
             };
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
 
-            _Context.Database.ExecuteSqlCommand("DOITAC_GetID @Ten, @MaDoiTac out", _Ten, _MaDoiTac);
+            _Context.Database.ExecuteSqlCommand("DOITAC_GetName @MaDoiTac, @Ten out", _MaDoiTac, _Ten);
 
-            return (string)_MaDoiTac.Value;
+            return (string)_Ten.Value;
         }
         public float GetPercentage(string madoitac)
         {

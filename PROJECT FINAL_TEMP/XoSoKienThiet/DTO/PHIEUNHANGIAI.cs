@@ -9,6 +9,25 @@ namespace XoSoKienThiet.DTO
     [Table("PHIEUNHANGIAI")]
     public partial class PHIEUNHANGIAI
     {
+        public PHIEUNHANGIAI()
+        {
+        }
+
+        public PHIEUNHANGIAI(string madotphathanh, string maloaive, string magiaithuong, decimal sotientrungthuong, decimal sotiendongthue, decimal sotiennhanduoc, string manhanvienlap, DateTime ngaylap, string hoten, string sdt, string cmnd)
+        {
+            this.MaDotPhatHanh = madotphathanh;
+            this.MaLoaiVe = maloaive;
+            this.MaGiaiThuong = magiaithuong;
+            this.MaNhanVienLap = manhanvienlap;
+            this.SoTienTrungThuong = sotientrungthuong;
+            this.SoTienDongThue = sotiendongthue;
+            this.SoTienNhanDuoc = sotiennhanduoc;
+            this.NgayLap = ngaylap;
+            this.HoTen = hoten;
+            this.SDT = sdt;
+            this.CMND = cmnd;
+        }
+
         [Key]
         [StringLength(10)]
         public string MaPhieuNhanGiai { get; set; }
@@ -25,11 +44,17 @@ namespace XoSoKienThiet.DTO
         [StringLength(10)]
         public string MaNhanVienLap { get; set; }
 
-        public int? SoTienTrungThuong { get; set; }
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? SoTienTrungThuong { get; set; }
 
-        public double? SoTienDongThue { get; set; }
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? SoTienDongThue { get; set; }
 
-        public double? SoTienNhanDuoc { get; set; }
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
+        public decimal? SoTienNhanDuoc { get; set; }
 
         [Column(TypeName = "smalldatetime")]
         public DateTime? NgayLap { get; set; }
@@ -43,10 +68,5 @@ namespace XoSoKienThiet.DTO
         [StringLength(10)]
         public string CMND { get; set; }
 
-        public virtual DOTPHATHANH DOTPHATHANH { get; set; }
-
-        public virtual LOAIVE LOAIVE { get; set; }
-
-        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

@@ -16,6 +16,14 @@
             
         }
 
+        public DOTPHATHANH(DateTime ngayphathanh, DateTime ngayxoso, int gioxoso, string macongty)
+        {
+            this.NgayPhatHanh = ngayphathanh;
+            this.NgayXoSo = ngayxoso;
+            this.GioXoSo = gioxoso;
+            this.MaCongTy = macongty;
+        }
+
         [Key]
         [StringLength(10)]
         [DisplayName("Mã đợt phát hành")]
@@ -28,6 +36,8 @@
         [Column(TypeName = "smalldatetime")]
         [DisplayName("Ngày xổ số")]
         public DateTime? NgayXoSo { get; set; }
+        [DisplayName("Giờ xổ số")]
+        public int? GioXoSo { get; set; }
 
         [StringLength(10)]
         [DisplayName("Mã công ty")]

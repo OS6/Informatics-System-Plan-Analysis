@@ -29,6 +29,9 @@
         [StringLength(10)]
         public string MaChiTietPhieuTra { get; set; }
 
+        [StringLength(10)]
+        public string MaPhieuTraVe { get; set; }
+
         [StringLength(100)]
         [DisplayName("Công ty phát hành")]
         public string Ten { get; set; }
@@ -36,13 +39,16 @@
         [Column(TypeName = "smalldatetime")]
         [DisplayName("Ngày phát hành")]
         public DateTime? NgayPhatHanh { get; set; }
-         [DisplayName("Mệnh giá")]
+        [DisplayName("Mệnh giá")]
         public int? MenhGia { get; set; }
         [DisplayName("Số lượng nhận")]
-         public int? SoVeNhan { get; set; }
+        public int? SoVeNhan { get; set; }
         [DisplayName("Số lượng trả")]
         public int? SoVeTra { get; set; }
         [DisplayName("Số tiền phải trả")]
-        public double? SoTienPhaiTra { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? SoTienPhaiTra { get; set; }
+        public bool? HoanThanh { get; set; }
+
     }
 }

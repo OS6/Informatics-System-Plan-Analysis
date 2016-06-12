@@ -14,13 +14,14 @@
         public NHANVIEN()
         {
         }
-        public NHANVIEN(string macocautochuc, string ten, string sdt, string diachi,string email)
+        public NHANVIEN(string macocautochuc, string ten, string sdt, string diachi,string email, string manhanvien = "")
         {
             this.MaCoCauToChuc = macocautochuc;
             this.Ten = ten;
             this.SDT = sdt;
             this.DiaChi = diachi;
             this.Email = email;
+            this.MaNhanVien = manhanvien;
         }
 
         [Key]

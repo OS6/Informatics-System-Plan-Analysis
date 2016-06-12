@@ -17,7 +17,7 @@ namespace XoSoKienThiet.BUS
         }
         public void Insert(string mact_ketqua, string sotrung)
         {
-            DANHSACHSOTRUNG danhsach = new DANHSACHSOTRUNG(mact_ketqua, sotrung);
+            DANHSACHSOTRUNG danhsach = new DANHSACHSOTRUNG(mact_ketqua, Convert.ToInt32(sotrung));
             _DANHSACHSOTRUNG_DAO.Insert(danhsach);
         }
     }
