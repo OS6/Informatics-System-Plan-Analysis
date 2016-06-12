@@ -35,8 +35,14 @@ namespace XoSoKienThiet.DAO
             };
             _Context.Database.ExecuteSqlCommand("KEHOACHPHATHANH_GetAmountofTicketRegister @MaDotPhatHanh, @MaLoaiVe, @TongVeDuKien out",
                                                                                           MaDotPhatHanh, MaLoaiVe, TongVeDuKien);
-
-            return (int)TongVeDuKien.Value;
+            try
+            {
+                return (int)TongVeDuKien.Value;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
         public int GetAmountofTicketMax(string madotphathanh, string maloaive)
         {

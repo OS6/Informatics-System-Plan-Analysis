@@ -173,6 +173,7 @@
             this.lkTenDoiTac.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkTenDoiTac.Properties.NullText = "";
+            this.lkTenDoiTac.Properties.PopupFormMinSize = new System.Drawing.Size(500, 0);
             this.lkTenDoiTac.Properties.ReadOnly = true;
             this.lkTenDoiTac.Size = new System.Drawing.Size(249, 22);
             this.lkTenDoiTac.StyleController = this.lcInfo;
@@ -180,12 +181,12 @@
             // 
             // rbtnLoaiDoiTac
             // 
-            this.rbtnLoaiDoiTac.Enabled = false;
             this.rbtnLoaiDoiTac.Location = new System.Drawing.Point(98, 16);
             this.rbtnLoaiDoiTac.Name = "rbtnLoaiDoiTac";
             this.rbtnLoaiDoiTac.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Công ty"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đại lý")});
+            this.rbtnLoaiDoiTac.Properties.ReadOnly = true;
             this.rbtnLoaiDoiTac.Size = new System.Drawing.Size(77, 50);
             this.rbtnLoaiDoiTac.StyleController = this.lcInfo;
             this.rbtnLoaiDoiTac.TabIndex = 9;
@@ -600,6 +601,7 @@
             this.colDaNhan});
             this.gvBASE.GridControl = this.gcBASE;
             this.gvBASE.Name = "gvBASE";
+            this.gvBASE.OptionsBehavior.Editable = false;
             // 
             // colMaPhieuDangKy
             // 

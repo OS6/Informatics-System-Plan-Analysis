@@ -38,7 +38,10 @@ namespace XoSoKienThiet.BUS
         {
             return _CT_PHIEUDANGKYVE_DAO.GetAmountOfMaxRegisterTicket(madoitac, macongty, madotphathanh, maloaive);
         }
-
+        public bool CheckRegister(string madoitac, string macongty, string madotphathanh, string maloaive)
+        {
+            return _CT_PHIEUDANGKYVE_DAO.CheckRegister(madoitac, macongty, madotphathanh, maloaive);
+        }
         public string Insert(string maphieudangkyve, string macongtyphathanh, string madotphathanh, string maloaive, string sovedktoida, string sovedangky)
         {
             _CheckError = new CheckError();

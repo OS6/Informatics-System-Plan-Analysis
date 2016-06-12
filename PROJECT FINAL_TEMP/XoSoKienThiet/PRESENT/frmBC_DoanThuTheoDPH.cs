@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using XoSoKienThiet.BUS;
+using XoSoKienThiet.REPORT;
+using DevExpress.XtraReports.UI;
 
 namespace XoSoKienThiet.PRESENT
 {
@@ -16,6 +18,8 @@ namespace XoSoKienThiet.PRESENT
     {
         BAOCAODOANHTHUTHEODOTPHATHANH_BUS _BAOCAODOANHTHUTHEODOTPHATHANH_BUS = null;
         DOTPHATHANH_BUS _DOTPHATHANH_BUS = null;
+        rptDoanThuTheoDPH _Report = null;
+        ReportPrintTool _Tool = null;
         public frmBC_DoanThuTheoDPH()
         {
             InitializeComponent();
@@ -26,6 +30,7 @@ namespace XoSoKienThiet.PRESENT
         private void btnHienThi_Click(object sender, EventArgs e)
         {
             string MaDotPhatHanh = "";
+            decimal GT;
             try
             {
                 MaDotPhatHanh = Convert.ToString(lkDotPhatHanh.Properties.GetDataSourceValue("MaDotPhatHanh", lkDotPhatHanh.ItemIndex));
@@ -39,12 +44,22 @@ namespace XoSoKienThiet.PRESENT
             }
             else
             {
+                _Report = new rptDoanThuTheoDPH();
                 var BaoCaoDot  = _BAOCAODOANHTHUTHEODOTPHATHANH_BUS.Select(MaDotPhatHanh);
-                txtTongThu.Text = BaoCaoDot.TongThu.ToString();
-                txtTongChi.Text = BaoCaoDot.TongChi.ToString();
-                txtLoiNhuan.Text = BaoCaoDot.LoiNhuan.ToString();
-                txtCongQuy.Text = BaoCaoDot.CongQuy.ToString();
-            }  
+                GT = (decimal)BaoCaoDot.TongThu;
+                txtTongThu.Text = GT.ToString("N0");
+                GT = (decimal)BaoCaoDot.TongChi;
+                txtTongChi.Text = GT.ToString("N0");
+                GT = (decimal)BaoCaoDot.LoiNhuan;
+                txtLoiNhuan.Text = GT.ToString("N0");
+                GT = (decimal)BaoCaoDot.CongQuy;
+                txtCongQuy.Text = GT.ToString("N0");
+            }
+            _Report.rptMaDotPhatHanh.Text = "Mã đợt phát hành: " + MaDotPhatHanh + ", ngày phát hành: " + lkDotPhatHanh.Properties.GetDataSourceValue("NgayPhatHanh", lkDotPhatHanh.ItemIndex);
+            _Report.rptTongThu.Text = "Tổng thu : " + txtTongThu.Text + " VND";
+            _Report.rptTongChi.Text = "Tổng chi : " + txtTongChi.Text + " VND";
+            _Report.rptLoiNhuan.Text = "Lợi nhuận : " + txtLoiNhuan.Text + " VND";
+            _Report.rptCongQuy.Text = "Công quỹ : " + txtCongQuy.Text + " VND";
         }
 
         private void frmBC_DoanThuTheoDPH_Load(object sender, EventArgs e)
@@ -62,5 +77,16 @@ namespace XoSoKienThiet.PRESENT
             #endregion
         }
 
+        private void btnXuatFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
+            _Tool = new ReportPrintTool(_Report);
+            _Tool.ShowPreview();
+        }
     }
 }

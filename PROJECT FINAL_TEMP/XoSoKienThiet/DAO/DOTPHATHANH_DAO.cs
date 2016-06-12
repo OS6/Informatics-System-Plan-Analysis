@@ -25,7 +25,7 @@ namespace XoSoKienThiet.DAO
                 new SqlParameter("@NgayXoSo", dotphathanh.NgayXoSo),
                 new SqlParameter("@GioXoSo", dotphathanh.GioXoSo)
             };
-            _Context.Database.ExecuteSqlCommand("DOTPHATHANH_Ins", parameters);
+            _Context.Database.ExecuteSqlCommand("DOTPHATHANH_Ins @MaCongTy,@NgayPhatHanh,@NgayXoSo,@GioXoSo", parameters);
         }
         public List<DOTPHATHANH> Select()
         {

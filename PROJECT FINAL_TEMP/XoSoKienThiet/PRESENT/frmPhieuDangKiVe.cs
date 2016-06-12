@@ -52,7 +52,7 @@ namespace XoSoKienThiet.PRESENT
             }
             else
             {
-                var ListDoiTac = _DOITAC_BUS.SelectCompany();
+                var ListDoiTac = _DOITAC_BUS.SelectAgency();
                 lkTenDoiTac.Properties.DataSource = ListDoiTac;
                 lkTenDoiTac.Properties.DisplayMember = "Ten";
 
@@ -136,21 +136,27 @@ namespace XoSoKienThiet.PRESENT
 
         private void lkDotPhatHanh_EditValueChanged(object sender, EventArgs e)
         {
-            lkLoaiVe.Text = "";
-            lkLoaiVe.Properties.DataSource = null;
-            lkLoaiVe.ReadOnly = false;
+            try
+            {
+                lkLoaiVe.Text = "";
+                lkLoaiVe.ReadOnly = false;
 
-            _MaCongTy = lkCongTyPhatHanh.GetColumnValue("MaDoiTac").ToString();
-            _MaDotPhatHanh = lkDotPhatHanh.GetColumnValue("MaDotPhatHanh").ToString();
-            var ListLoaiVe = _LOAIVE_BUS.Select_Con_Company(_MaCongTy);
-            lkLoaiVe.Properties.DataSource = ListLoaiVe;
-            lkLoaiVe.Properties.DisplayMember = "MenhGia";
-            lkLoaiVe.Properties.ValueMember = "MaLoaiVe";
+                _MaCongTy = lkCongTyPhatHanh.GetColumnValue("MaDoiTac").ToString();
+                _MaDotPhatHanh = lkDotPhatHanh.GetColumnValue("MaDotPhatHanh").ToString();
+                var ListLoaiVe = _LOAIVE_BUS.Select_Con_Company(_MaCongTy);
+                lkLoaiVe.Properties.DataSource = ListLoaiVe;
+                lkLoaiVe.Properties.DisplayMember = "MenhGia";
+                lkLoaiVe.Properties.ValueMember = "MaLoaiVe";
 
-            lkLoaiVe.Properties.ForceInitialize();
-            lkLoaiVe.Properties.PopulateColumns();
+                lkLoaiVe.Properties.ForceInitialize();
+                lkLoaiVe.Properties.PopulateColumns();
 
-            lkLoaiVe.Properties.Columns["MaCongTy"].Visible = false;
+                lkLoaiVe.Properties.Columns["MaCongTy"].Visible = false;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Form phiếu đăng ký lkDPH ediit change value");
+            }
         }
 
         private void lkLoaiVe_EditValueChanged(object sender, EventArgs e)
@@ -177,7 +183,12 @@ namespace XoSoKienThiet.PRESENT
             lkNguoiLap.ReadOnly = false;
             deNgayLap.ReadOnly = false;
             lkCongTyPhatHanh.ReadOnly = false;
+            rbtnLoaiDoiTac.ReadOnly = false;
+            lkDotPhatHanh.EditValue = null;
             btnLuu.Enabled = true;
+            lkCongTyPhatHanh.EditValue = null;
+            lkTenDoiTac.EditValue = null;
+            lkNguoiLap.EditValue = null;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -200,21 +211,31 @@ namespace XoSoKienThiet.PRESENT
             string Error = "";
             if (_MaPhieuDangKy != "")
             {
-                Error = _CT_PHIEUDANGKYVE_BUS.Insert(_MaPhieuDangKy, _MaCongTy, _MaDotPhatHanh, _MaLoaiVe, txtSoVeToiDa.Text, txtSoVeDangKy.Text);
-                if (Error == "")
+                bool DaDangKy = _CT_PHIEUDANGKYVE_BUS.CheckRegister(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString(),
+                                                                        _MaCongTy, _MaDotPhatHanh, _MaLoaiVe);
+                if (DaDangKy == true)// đã đăng ký chi tiết vé
                 {
-                    XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Loại vé đã được đăng ký", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                var ListCT_DKV = _CT_PHIEUDANGKYVE_BUS.SelectView(_MaPhieuDangKy);
-                gcBASE.DataSource = ListCT_DKV;
-                var SoVeDK = from p in ListCT_DKV
-                             select p.SoVeDangKy;
+                    Error = _CT_PHIEUDANGKYVE_BUS.Insert(_MaPhieuDangKy, _MaCongTy, _MaDotPhatHanh, _MaLoaiVe, txtSoVeToiDa.Text, txtSoVeDangKy.Text);
+                    if (Error == "")
+                    {
+                        XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    var ListCT_DKV = _CT_PHIEUDANGKYVE_BUS.SelectView(_MaPhieuDangKy);
+                    gcBASE.DataSource = ListCT_DKV;
+                    var SoVeDK = from p in ListCT_DKV
+                                 select p.SoVeDangKy;
 
-                txtTongSoVe.Text = (Convert.ToString(SoVeDK.Sum()));
+                    txtTongSoVe.Text = (Convert.ToString(SoVeDK.Sum()));
+                }
+             
 
             }
             else
@@ -225,21 +246,30 @@ namespace XoSoKienThiet.PRESENT
                                                            lkNguoiLap.GetColumnValue("MaNhanVien").ToString(),
                                                          _NgayLap,
                                                            txtTongSoVe.Text);
+
                 if (Error == "")
                 {
-                    _MaPhieuDangKy = _PHIEUDANGKYVE_BUS.Insert(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString(),
+                   _MaPhieuDangKy = _PHIEUDANGKYVE_BUS.Insert(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString(),
                                                            lkNguoiLap.GetColumnValue("MaNhanVien").ToString(),
-                                                           _NgayLap,
-                                                      txtTongSoVe.Text);
-
-                    Error = _CT_PHIEUDANGKYVE_BUS.Insert(_MaPhieuDangKy, _MaCongTy, _MaDotPhatHanh, _MaLoaiVe, txtSoVeToiDa.Text, txtSoVeDangKy.Text);
-                    if (Error == "")
+                                                         _NgayLap,
+                                                           txtTongSoVe.Text);
+                    bool DaDangKy = _CT_PHIEUDANGKYVE_BUS.CheckRegister(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString(),
+                                                                       _MaCongTy, _MaDotPhatHanh, _MaLoaiVe);
+                    if (DaDangKy == true)// đã đăng ký chi tiết vé
                     {
-                        XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Loại vé đã được đăng ký", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Error = _CT_PHIEUDANGKYVE_BUS.Insert(_MaPhieuDangKy, _MaCongTy, _MaDotPhatHanh, _MaLoaiVe, txtSoVeToiDa.Text, txtSoVeDangKy.Text);
+                        if (Error == "")
+                        {
+                            XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else

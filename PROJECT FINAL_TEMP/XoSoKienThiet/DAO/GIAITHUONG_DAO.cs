@@ -31,7 +31,7 @@ namespace XoSoKienThiet.DAO
             {
                 new SqlParameter("@MaLoaiVe", giaithuong.MaLoaiVe),
                 new SqlParameter("@Ten", giaithuong.Ten),
-                new SqlParameter("@SoTienTrung", string.Format("{0:C}",giaithuong.SoTienTrung)),
+                new SqlParameter("@SoTienTrung",giaithuong.SoTienTrung),
                 new SqlParameter("@SoGiai", giaithuong.SoGiai)
             };
                 _Context.Database.ExecuteSqlCommand("GIAITHUONG_Ins @MaLoaiVe, @Ten, @SoTienTrung, @SoGiai", parameters);
@@ -43,7 +43,7 @@ namespace XoSoKienThiet.DAO
             {
                 new SqlParameter("@MaGiaiThuong", giaithuong.MaGiaiThuong),
                 new SqlParameter("@Ten", giaithuong.Ten),
-                new SqlParameter("@SoTienTrung", string.Format("{0:C}",giaithuong.SoTienTrung)),
+                new SqlParameter("@SoTienTrung", giaithuong.SoTienTrung),
                 new SqlParameter("@SoGiai", giaithuong.SoGiai)
             };
                 _Context.Database.ExecuteSqlCommand("GIAITHUONG_Upd @MaGiaiThuong, @Ten, @SoTienTrung, @SoGiai", parameters);

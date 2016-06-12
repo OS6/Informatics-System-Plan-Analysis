@@ -19,6 +19,7 @@ namespace XoSoKienThiet.BUS
         public void Insert(string ngayphathanh, string ngayxoso, string gioxoso, string macongty)
         {
             DOTPHATHANH _DOTPHATHANH = new DOTPHATHANH(Convert.ToDateTime(ngayphathanh), Convert.ToDateTime(ngayxoso), Convert.ToInt32(gioxoso), macongty);
+            _DOTPHATHANH_DAO.Insert(_DOTPHATHANH);
         }
         public List<DOTPHATHANH> Select()
         {

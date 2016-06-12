@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelHeader = new DevExpress.XtraEditors.PanelControl();
             this.lbHeader = new DevExpress.XtraEditors.LabelControl();
             this.groupInfo = new DevExpress.XtraEditors.GroupControl();
@@ -216,7 +215,6 @@
             // 
             this.lkDotPhatHanh.Location = new System.Drawing.Point(338, 44);
             this.lkDotPhatHanh.Name = "lkDotPhatHanh";
-            this.lkDotPhatHanh.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
             this.lkDotPhatHanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkDotPhatHanh.Properties.NullText = "";

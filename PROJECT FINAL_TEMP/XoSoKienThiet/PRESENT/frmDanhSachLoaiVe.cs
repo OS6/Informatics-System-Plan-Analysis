@@ -30,8 +30,16 @@ namespace XoSoKienThiet.PRESENT
 
         private void lkTenCongTy_EditValueChanged(object sender, EventArgs e)
         {
+            try
+            {
+                
             _MaCongTy = lkTenCongTy.GetColumnValue("MaDoiTac").ToString();
             gcBASE.DataSource = _LOAIVE_BUS.Select_Con_Company(_MaCongTy);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Form danh sách loại vé lk change");
+            }
         }
 
         private void frmDanhSachLoaiVe_Load(object sender, EventArgs e)
@@ -55,6 +63,7 @@ namespace XoSoKienThiet.PRESENT
             _Type = 0;
             txtMenhGiaVe.Text = "";
             txtMenhGiaVe.ReadOnly = false;
+            lkTenCongTy.EditValue = null;
         }
 
         private void btnSua_Click(object sender, EventArgs e)

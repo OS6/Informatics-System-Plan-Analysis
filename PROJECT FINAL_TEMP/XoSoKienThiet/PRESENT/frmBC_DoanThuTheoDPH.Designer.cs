@@ -145,6 +145,7 @@
             this.btnIn.StyleController = this.layoutControl1;
             this.btnIn.TabIndex = 7;
             this.btnIn.Text = "In file";
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnXuatFile
             // 
@@ -154,6 +155,7 @@
             this.btnXuatFile.StyleController = this.layoutControl1;
             this.btnXuatFile.TabIndex = 6;
             this.btnXuatFile.Text = "Xuất file";
+            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // btnHienThi
             // 

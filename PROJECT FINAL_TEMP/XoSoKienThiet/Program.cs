@@ -17,7 +17,7 @@ namespace XoSoKienThiet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBC_TieuThuDaiLy());
+            Application.Run(new frmPhieuDangKiVe());
         }
     }
 }

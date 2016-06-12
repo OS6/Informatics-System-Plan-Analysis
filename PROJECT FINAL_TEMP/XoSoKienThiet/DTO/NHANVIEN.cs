@@ -47,6 +47,7 @@
         [StringLength(30)]
         [DisplayName("Email")]
         public string Email { get; set; }
+        public int? MaTaiKhoan { get; set; }
 
     }
 }

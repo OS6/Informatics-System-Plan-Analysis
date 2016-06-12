@@ -70,6 +70,7 @@
             this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).BeginInit();
             this.panelHeader.SuspendLayout();
@@ -107,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -145,7 +147,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(886, 295, 879, 564);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(982, 55);
+            this.layoutControl1.Size = new System.Drawing.Size(982, 60);
             this.layoutControl1.TabIndex = 14;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -153,10 +155,11 @@
             // 
             this.lkLoaiVe.Location = new System.Drawing.Point(72, 16);
             this.lkLoaiVe.Name = "lkLoaiVe";
+            this.lkLoaiVe.Properties.AutoHeight = false;
             this.lkLoaiVe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkLoaiVe.Properties.NullText = "";
-            this.lkLoaiVe.Size = new System.Drawing.Size(894, 22);
+            this.lkLoaiVe.Size = new System.Drawing.Size(276, 28);
             this.lkLoaiVe.StyleController = this.layoutControl1;
             this.lkLoaiVe.TabIndex = 4;
             this.lkLoaiVe.EditValueChanged += new System.EventHandler(this.lkLoaiVe_EditValueChanged);
@@ -166,19 +169,22 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.simpleSeparator1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(982, 55);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(982, 60);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.lkLoaiVe;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(112, 28);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(956, 29);
+            this.layoutControlItem1.Size = new System.Drawing.Size(338, 34);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "Loại vé: ";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(52, 17);
             // 
@@ -186,7 +192,7 @@
             // 
             this.groupInfo.Controls.Add(this.lcInfo);
             this.groupInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupInfo.Location = new System.Drawing.Point(0, 105);
+            this.groupInfo.Location = new System.Drawing.Point(0, 110);
             this.groupInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupInfo.Name = "groupInfo";
             this.groupInfo.Size = new System.Drawing.Size(982, 85);
@@ -283,7 +289,7 @@
             this.lcButton.Controls.Add(this.btnSua);
             this.lcButton.Controls.Add(this.btnThem);
             this.lcButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lcButton.Location = new System.Drawing.Point(0, 190);
+            this.lcButton.Location = new System.Drawing.Point(0, 195);
             this.lcButton.Name = "lcButton";
             this.lcButton.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(971, 349, 865, 626);
             this.lcButton.Root = this.groupButton;
@@ -413,10 +419,10 @@
             // 
             this.groupBASE.Controls.Add(this.gcBASE);
             this.groupBASE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBASE.Location = new System.Drawing.Point(0, 264);
+            this.groupBASE.Location = new System.Drawing.Point(0, 269);
             this.groupBASE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBASE.Name = "groupBASE";
-            this.groupBASE.Size = new System.Drawing.Size(982, 339);
+            this.groupBASE.Size = new System.Drawing.Size(982, 334);
             this.groupBASE.TabIndex = 38;
             this.groupBASE.Text = "Danh sách giải thưởng";
             // 
@@ -434,7 +440,7 @@
             this.repositoryItemTextEdit3,
             this.repositoryItemTextEdit4,
             this.repositoryItemComboBox1});
-            this.gcBASE.Size = new System.Drawing.Size(978, 312);
+            this.gcBASE.Size = new System.Drawing.Size(978, 307);
             this.gcBASE.TabIndex = 1;
             this.gcBASE.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBASE});
@@ -522,6 +528,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.Location = new System.Drawing.Point(338, 0);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(618, 39);
+            // 
             // frmCoCauGiaiThuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -573,6 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -621,5 +635,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoTienTrung;
         private DevExpress.XtraGrid.Columns.GridColumn colSoGiai;
         private DevExpress.XtraGrid.Columns.GridColumn colTongTienTrung;
+        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
     }
 }

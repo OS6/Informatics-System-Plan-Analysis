@@ -90,7 +90,13 @@ namespace XoSoKienThiet.PRESENT
 
         private void lkTenDoiTac_EditValueChanged(object sender, EventArgs e)
         {
-            txtTienNo.Text = _DOITAC_BUS.GetDebt(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString()).ToString();
+            try
+            {
+                txtTienNo.Text = _DOITAC_BUS.GetDebt(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString()).ToString();
+            }
+            catch (Exception)
+            {
+            }
             try
             {
                 gcBASE.DataSource = _PHIEUTHANHTOAN_BUS.Select(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString());
@@ -144,6 +150,10 @@ namespace XoSoKienThiet.PRESENT
             txtSoDienThoai.Text = "";
             txtDiaChi.Text = "";
             txtEmail.Text = "";
+
+            lkTenDoiTac.EditValue = null;
+            lkDotPhatHanh.EditValue = null;
+            lkNguoiLap.EditValue = null;
         }
 
         private void btnSua_Click(object sender, EventArgs e)

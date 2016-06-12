@@ -13,9 +13,41 @@ namespace XoSoKienThiet.PRESENT
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmMain()
+        public frmMain(string tennhanvien, string mabophan, string tenbophan)
         {
             InitializeComponent();
+            barUser.Caption = tennhanvien + " - " + tenbophan;
+            switch (mabophan)
+            {
+                case "BP00000001":
+                    pgLapKeHoach.Enabled = false;
+                    pgGhiKQXS.Enabled = false;
+                    pgTiepNhanDoiTac.Enabled = false;
+                    pgQuyDinh.Enabled = false;
+                    pgQuanLyNhanVien.Enabled = false;
+                    pgQuyDinhVe.Enabled = false;
+                    break;
+                case "BP00000002":
+                    pgChiTieu.Enabled = false;
+                    pgGhiKQXS.Enabled = false;
+                    pgTiepNhanDoiTac.Enabled = false;
+                    pgQuyDinh.Enabled = false;
+                    pgQuanLyNhanVien.Enabled = false;
+                    pgQuyDinhVe.Enabled = false;
+                    break;
+                case "BP00000003":
+                    pgLapKeHoach.Enabled = false;
+                    pgChiTieu.Enabled = false;
+                    pgTiepNhanDoiTac.Enabled = false;
+                    pgDoiTac.Enabled = false;
+                    pgCongTy.Enabled = false;
+                    pgQuyDinh.Enabled = false;
+                    pgQuanLyNhanVien.Enabled = false;
+                    pgQuyDinhVe.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
         }
         private Form KiemTraTonTai(Type formType)
         {
@@ -106,7 +138,7 @@ namespace XoSoKienThiet.PRESENT
 
         private void rbtnPhieuNhanGiai_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
         }
 
         private void rbtnPhieuThanhToan_ItemClick(object sender, ItemClickEventArgs e)
@@ -301,7 +333,32 @@ namespace XoSoKienThiet.PRESENT
 
         private void rbtnCapNhat_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Form frm = this.KiemTraTonTai(typeof(frmCapNhatTaiKhoan));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmCapNhatTaiKhoan f = new frmCapNhatTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
 
+        private void rbtnDotPhatHanh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTraTonTai(typeof(frmDotPhatHanh));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmDotPhatHanh f = new frmDotPhatHanh();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void rbtnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
@@ -317,6 +374,11 @@ namespace XoSoKienThiet.PRESENT
         private void rbtnHelp_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

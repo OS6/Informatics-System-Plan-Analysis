@@ -43,7 +43,7 @@ namespace XoSoKienThiet.BUS
             }
             if (_sErrorNumber != "")
             {
-                this._sErrorNumber = this._sErrorNumber.Remove(this._sErrorNumber.Length - 2) + " phải là số nguyên\n";
+                this._sErrorNumber = this._sErrorNumber.Remove(this._sErrorNumber.Length - 2) + " không đúng\n";
             }
             return this._sErrorAvalable + this._sErrorCharacter + this._sErrorNumber+this._sErrorConstraint;
         }

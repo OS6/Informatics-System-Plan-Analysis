@@ -39,13 +39,13 @@
             this.lkCongTyPhatHanh = new DevExpress.XtraEditors.LookUpEdit();
             this.txtGioXoSo = new DevExpress.XtraEditors.TextEdit();
             this.lcgInfo = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupBASE = new DevExpress.XtraEditors.GroupControl();
             this.gcBASE = new DevExpress.XtraGrid.GridControl();
             this.gvBASE = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -63,13 +63,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkCongTyPhatHanh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGioXoSo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).BeginInit();
             this.groupBASE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).BeginInit();
@@ -223,15 +223,6 @@
             this.lcgInfo.Size = new System.Drawing.Size(978, 96);
             this.lcgInfo.TextVisible = false;
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txtGioXoSo;
-            this.layoutControlItem4.Location = new System.Drawing.Point(375, 28);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(358, 28);
-            this.layoutControlItem4.Text = "Giờ xổ số: ";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(113, 17);
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -289,6 +280,15 @@
             this.layoutControlItem3.Text = "Ngày xổ số: ";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(113, 17);
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtGioXoSo;
+            this.layoutControlItem4.Location = new System.Drawing.Point(375, 28);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(358, 28);
+            this.layoutControlItem4.Text = "Giờ xổ số: ";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(113, 17);
+            // 
             // groupBASE
             // 
             this.groupBASE.Controls.Add(this.gcBASE);
@@ -319,6 +319,7 @@
             // 
             this.gvBASE.GridControl = this.gcBASE;
             this.gvBASE.Name = "gvBASE";
+            this.gvBASE.OptionsBehavior.Editable = false;
             this.gvBASE.OptionsView.ShowGroupPanel = false;
             // 
             // repositoryItemCheckEdit1
@@ -350,13 +351,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkCongTyPhatHanh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGioXoSo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).EndInit();
             this.groupBASE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).EndInit();

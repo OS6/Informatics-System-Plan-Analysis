@@ -16,12 +16,16 @@ namespace XoSoKienThiet.DTO
         [StringLength(10)]
         public string MaDotPhatHanh { get; set; }
         [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
         public decimal? TongThu { get; set; }
         [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
         public decimal? TongChi { get; set; }
         [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
         public decimal? LoiNhuan { get; set; }
         [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "N0")]
         public decimal? CongQuy { get; set; }
 
         public virtual DOTPHATHANH DOTPHATHANH { get; set; }

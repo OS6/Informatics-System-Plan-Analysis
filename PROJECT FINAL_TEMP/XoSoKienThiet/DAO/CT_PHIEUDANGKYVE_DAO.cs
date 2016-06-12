@@ -72,6 +72,34 @@ namespace XoSoKienThiet.DAO
             return Convert.ToInt32(_SoVeDangKy.Value.ToString());
         }
 
+        public bool CheckRegister(string madoitac, string macongty, string madotphathanh, string maloaive)
+        {
+            var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
+            {
+                Value = madoitac
+            };
+            var _MaCongTy = new SqlParameter("@MaCongTy", SqlDbType.NChar, 10)
+            {
+                Value = macongty
+            };
+            var _MaDotPhatHanh = new SqlParameter("@MaDotPhatHanh", SqlDbType.NChar, 10)
+            {
+                Value = madotphathanh
+            };
+            var _MaLoaiVe = new SqlParameter("@MaLoaiVe", SqlDbType.NChar, 10)
+            {
+                Value = maloaive
+            };
+            var DaDangKy = new SqlParameter("@DaDangKy", SqlDbType.Bit)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            _Context.Database.ExecuteSqlCommand("CT_PHIEUDANGKYVE_CheckRegister @MaDoiTac, @MaCongTy, @MaDotPhatHanh, @MaLoaiVe, @DaDangKy out",
+                                                                                           _MaDoiTac, _MaCongTy, _MaDotPhatHanh, _MaLoaiVe, DaDangKy);
+            return Convert.ToBoolean(DaDangKy.Value.ToString());
+        }
+
         public int GetAmountOfMaxRegisterTicket(string madoitac, string macongty, string madotphathanh, string maloaive)
         {
             var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)

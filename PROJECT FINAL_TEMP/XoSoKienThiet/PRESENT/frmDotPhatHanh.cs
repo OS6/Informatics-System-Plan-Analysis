@@ -68,12 +68,12 @@ namespace XoSoKienThiet.PRESENT
             try
             {
                 _DOTPHATHANH_BUS.Insert(deNgayPhatHanh.Text, deNgayXoSo.Text, txtGioXoSo.Text, lkCongTyPhatHanh.GetColumnValue("MaDoiTac").ToString());
-                gcBASE.DataSource = _DOTPHATHANH_BUS.Select_Con_Company(lkCongTyPhatHanh.GetColumnValue("MaDoiTac").ToString());
                 XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                gcBASE.DataSource = _DOTPHATHANH_BUS.Select_Con_Company(lkCongTyPhatHanh.GetColumnValue("MaDoiTac").ToString());
             }
             catch (Exception)
             {
-                XtraMessageBox.Show("Không thêm được đợt phát hành.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Thông tin nhập không đúng.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

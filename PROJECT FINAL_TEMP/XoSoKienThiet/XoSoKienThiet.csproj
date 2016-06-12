@@ -118,6 +118,7 @@
     <Compile Include="BUS\CT_PHIEUDANGKYVE_BUS.cs" />
     <Compile Include="BUS\CT_PHIEUNHANVE_BUS.cs" />
     <Compile Include="BUS\CT_PHIEUTRAVE_BUS.cs" />
+    <Compile Include="BUS\DANGNHAP_BUS.cs" />
     <Compile Include="BUS\DANHSACHSOTRUNG_BUS.cs" />
     <Compile Include="BUS\DOITAC_BUS.cs" />
     <Compile Include="BUS\DOTPHATHANH_BUS.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="DAO\CT_PHIEUDANGKYVE_DAO.cs" />
     <Compile Include="DAO\CT_PHIEUNHANVE_DAO.cs" />
     <Compile Include="DAO\CT_PHIEUTRAVE_DAO.cs" />
+    <Compile Include="DAO\DANGNHAP_DAO.cs" />
     <Compile Include="DAO\DANHSACHSOTRUNG_DAO.cs" />
     <Compile Include="DAO\DOITAC_DAO.cs" />
     <Compile Include="DAO\DOTPHATHANH_DAO.cs" />
@@ -197,6 +199,19 @@
     <Compile Include="DTO\CT_KETQUAXOSO_VIEW.cs" />
     <Compile Include="DTO\CT_KEHOACHPHATHANH_VIEW.cs" />
     <Compile Include="DTO\CT_KQXS_GIAITHUONG_VIEW.cs" />
+    <Compile Include="DTO\TAIKHOAN.cs" />
+    <Compile Include="PRESENT\frmCapNhatTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRESENT\frmCapNhatTaiKhoan.Designer.cs">
+      <DependentUpon>frmCapNhatTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRESENT\frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRESENT\frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="PRESENT\frmTraCuuCongNo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,12 +334,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORT\rptDoanThuTheoDPH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\rptDoanThuTheoDPH.Designer.cs">
+      <DependentUpon>rptDoanThuTheoDPH.cs</DependentUpon>
+    </Compile>
     <Compile Include="REPORT\rptTieuThuDaiLy.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="REPORT\rptTieuThuDaiLy.Designer.cs">
       <DependentUpon>rptTieuThuDaiLy.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PRESENT\frmCapNhatTaiKhoan.resx">
+      <DependentUpon>frmCapNhatTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRESENT\frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PRESENT\frmTraCuuCongNo.resx">
       <DependentUpon>frmTraCuuCongNo.cs</DependentUpon>
     </EmbeddedResource>
@@ -391,6 +418,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\rptDoanThuTheoDPH.resx">
+      <DependentUpon>rptDoanThuTheoDPH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="REPORT\rptTieuThuDaiLy.resx">
       <DependentUpon>rptTieuThuDaiLy.cs</DependentUpon>
     </EmbeddedResource>
@@ -415,7 +445,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
