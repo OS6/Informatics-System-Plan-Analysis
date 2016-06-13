@@ -20,6 +20,7 @@ namespace XoSoKienThiet.PRESENT
         DOITAC_BUS _DOITAC_BUS = null;
         rptTieuThuDaiLy _Report = null;
         ReportPrintTool _Tool = null;
+        bool _InPhieu = false;
         public frmBC_TieuThuDaiLy()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace XoSoKienThiet.PRESENT
 
                 _Report = new rptTieuThuDaiLy();
                 _Report.DataSource = List;
+                _InPhieu = true;
             }
             catch (Exception)
             {
@@ -53,9 +55,17 @@ namespace XoSoKienThiet.PRESENT
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
-            _Tool = new ReportPrintTool(_Report);
-            _Tool.ShowPreview();
+            if (!_InPhieu)
+            {
+                XtraMessageBox.Show("Phải điền thông tin đầy đủ và lưu phiếu trước khi in!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
+                _Tool = new ReportPrintTool(_Report);
+                _Tool.ShowPreview();
+            }
         }
 
         private void frmBC_TieuThuDaiLy_Load(object sender, EventArgs e)

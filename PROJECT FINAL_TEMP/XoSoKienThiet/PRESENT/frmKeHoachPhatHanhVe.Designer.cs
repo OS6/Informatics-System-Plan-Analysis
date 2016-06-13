@@ -36,9 +36,10 @@
             this.lkDotPhatHanh = new DevExpress.XtraEditors.LookUpEdit();
             this.txtTongSoVe = new DevExpress.XtraEditors.TextEdit();
             this.lcgInfo = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             this.groupBASE = new DevExpress.XtraEditors.GroupControl();
             this.gcBASE = new DevExpress.XtraGrid.GridControl();
             this.gvBASE = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -53,7 +54,6 @@
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.panelHeader)).BeginInit();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupInfo)).BeginInit();
@@ -63,9 +63,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkDotPhatHanh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongSoVe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).BeginInit();
             this.groupBASE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).BeginInit();
@@ -77,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -87,7 +87,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(982, 50);
+            this.panelHeader.Size = new System.Drawing.Size(842, 41);
             this.panelHeader.TabIndex = 16;
             // 
             // lbHeader
@@ -100,7 +100,7 @@
             this.lbHeader.Location = new System.Drawing.Point(2, 2);
             this.lbHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbHeader.Name = "lbHeader";
-            this.lbHeader.Size = new System.Drawing.Size(978, 46);
+            this.lbHeader.Size = new System.Drawing.Size(838, 37);
             this.lbHeader.TabIndex = 1;
             this.lbHeader.Text = "KẾ HOẠCH PHÁT HÀNH VÉ";
             // 
@@ -108,10 +108,10 @@
             // 
             this.groupInfo.Controls.Add(this.lcInfo);
             this.groupInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupInfo.Location = new System.Drawing.Point(0, 50);
+            this.groupInfo.Location = new System.Drawing.Point(0, 41);
             this.groupInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupInfo.Name = "groupInfo";
-            this.groupInfo.Size = new System.Drawing.Size(982, 114);
+            this.groupInfo.Size = new System.Drawing.Size(842, 93);
             this.groupInfo.TabIndex = 17;
             this.groupInfo.Text = "Thông tin phát hành vé";
             // 
@@ -121,20 +121,20 @@
             this.lcInfo.Controls.Add(this.lkDotPhatHanh);
             this.lcInfo.Controls.Add(this.txtTongSoVe);
             this.lcInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcInfo.Location = new System.Drawing.Point(2, 25);
+            this.lcInfo.Location = new System.Drawing.Point(2, 20);
             this.lcInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lcInfo.Name = "lcInfo";
             this.lcInfo.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(929, 404, 947, 692);
             this.lcInfo.Root = this.lcgInfo;
-            this.lcInfo.Size = new System.Drawing.Size(978, 87);
+            this.lcInfo.Size = new System.Drawing.Size(838, 71);
             this.lcInfo.TabIndex = 0;
             this.lcInfo.Text = "layoutControl1";
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(856, 16);
+            this.btnThem.Location = new System.Drawing.Point(734, 12);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(106, 55);
+            this.btnThem.Size = new System.Drawing.Size(92, 47);
             this.btnThem.StyleController = this.lcInfo;
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Lưu";
@@ -142,13 +142,13 @@
             // 
             // lkDotPhatHanh
             // 
-            this.lkDotPhatHanh.Location = new System.Drawing.Point(119, 16);
+            this.lkDotPhatHanh.Location = new System.Drawing.Point(93, 12);
             this.lkDotPhatHanh.Name = "lkDotPhatHanh";
             this.lkDotPhatHanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkDotPhatHanh.Properties.NullText = "";
             this.lkDotPhatHanh.Properties.PopupFormMinSize = new System.Drawing.Size(400, 0);
-            this.lkDotPhatHanh.Size = new System.Drawing.Size(731, 22);
+            this.lkDotPhatHanh.Size = new System.Drawing.Size(637, 20);
             this.lkDotPhatHanh.StyleController = this.lcInfo;
             this.lkDotPhatHanh.TabIndex = 9;
             this.lkDotPhatHanh.EditValueChanged += new System.EventHandler(this.lkDotPhatHanh_EditValueChanged);
@@ -156,11 +156,10 @@
             // txtTongSoVe
             // 
             this.txtTongSoVe.EditValue = "0";
-            this.txtTongSoVe.Enabled = false;
-            this.txtTongSoVe.Location = new System.Drawing.Point(119, 44);
+            this.txtTongSoVe.Location = new System.Drawing.Point(93, 36);
             this.txtTongSoVe.Name = "txtTongSoVe";
             this.txtTongSoVe.Properties.ReadOnly = true;
-            this.txtTongSoVe.Size = new System.Drawing.Size(147, 22);
+            this.txtTongSoVe.Size = new System.Drawing.Size(135, 20);
             this.txtTongSoVe.StyleController = this.lcInfo;
             this.txtTongSoVe.TabIndex = 7;
             // 
@@ -176,46 +175,53 @@
             this.lcgInfo.Location = new System.Drawing.Point(0, 0);
             this.lcgInfo.Name = "Root";
             this.lcgInfo.OptionsItemText.TextToControlDistance = 4;
-            this.lcgInfo.Size = new System.Drawing.Size(978, 87);
+            this.lcgInfo.Size = new System.Drawing.Size(838, 71);
             this.lcgInfo.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txtTongSoVe;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 28);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(256, 33);
-            this.layoutControlItem4.Text = "Tổng số vé: ";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(99, 17);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.lkDotPhatHanh;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(840, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(722, 24);
             this.layoutControlItem1.Text = "Đợt phát hành: ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(99, 17);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(77, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnThem;
-            this.layoutControlItem2.Location = new System.Drawing.Point(840, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(722, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(64, 33);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(112, 61);
+            this.layoutControlItem2.Size = new System.Drawing.Size(96, 51);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtTongSoVe;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(220, 27);
+            this.layoutControlItem4.Text = "Tổng số vé: ";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(77, 13);
+            // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.Location = new System.Drawing.Point(220, 24);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(502, 27);
             // 
             // groupBASE
             // 
             this.groupBASE.Controls.Add(this.gcBASE);
             this.groupBASE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBASE.Location = new System.Drawing.Point(0, 164);
+            this.groupBASE.Location = new System.Drawing.Point(0, 134);
             this.groupBASE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBASE.Name = "groupBASE";
-            this.groupBASE.Size = new System.Drawing.Size(982, 439);
+            this.groupBASE.Size = new System.Drawing.Size(842, 356);
             this.groupBASE.TabIndex = 18;
             this.groupBASE.Text = "Danh sách vé phát hành";
             // 
@@ -223,7 +229,7 @@
             // 
             this.gcBASE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcBASE.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcBASE.Location = new System.Drawing.Point(2, 25);
+            this.gcBASE.Location = new System.Drawing.Point(2, 20);
             this.gcBASE.MainView = this.gvBASE;
             this.gcBASE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcBASE.Name = "gcBASE";
@@ -234,7 +240,7 @@
             this.repositoryItemLookUpEdit3,
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2});
-            this.gcBASE.Size = new System.Drawing.Size(978, 412);
+            this.gcBASE.Size = new System.Drawing.Size(838, 334);
             this.gcBASE.TabIndex = 1;
             this.gcBASE.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBASE});
@@ -329,22 +335,14 @@
             this.repositoryItemTextEdit2.AutoHeight = false;
             this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
-            // simpleSeparator1
-            // 
-            this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(256, 28);
-            this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(584, 33);
-            // 
             // frmKeHoachPhatHanhVe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 603);
+            this.ClientSize = new System.Drawing.Size(842, 490);
             this.Controls.Add(this.groupBASE);
             this.Controls.Add(this.groupInfo);
             this.Controls.Add(this.panelHeader);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmKeHoachPhatHanhVe";
             this.Text = "Kế hoạch phát hành vé";
             this.Load += new System.EventHandler(this.frmKeHoachPhatHanhVe_Load);
@@ -357,9 +355,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkDotPhatHanh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongSoVe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBASE)).EndInit();
             this.groupBASE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBASE)).EndInit();
@@ -371,7 +370,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
 
         }

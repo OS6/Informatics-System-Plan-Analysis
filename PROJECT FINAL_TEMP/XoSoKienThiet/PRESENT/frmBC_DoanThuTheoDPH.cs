@@ -18,6 +18,7 @@ namespace XoSoKienThiet.PRESENT
     {
         BAOCAODOANHTHUTHEODOTPHATHANH_BUS _BAOCAODOANHTHUTHEODOTPHATHANH_BUS = null;
         DOTPHATHANH_BUS _DOTPHATHANH_BUS = null;
+        bool _InPhieu = false;
         rptDoanThuTheoDPH _Report = null;
         ReportPrintTool _Tool = null;
         public frmBC_DoanThuTheoDPH()
@@ -45,7 +46,7 @@ namespace XoSoKienThiet.PRESENT
             else
             {
                 _Report = new rptDoanThuTheoDPH();
-                var BaoCaoDot  = _BAOCAODOANHTHUTHEODOTPHATHANH_BUS.Select(MaDotPhatHanh);
+                var BaoCaoDot = _BAOCAODOANHTHUTHEODOTPHATHANH_BUS.Select(MaDotPhatHanh);
                 GT = (decimal)BaoCaoDot.TongThu;
                 txtTongThu.Text = GT.ToString("N0");
                 GT = (decimal)BaoCaoDot.TongChi;
@@ -60,6 +61,7 @@ namespace XoSoKienThiet.PRESENT
             _Report.rptTongChi.Text = "Tổng chi : " + txtTongChi.Text + " VND";
             _Report.rptLoiNhuan.Text = "Lợi nhuận : " + txtLoiNhuan.Text + " VND";
             _Report.rptCongQuy.Text = "Công quỹ : " + txtCongQuy.Text + " VND";
+            _InPhieu = true;
         }
 
         private void frmBC_DoanThuTheoDPH_Load(object sender, EventArgs e)
@@ -84,9 +86,17 @@ namespace XoSoKienThiet.PRESENT
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
-            _Tool = new ReportPrintTool(_Report);
-            _Tool.ShowPreview();
+            if (!_InPhieu)
+            {
+                XtraMessageBox.Show("Phải điền thông tin đầy đủ và lưu phiếu trước khi in!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
+                _Tool = new ReportPrintTool(_Report);
+                _Tool.ShowPreview();
+            }
         }
     }
 }

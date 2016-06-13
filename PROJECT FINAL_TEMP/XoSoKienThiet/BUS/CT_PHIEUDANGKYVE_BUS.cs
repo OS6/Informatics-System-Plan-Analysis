@@ -30,6 +30,10 @@ namespace XoSoKienThiet.BUS
         {
             return _CT_PHIEUDANGKYVE_DAO.SelectViewNotReCeive(maphieudangkyve);
         }
+        public void UpdateDaNhan(string maphieudangky, string congty, string madotphathanh, string maloaive)
+        {
+            _CT_PHIEUDANGKYVE_DAO.UpdateDaNhan(maphieudangky, congty, madotphathanh, maloaive);
+        }
         public int GetAmountOfRegisterTicket(string madoitac, string macongty, string madotphathanh, string maloaive)
         {
             return _CT_PHIEUDANGKYVE_DAO.GetAmountOfRegisterTicket(madoitac, macongty, madotphathanh, maloaive);
@@ -42,6 +46,11 @@ namespace XoSoKienThiet.BUS
         {
             return _CT_PHIEUDANGKYVE_DAO.CheckRegister(madoitac, macongty, madotphathanh, maloaive);
         }
+        public int CaculateAmountofTickRegister(string macongty, string madotphathanh, string maloaive)
+        {
+            return _CT_PHIEUDANGKYVE_DAO.CaculateAmountofTickRegister(macongty, madotphathanh, maloaive);
+        }
+
         public string Insert(string maphieudangkyve, string macongtyphathanh, string madotphathanh, string maloaive, string sovedktoida, string sovedangky)
         {
             _CheckError = new CheckError();

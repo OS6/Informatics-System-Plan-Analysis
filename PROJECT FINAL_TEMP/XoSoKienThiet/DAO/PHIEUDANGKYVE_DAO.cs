@@ -31,6 +31,18 @@ namespace XoSoKienThiet.DAO
             return _Context.Database.SqlQuery<PHIEUDANGKYVE>("PHIEUDANGKYVE_Sel").ToList();
         }
 
+        public void Update(string maphieudangky, int tongsovedangky)
+        {
+             var MaPhieuDangKy = new SqlParameter("@MaPhieuDangKy", SqlDbType.NChar, 10)
+            {
+                Value =maphieudangky
+            };
+             var TongSoVeDangKy = new SqlParameter("@TongSoVeDangKy", SqlDbType.Int)
+             {
+                 Value = tongsovedangky
+             };
+             _Context.Database.ExecuteSqlCommand("PHIEUDANGKYVE_Upd @MaPhieuDangKy, @TongSoVeDangKy",MaPhieuDangKy, TongSoVeDangKy);
+        }
         public string Insert(PHIEUDANGKYVE phieudangkyve)
         {
             var _MaDoiTac = new SqlParameter("@MaDoiTac", SqlDbType.NChar, 10)
@@ -56,6 +68,21 @@ namespace XoSoKienThiet.DAO
             _Context.Database.ExecuteSqlCommand("PHIEUDANGKYVE_Ins @MaDoiTac, @MaNhanVienLap,@NgayLap, @TongSoVeDangKy,@MaPhieuDangKyVe output",
                                                                         _MaDoiTac, _MaNhanVienLap, _NgayLap, _TongSoVeDangKy, _MaPhieuDangKyVe);
             return _MaPhieuDangKyVe.Value.ToString();
+        }
+
+        public bool IsYourCompany(string maphieudangky)
+        {
+            var MaPhieuDangKyVe = new SqlParameter("@MaPhieuDangKyVe", SqlDbType.NChar, 10)
+            {
+                Value = maphieudangky
+            };
+            var IsYourCpmpany = new SqlParameter("@IsYourCompany", SqlDbType.Bit)
+            {
+                Direction = ParameterDirection.Output
+            };
+            _Context.Database.ExecuteSqlCommand("PHIEUDANGKYVE_IsYourCompany @MaPhieuDangKyVe, @IsYourCompany output",
+                                                                        MaPhieuDangKyVe, IsYourCpmpany);
+            return  Convert.ToBoolean(IsYourCpmpany.Value.ToString());
         }
     }
 }

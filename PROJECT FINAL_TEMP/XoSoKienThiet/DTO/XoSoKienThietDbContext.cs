@@ -53,5 +53,6 @@ namespace XoSoKienThiet.DTO
         public virtual DbSet<VE> VEs { get; set; }
         public virtual DbSet<CT_PHIEUNHANVE_VIEW> CT_PHIEUNHANVE_VIEW { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
+        public virtual DbSet<THAMSO> THAMSOes { get; set; }
     }
 }

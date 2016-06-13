@@ -27,6 +27,10 @@ namespace XoSoKienThiet.BUS
         {
             return _PHIEUDANGKYVE_DAO.Select_ID(maphieudangky).SingleOrDefault();
         }
+        public void Update(string maphieudangky, int tongsovedangky)
+        {
+            _PHIEUDANGKYVE_DAO.Update(maphieudangky, tongsovedangky);
+        }
         public string Insert(string madoitac, string manhanvienlap, string ngaylap, string tongsovedk)
         {
             DateTime _NgayLap;
@@ -34,6 +38,10 @@ namespace XoSoKienThiet.BUS
             int _TongSoVeDangKy = int.Parse(tongsovedk);
             PHIEUDANGKYVE _PHIEUDANGKYVE = new PHIEUDANGKYVE(madoitac, manhanvienlap, _NgayLap, _TongSoVeDangKy);
             return _PHIEUDANGKYVE_DAO.Insert(_PHIEUDANGKYVE);
+        }
+        public bool IsYourCompany(string maphieudangky)
+        {
+            return _PHIEUDANGKYVE_DAO.IsYourCompany(maphieudangky);
         }
         public string CheckErrorBeforeInsert(string madoitac, string manhanvienlap, string ngaylap, string tongsovedk)
         {

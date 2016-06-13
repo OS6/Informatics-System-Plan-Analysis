@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using XoSoKienThiet.BUS;
 using System.Data.Entity;
 using XoSoKienThiet.DTO;
+using XoSoKienThiet.REPORT;
+using DevExpress.XtraReports.UI;
 
 namespace XoSoKienThiet.PRESENT
 {
@@ -18,10 +20,13 @@ namespace XoSoKienThiet.PRESENT
     {
         DOITAC_BUS _DOITAC_BUS = null;
         NHANVIEN_BUS _NHANVIEN_BUS = null;
+        CT_PHIEUNHANVE_BUS _CT_PHIEUNHANVE_BUS = null;
         PHIEUTRAVE_BUS _PHIEUTRAVE_BUS = null;
         CT_PHIEUTRAVE_BUS _CT_PHIEUTRAVE_BUS = null;
-        CT_PHIEUNHANVE_BUS _CT_PHIEUNHANVE_BUS = null;
-        string _MaPhieuNhanVe = "", _MaDoiTac = "", _MaPhieuTraVe = "";
+        string _MaDoiTac = "", _MaPhieuNhanVe = "", _MaPhieuTraVe = "";
+        bool _InPhieu = false;
+        rptIn_PhieuTraVe _Report = null;
+        ReportPrintTool _Tool = null;
         public frmPhieuTraVe()
         {
             InitializeComponent();
@@ -63,49 +68,50 @@ namespace XoSoKienThiet.PRESENT
 
         void LoadgcBASE(bool Type = false) //fasle: load lên những loai vé chưa trả, ngược lại, load loại vé trả
         {
+            List<CT_PHIEUNHANVE_VIEW> ListNhan = new List<CT_PHIEUNHANVE_VIEW>();
+            if (Type == false)
+            {
+                ListNhan = _CT_PHIEUNHANVE_BUS.SelectNotPayView(_MaPhieuNhanVe);
+            }
+            else
+            {
+                ListNhan = _CT_PHIEUNHANVE_BUS.SelectReCeiveView(_MaPhieuNhanVe);
+            }
+            List<CT_PHIEUTRAVE_VIEW> ListTra = new List<CT_PHIEUTRAVE_VIEW>();
+
+            foreach (var item in ListNhan)
+            {
+                CT_PHIEUTRAVE_VIEW phieutrave_view = new CT_PHIEUTRAVE_VIEW();
+                phieutrave_view.MaDoiTac = item.MaDoiTac;
+                phieutrave_view.MaDotPhatHanh = item.MaDotPhatHanh;
+                phieutrave_view.MaLoaiVe = item.MaLoaiVe;
+                phieutrave_view.Ten = item.Ten;
+                phieutrave_view.NgayPhatHanh = item.NgayPhatHanh;
+                phieutrave_view.MenhGia = item.MenhGia;
+                phieutrave_view.SoVeNhan = item.SoLuongNhan;
+                phieutrave_view.HoanThanh = false;
+                ListTra.Add(phieutrave_view);
+            }
+            gcBASE.DataSource = ListTra;
+        }
+
+        private void lkMaPhieuNhanVe_EditValueChanged(object sender, EventArgs e)
+        {
             try
             {
-
                 txtTenDoiTac.Text = lkMaPhieuNhanVe.Properties.GetDataSourceValue("Ten", lkMaPhieuNhanVe.ItemIndex).ToString();
                 _MaDoiTac = lkMaPhieuNhanVe.Properties.GetDataSourceValue("MaDoiTac", lkMaPhieuNhanVe.ItemIndex).ToString();
                 _MaPhieuNhanVe = lkMaPhieuNhanVe.Properties.GetDataSourceValue("MaPhieuNhanVe", lkMaPhieuNhanVe.ItemIndex).ToString();
-                #region #Hiển thị dữ liệu lên gridview
-                string MaPhieuNhanVe = lkMaPhieuNhanVe.Properties.GetDataSourceValue("MaPhieuNhanVe", lkMaPhieuNhanVe.ItemIndex).ToString();
-                // Lấy danh sách chi tiết phiếu nhận vé nhận mà chưa trả
-                List<CT_PHIEUNHANVE_VIEW> List_CT_PCTNVV = _CT_PHIEUNHANVE_BUS.SelectNotPayView(MaPhieuNhanVe); 
-
-                List<CT_PHIEUTRAVE_VIEW> List_CT_PhieuTraVe = new List<CT_PHIEUTRAVE_VIEW>();
-                foreach (var item in List_CT_PCTNVV)
-                {
-                    //Gán những thuộc tính có sẵn
-                    CT_PHIEUTRAVE_VIEW phieutrave_view = new CT_PHIEUTRAVE_VIEW();
-                    phieutrave_view.MaDoiTac = item.MaDoiTac;
-                    phieutrave_view.MaDotPhatHanh = item.MaDotPhatHanh;
-                    phieutrave_view.MaLoaiVe = item.MaLoaiVe;
-                    phieutrave_view.Ten = item.Ten;
-                    phieutrave_view.NgayPhatHanh = item.NgayPhatHanh;
-                    phieutrave_view.MenhGia = item.MenhGia;
-                    phieutrave_view.SoVeNhan = item.SoLuongNhan;
-                    phieutrave_view.HoanThanh = false;
-
-                    List_CT_PhieuTraVe.Add(phieutrave_view);
-                }
-                gcBASE.DataSource = List_CT_PhieuTraVe;
-                //set default value SoVeTra
-
-                #endregion
+                LoadgcBASE();
             }
             catch (Exception)
             {
             }
         }
-
-        private void lkMaPhieuNhanVe_EditValueChanged(object sender, EventArgs e)
-        {
-            LoadgcBASE();
-        }
         private void btnThemPhieu_Click(object sender, EventArgs e)
         {
+            _MaPhieuTraVe = "";
+            gvBASE.Columns["HoanThanh"].Visible = true;
             lkMaPhieuNhanVe.ReadOnly = false;
             deNgayLap.ReadOnly = false;
             lkNguoiLap.ReadOnly = false;
@@ -115,19 +121,20 @@ namespace XoSoKienThiet.PRESENT
             lkMaPhieuNhanVe.EditValue = null;
             lkNguoiLap.EditValue = null;
             deNgayLap.Text = "";
+            _InPhieu = false;
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            LoadgcBASE();// khi muốn thêm chi tiết tiếp, load những oại vé chưa nhận
+            LoadgcBASE();
             gvBASE.Columns["HoanThanh"].Visible = true;
-
+            _InPhieu = false;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            gcBASE.DataSource = _CT_PHIEUTRAVE_BUS.SelectView(_MaPhieuTraVe);
-            gvBASE.Columns["HoanThanh"].Visible = true;
+            LoadgcBASE(true);// load danh sách vé đã trả
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -137,20 +144,21 @@ namespace XoSoKienThiet.PRESENT
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            DialogResult result = XtraMessageBox.Show("Bạn có chắc chắn muốn thêm phiếu nhận vé ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = XtraMessageBox.Show("Bạn chắc chắn muốn thêm phiếu trả vé", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            List<CT_PHIEUTRAVE_VIEW> ListReport = new List<CT_PHIEUTRAVE_VIEW>();
             List<CT_PHIEUTRAVE_VIEW> List_CT_PhieuTraVe = new List<CT_PHIEUTRAVE_VIEW>();
             if (result == DialogResult.Yes)
             {
                 string NguoiLap = "";
+                try
+                {
+                    NguoiLap = lkNguoiLap.EditValue.ToString();
+                }
+                catch (Exception)
+                {
+                }
                 if (_MaPhieuTraVe == "")
                 {
-                    try
-                    {
-                        NguoiLap = lkNguoiLap.EditValue.ToString();
-                    }
-                    catch (Exception)
-                    {
-                    }
                     string Error = _PHIEUTRAVE_BUS.CheckBeforeInsert(_MaPhieuNhanVe, NguoiLap, deNgayLap.Text, txtTongSoVe.Text, txtTongSoTien.Text);
                     if (Error != "")
                     {
@@ -160,36 +168,80 @@ namespace XoSoKienThiet.PRESENT
                     else
                     {
                         _MaPhieuTraVe = _PHIEUTRAVE_BUS.Insert(_MaPhieuNhanVe, NguoiLap, deNgayLap.Text, txtTongSoVe.Text, txtTongSoTien.Text);
-                    }
-                    var DataInGV = (List<CT_PHIEUTRAVE_VIEW>)gvBASE.DataSource;
-                    int i = 0;
-                    foreach (var item in DataInGV)
-                    {
-                        if (gvBASE.GetRowCellValue(i, gvBASE.Columns["HoanThanh"]).ToString() == "True")
+                        var DataInGV = (List<CT_PHIEUTRAVE_VIEW>)gvBASE.DataSource;
+                        int i = 0;
+                        //Kiểm tra lỗi
+                        foreach (var item in DataInGV)
                         {
-                            _CT_PHIEUTRAVE_BUS.Insert(_MaPhieuTraVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe, item.SoVeNhan.ToString(), item.SoVeTra.ToString(), item.SoTienPhaiTra.ToString());
-                            List_CT_PhieuTraVe.Add(item);
+                            if (gvBASE.GetRowCellValue(i, gvBASE.Columns["HoanThanh"]).ToString() == "True")
+                            {
+                                string ErrorCT = _CT_PHIEUTRAVE_BUS.CheckBeforeInsert(_MaPhieuTraVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe, item.SoVeNhan.ToString(), item.SoVeTra.ToString(), item.SoTienPhaiTra.ToString());
+                                if (ErrorCT != "")
+                                {
+                                    XtraMessageBox.Show("Chưa nhập đầy đủ thông tin trả vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            i++;
                         }
-                        i++;
+                        
+                        //Insert CT
+                        i = 0;
+                        foreach (var item in DataInGV)
+                        {
+                            if (gvBASE.GetRowCellValue(i, gvBASE.Columns["HoanThanh"]).ToString() == "True")
+                            {
+                                _CT_PHIEUTRAVE_BUS.Insert(_MaPhieuTraVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe, item.SoVeNhan.ToString(), item.SoVeTra.ToString(), item.SoTienPhaiTra.ToString());
+                                _CT_PHIEUNHANVE_BUS.UpdateDaTra(_MaPhieuNhanVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe);
+
+                            }
+                            i++;
+                            ListReport.Add(item);
+                        }
                     }
                 }
                 else
                 {
                     var DataInGV = (List<CT_PHIEUTRAVE_VIEW>)gvBASE.DataSource;
                     int i = 0;
+                    //Kiểm tra lỗi
+                    foreach (var item in DataInGV)
+                    {
+                        if (gvBASE.GetRowCellValue(i, gvBASE.Columns["HoanThanh"]).ToString() == "True")
+                        {
+                            string ErrorCT = _CT_PHIEUTRAVE_BUS.CheckBeforeInsert(_MaPhieuTraVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe, item.SoVeNhan.ToString(), item.SoVeTra.ToString(), item.SoTienPhaiTra.ToString());
+                            if (ErrorCT != "")
+                            {
+                                XtraMessageBox.Show("Chưa nhập đầy đủ thông tin trả vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        i++;
+                    }
+                    //Insert CT
+                    i = 0;
                     foreach (var item in DataInGV)
                     {
                         if (gvBASE.GetRowCellValue(i, gvBASE.Columns["HoanThanh"]).ToString() == "True")
                         {
                             _CT_PHIEUTRAVE_BUS.Insert(_MaPhieuTraVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe, item.SoVeNhan.ToString(), item.SoVeTra.ToString(), item.SoTienPhaiTra.ToString());
-                            List_CT_PhieuTraVe.Add(item);
+                            _CT_PHIEUNHANVE_BUS.UpdateDaTra(_MaPhieuNhanVe, item.MaDoiTac, item.MaDotPhatHanh, item.MaLoaiVe);
                         }
                         i++;
+                        ListReport.Add(item);
                     }
                 }
-                gcBASE.DataSource = List_CT_PhieuTraVe;
+
+                gcBASE.DataSource = _CT_PHIEUTRAVE_BUS.SelectView(_MaPhieuTraVe);
                 gvBASE.Columns["HoanThanh"].Visible = false;
-            }
+                lkMaPhieuNhanVe.ReadOnly = true;
+                deNgayLap.ReadOnly = true;
+                lkNguoiLap.ReadOnly = true;
+
+                _InPhieu = true;
+                _Report = new rptIn_PhieuTraVe();
+                _Report.DataSource = ListReport;
+            }   
         }
 
         private void gvBASE_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -231,7 +283,7 @@ namespace XoSoKienThiet.PRESENT
                 int TongSoLuongTra = 0, TongSoTienTra = 0;
                 for (int i = 0; i < gvBASE.RowCount; i++)
                 {
-                    if (i != gvBASE.FocusedRowHandle)
+                    if (i != gvBASE.FocusedRowHandle && gvBASE.GetRowCellValue(i, gvBASE.Columns["HoanThanh"]).ToString() == "True")
                     {
                         try
                         {
@@ -240,7 +292,6 @@ namespace XoSoKienThiet.PRESENT
                         }
                         catch
                         {
-                            // bắt lỗi khi giá trị ở cột đó null
                         }
                     }
 
@@ -249,7 +300,7 @@ namespace XoSoKienThiet.PRESENT
                 {
                     try
                     {
-                        if (Convert.ToInt32(e.Value) <= SoLuongNhan) // thỏa điều kiện thì mới cộng tổng
+                        if (Convert.ToInt32(e.Value) <= SoLuongNhan && gvBASE.GetRowCellValue(gvBASE.FocusedRowHandle, gvBASE.Columns["HoanThanh"]).ToString() == "True") // th?a di?u ki?n thì m?i c?ng t?ng
                         {
                             TongSoLuongTra += Convert.ToInt32(e.Value);
                             TongSoTienTra += SoTienPhaiTra;
@@ -293,6 +344,23 @@ namespace XoSoKienThiet.PRESENT
                         e.ErrorText = "Số vé trả không lớn hơn số vé nhận";
                     }
                 }
+            }
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if (!_InPhieu)
+            {
+                XtraMessageBox.Show("Phải điền thông tin đầy đủ và lưu phiếu trước khi in!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _Report.rptLabelTenDoiTac.Text = "Tên đối tác: " + txtTenDoiTac.Text;
+                _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
+                _Report.rptLabelTongSoVe.Text = "Tổng số vé: " + txtTongSoVe.Text;
+                _Report.rptLabelTongSoTien.Text = "Tổng số tiền: " + txtTongSoTien.Text;
+                _Tool = new ReportPrintTool(_Report);
+                _Tool.ShowPreview();
             }
         }
     }

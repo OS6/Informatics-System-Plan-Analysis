@@ -16,7 +16,10 @@ namespace XoSoKienThiet.BUS
         {
             _CT_PHIEUNHANVE_DAO = new CT_PHIEUNHANVE_DAO();
         }
-
+        public void UpdateDaTra(string maphieunhanve, string macongty, string madotphathanh, string maloaive)
+        {
+            _CT_PHIEUNHANVE_DAO.UpdateDaTra(maphieunhanve, macongty, madotphathanh, maloaive);
+        }
         public List<CT_PHIEUNHANVE> Select(string maphieunhanve)
         {
             return _CT_PHIEUNHANVE_DAO.Select(maphieunhanve);
@@ -38,7 +41,7 @@ namespace XoSoKienThiet.BUS
             _SoLuongNhan = int.Parse(soluongnhan);
             if (thanhtien == "")
             {
-                _CheckError.CheckErrorAvailable("Số tiền trúng");
+                _CheckError.CheckErrorAvailable("Thành tiền");
             }
             else
             {
@@ -48,7 +51,22 @@ namespace XoSoKienThiet.BUS
                 }
                 catch
                 {
-                    _CheckError.CheckErrorNumber("Số tiền trúng");
+                    _CheckError.CheckErrorNumber("Thành tiền");
+                }
+            }
+            if (soluongnhan == "")
+            {
+                _CheckError.CheckErrorAvailable("Số lượng nhận");
+            }
+            else
+            {
+                try
+                {
+                    _ThanhTien = decimal.Parse(thanhtien);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số lượng nhận");
                 }
             }
             if (!_CheckError.IsError())

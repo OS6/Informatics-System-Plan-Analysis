@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
 using XoSoKienThiet.BUS;
+using XoSoKienThiet.REPORT;
+using DevExpress.XtraReports.UI;
 
 namespace XoSoKienThiet.PRESENT
 {
@@ -22,7 +24,10 @@ namespace XoSoKienThiet.PRESENT
         CT_PHIEUDANGKYVE_BUS _CT_PHIEUDANGKYVE_BUS = null;
         PHIEUDANGKYVE_BUS _PHIEUDANGKYVE_BUS = null;
         string _MaDotPhatHanh = "", _MaLoaiVe = "", _MaCongTy = "", _MaPhieuDangKy = "", _NgayLap = "";
-        List<string> _ListMaCongTy, _ListMaDotPhatHanh, _ListLoaiVe; // dùng để lưu những bộ ba đã có trong chi tiết đợt phát hành
+        bool LoaiDoiTac = false; // bằng true là đại lý đang đăng ký công ty, ngược lại là công ty đăng ký với các công ty cung ứng khác
+        bool _InPhieu = false;
+        rptIn_PhieuDangKiVe _Report = null;
+        ReportPrintTool _Tool = null;
         public frmPhieuDangKiVe()
         {
             InitializeComponent();
@@ -32,9 +37,6 @@ namespace XoSoKienThiet.PRESENT
             _LOAIVE_BUS = new LOAIVE_BUS();
             _CT_PHIEUDANGKYVE_BUS = new CT_PHIEUDANGKYVE_BUS();
             _PHIEUDANGKYVE_BUS = new PHIEUDANGKYVE_BUS();
-            _ListMaCongTy = new List<string>();
-            _ListLoaiVe = new List<string>();
-            _ListMaDotPhatHanh = new List<string>();
         }
 
         private void rbtnLoaiDoiTac_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace XoSoKienThiet.PRESENT
             // Hiện đối tác đăng ký vé
             if (rbtnLoaiDoiTac.SelectedIndex == 0)
             {
+                LoaiDoiTac = false;
                 var ListDoiTac = _DOITAC_BUS.SelectYourCompany();
                 lkTenDoiTac.Properties.DataSource = ListDoiTac;
                 lkTenDoiTac.Properties.DisplayMember = "Ten";
@@ -52,6 +55,7 @@ namespace XoSoKienThiet.PRESENT
             }
             else
             {
+                LoaiDoiTac = true;
                 var ListDoiTac = _DOITAC_BUS.SelectAgency();
                 lkTenDoiTac.Properties.DataSource = ListDoiTac;
                 lkTenDoiTac.Properties.DisplayMember = "Ten";
@@ -61,11 +65,21 @@ namespace XoSoKienThiet.PRESENT
                 lkCongTyPhatHanh.Properties.DataSource = ListCompany;
             }
 
+            // clear thông tin phiếu đăng ký
+            lkTenDoiTac.EditValue = null;
+            lkNguoiLap.EditValue = null;
+            deNgayLap.Text = "";
+            txtTongSoVe.Text = "0";
+            lkCongTyPhatHanh.EditValue = null;
+            lkLoaiVe.EditValue = null;
+            lkDotPhatHanh.EditValue = null;
+
         }
 
         private void frmDangKiVe_Load(object sender, EventArgs e)
         {
-            var ListDoiTac = _DOITAC_BUS.SelectCompany();
+
+            var ListDoiTac = _DOITAC_BUS.SelectYourCompany();
 
             lkTenDoiTac.Properties.DataSource = ListDoiTac;
             lkTenDoiTac.Properties.DisplayMember = "Ten";
@@ -105,6 +119,9 @@ namespace XoSoKienThiet.PRESENT
             lkCongTyPhatHanh.Properties.Columns["TiLeHoaHong"].Visible = false;
             lkCongTyPhatHanh.Properties.Columns["TiLeTieuThu"].Visible = false;
             lkCongTyPhatHanh.Properties.Columns["CongNo"].Visible = false;
+
+            // thông tin chi tiết phiếu đăng ký, ẩn
+            AllowInputCT_PhieuDangKy(false);
         }
 
         private void lkCongTyPhatHanh_EditValueChanged(object sender, EventArgs e)
@@ -161,50 +178,101 @@ namespace XoSoKienThiet.PRESENT
 
         private void lkLoaiVe_EditValueChanged(object sender, EventArgs e)
         {
-            txtSoVeDangKy.ReadOnly = false;
-            try
+
+            if(LoaiDoiTac == true) // đại lý đăng ký
             {
-                _MaLoaiVe = lkLoaiVe.GetColumnValue("MaLoaiVe").ToString();
-                txtSoVeToiDa.Text = _CT_PHIEUDANGKYVE_BUS.GetAmountOfMaxRegisterTicket(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString(),
-                                                                                            _MaCongTy,
-                                                                                            _MaDotPhatHanh,
-                                                                                            _MaLoaiVe).ToString();
+                txtSoVeDangKy.ReadOnly = false;
+                try
+                {
+                    _MaLoaiVe = lkLoaiVe.GetColumnValue("MaLoaiVe").ToString();
+                    txtSoVeToiDa.Text = _CT_PHIEUDANGKYVE_BUS.GetAmountOfMaxRegisterTicket(lkTenDoiTac.GetColumnValue("MaDoiTac").ToString(),
+                                                                                                _MaCongTy,
+                                                                                                _MaDotPhatHanh,
+                                                                                                _MaLoaiVe).ToString();
+                }
+                catch (Exception)
+                {
+                }
             }
-            catch (Exception)
+            else
             {
+                txtSoVeDangKy.ReadOnly = true;
+                try
+                {
+                    _MaLoaiVe = lkLoaiVe.GetColumnValue("MaLoaiVe").ToString();
+                    txtSoVeDangKy.Text = txtSoVeToiDa.Text = _CT_PHIEUDANGKYVE_BUS.CaculateAmountofTickRegister(_MaCongTy, _MaDotPhatHanh, _MaLoaiVe).ToString();
+                }
+                catch (Exception)
+                {
+                }
             }
         }
 
+        void AllowInputPhieuNhanVe(bool IsOpen) // mở ra cho phép nhập thông tin vào các control trong phiếu đăng ký vé
+        {
+            if(IsOpen == true)
+            {
+                rbtnLoaiDoiTac.ReadOnly = false;
+                lkTenDoiTac.ReadOnly = false;
+                lkNguoiLap.ReadOnly = false;
+                deNgayLap.ReadOnly = false;
+                rbtnLoaiDoiTac.ReadOnly = false;
+                btnLuu.Enabled = true;
+
+                lkTenDoiTac.EditValue = null;
+                lkNguoiLap.EditValue = null;
+                deNgayLap.Text = "";
+                txtTongSoVe.Text = "0";
+            }
+            else
+            {
+                rbtnLoaiDoiTac.ReadOnly = true;
+                lkTenDoiTac.ReadOnly = true;
+                lkNguoiLap.ReadOnly = true;
+                deNgayLap.ReadOnly = true;
+                btnThem.Enabled = true;
+            }
+        }
+        void AllowInputCT_PhieuDangKy(bool IsOpen)   // thông tin chi tiết phiếu đăng ký
+        {
+            if(IsOpen == true)
+            {
+                lkCongTyPhatHanh.EditValue = null;
+                lkDotPhatHanh.EditValue = null;
+                lkLoaiVe.EditValue = null;
+                txtSoVeDangKy.Text = "";
+                txtSoVeToiDa.Text = "";
+
+                lkCongTyPhatHanh.ReadOnly = false;
+                lkDotPhatHanh.ReadOnly = false;
+                lkLoaiVe.ReadOnly = false;
+                txtSoVeDangKy.ReadOnly = false;
+            }
+            else
+            {
+                lkCongTyPhatHanh.ReadOnly = true;
+                lkDotPhatHanh.ReadOnly = true;
+                lkLoaiVe.ReadOnly = true;
+                txtSoVeDangKy.ReadOnly = true;
+                txtSoVeToiDa.ReadOnly = true;
+            }
+        }
         private void btnThemPhieu_Click(object sender, EventArgs e)
         {
             _MaPhieuDangKy = "";
-            rbtnLoaiDoiTac.ReadOnly = false;
-            lkTenDoiTac.ReadOnly = false;
-            lkNguoiLap.ReadOnly = false;
-            deNgayLap.ReadOnly = false;
-            lkCongTyPhatHanh.ReadOnly = false;
-            rbtnLoaiDoiTac.ReadOnly = false;
-            lkDotPhatHanh.EditValue = null;
-            btnLuu.Enabled = true;
-            lkCongTyPhatHanh.EditValue = null;
-            lkTenDoiTac.EditValue = null;
-            lkNguoiLap.EditValue = null;
+            _InPhieu = false;
+            gcBASE.DataSource = null;
+            AllowInputPhieuNhanVe(true);
+            AllowInputCT_PhieuDangKy(true);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
+            // thông tin chi tiết phiếu đăng ký
+            AllowInputCT_PhieuDangKy(true);
+            _InPhieu = false;
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -215,7 +283,7 @@ namespace XoSoKienThiet.PRESENT
                                                                         _MaCongTy, _MaDotPhatHanh, _MaLoaiVe);
                 if (DaDangKy == true)// đã đăng ký chi tiết vé
                 {
-                    MessageBox.Show("Loại vé đã được đăng ký", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Loại vé đã được đăng ký", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -223,10 +291,12 @@ namespace XoSoKienThiet.PRESENT
                     if (Error == "")
                     {
                         XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        AllowInputCT_PhieuDangKy(false);
                     }
                     else
                     {
-                        MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     var ListCT_DKV = _CT_PHIEUDANGKYVE_BUS.SelectView(_MaPhieuDangKy);
                     gcBASE.DataSource = ListCT_DKV;
@@ -234,9 +304,8 @@ namespace XoSoKienThiet.PRESENT
                                  select p.SoVeDangKy;
 
                     txtTongSoVe.Text = (Convert.ToString(SoVeDK.Sum()));
+                    _PHIEUDANGKYVE_BUS.Update(_MaPhieuDangKy,Convert.ToInt32( SoVeDK.Sum()));
                 }
-             
-
             }
             else
             {
@@ -257,7 +326,7 @@ namespace XoSoKienThiet.PRESENT
                                                                        _MaCongTy, _MaDotPhatHanh, _MaLoaiVe);
                     if (DaDangKy == true)// đã đăng ký chi tiết vé
                     {
-                        MessageBox.Show("Loại vé đã được đăng ký", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Loại vé đã được đăng ký", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -265,16 +334,19 @@ namespace XoSoKienThiet.PRESENT
                         if (Error == "")
                         {
                             XtraMessageBox.Show("Thêm thành công.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+                            AllowInputPhieuNhanVe(false);
+                            AllowInputCT_PhieuDangKy(false);
                         }
                         else
                         {
-                            MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show(Error, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 var ListCT_DKV = _CT_PHIEUDANGKYVE_BUS.SelectView(_MaPhieuDangKy);
                 gcBASE.DataSource = ListCT_DKV;
@@ -282,12 +354,29 @@ namespace XoSoKienThiet.PRESENT
                              select p.SoVeDangKy;
 
                 txtTongSoVe.Text = (Convert.ToString(SoVeDK.Sum()));
+                _PHIEUDANGKYVE_BUS.Update(_MaPhieuDangKy, Convert.ToInt32(SoVeDK.Sum()));
+            }
 
-                rbtnLoaiDoiTac.ReadOnly = true;
-                lkTenDoiTac.ReadOnly = true;
-                lkNguoiLap.ReadOnly = true;
-                deNgayLap.ReadOnly = true;
-                btnThem.Enabled = true;
+            _InPhieu = true;
+            _Report = new rptIn_PhieuDangKiVe();
+            _Report.DataSource = gcBASE.DataSource;
+            
+             
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if (!_InPhieu)
+            {
+                XtraMessageBox.Show("Phải điền thông tin đầy đủ và lưu phiếu trước khi in!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _Report.rptLabelTenDoiTac.Text = "Tên đối tác: " + lkTenDoiTac.GetColumnValue("Ten").ToString();
+                _Report.rptLabelNgay.Text = "Tp. Hồ Chí Minh, ngày " + DateTime.Now.Day.ToString() + " tháng " + DateTime.Now.Month.ToString() + " năm " + DateTime.Now.Year.ToString();
+                _Report.rptLabelTongSoVe.Text = "Tổng số vé: "+txtTongSoVe.Text;
+                _Tool = new ReportPrintTool(_Report);
+                _Tool.ShowPreview();
             }
         }
     }

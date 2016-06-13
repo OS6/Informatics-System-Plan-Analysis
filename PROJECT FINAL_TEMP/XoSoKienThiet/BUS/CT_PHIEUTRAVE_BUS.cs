@@ -20,13 +20,27 @@ namespace XoSoKienThiet.BUS
         {
             return _CT_PHIEUTRAVE_DAO.SelectView(maphieutrave);
         }
-        public string Insert(string maphieutrave, string macongtyphathanh, string madotphathanh, string maloaive, string sovenhan, string sovetra, string sotienphaitra)
+        public string CheckBeforeInsert(string maphieutrave, string macongtyphathanh, string madotphathanh, string maloaive, string sovenhan, string sovetra, string sotienphaitra)
         {
-              _CheckError = new CheckError();
-            int SoLuongTra, SoLuongNhan;
-            decimal _ThanhTien = 0;
-            SoLuongTra = int.Parse(sovetra);
+            _CheckError = new CheckError();
+            int SoLuongTra = 0, SoLuongNhan;
+            decimal ThanhTien = 0;
             SoLuongNhan = int.Parse(sovenhan);
+            if (sotienphaitra == "")
+            {
+                _CheckError.CheckErrorAvailable("Số vé trả");
+            }
+            else
+            {
+                try
+                {
+                    SoLuongTra = int.Parse(sovetra);
+                }
+                catch
+                {
+                    _CheckError.CheckErrorNumber("Số vé trả");
+                }
+            }
             if (sotienphaitra == "")
             {
                 _CheckError.CheckErrorAvailable("Số tiền phải trả");
@@ -35,7 +49,7 @@ namespace XoSoKienThiet.BUS
             {
                 try
                 {
-                    _ThanhTien = decimal.Parse(sotienphaitra);
+                    ThanhTien = decimal.Parse(sotienphaitra);
                 }
                 catch
                 {
@@ -44,13 +58,21 @@ namespace XoSoKienThiet.BUS
             }
             if (!_CheckError.IsError())
             {
-
-                CT_PHIEUTRAVE _CT_PHIEUTRAVE = new CT_PHIEUTRAVE(maphieutrave, macongtyphathanh, madotphathanh, maloaive, SoLuongNhan, SoLuongTra, _ThanhTien);
-                 _CT_PHIEUTRAVE_DAO.Insert(_CT_PHIEUTRAVE);
                 return "";
             }
             else
                 return _CheckError.GetError();
+        }
+        public void Insert(string maphieutrave, string macongtyphathanh, string madotphathanh, string maloaive, string sovenhan, string sovetra, string sotienphaitra)
+        {
+
+            int SoLuongTra = 0, SoLuongNhan;
+            decimal ThanhTien = 0;
+            SoLuongNhan = int.Parse(sovenhan);
+            SoLuongTra = int.Parse(sovetra);
+            ThanhTien = decimal.Parse(sotienphaitra);
+            CT_PHIEUTRAVE _CT_PHIEUTRAVE = new CT_PHIEUTRAVE(maphieutrave, macongtyphathanh, madotphathanh, maloaive, SoLuongNhan, SoLuongTra, ThanhTien);
+            _CT_PHIEUTRAVE_DAO.Insert(_CT_PHIEUTRAVE);
         }
     }
 }
