@@ -361,9 +361,19 @@ namespace XoSoKienThiet.PRESENT
             }
         }
 
-        private void rbtnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
+        private void rbtnSaoLuuKhoiPhuc_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            Form frm = this.KiemTraTonTai(typeof(frmSaoLuuVaKhoiPhuc));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmSaoLuuVaKhoiPhuc f = new frmSaoLuuVaKhoiPhuc();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void rbtnAbout_ItemClick(object sender, ItemClickEventArgs e)

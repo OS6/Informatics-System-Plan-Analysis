@@ -56,20 +56,23 @@
             this.rbtnBaoCaoDoanThuTheoNam = new DevExpress.XtraBars.BarButtonItem();
             this.rbtnGhiKetQuaXS = new DevExpress.XtraBars.BarButtonItem();
             this.barUser = new DevExpress.XtraBars.BarStaticItem();
+            this.rbtnDotPhatHanh = new DevExpress.XtraBars.BarButtonItem();
+            this.rbtnSaoLuuKhoiPhuc = new DevExpress.XtraBars.BarButtonItem();
             this.pageTrangChu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pgLapKeHoach = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgChiTieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgGhiKQXS = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgTiepNhanDoiTac = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.pgQuanLyNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageBaoCaoTraCuu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pgDoiTac = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgCongTy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgTraCuu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pgQuyDinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.pgQuanLyNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgQuyDinhVe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgTaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pgGiaoDien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pgAbout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -80,7 +83,6 @@
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageTraCuu = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbtnDotPhatHanh = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabManager)).BeginInit();
             this.SuspendLayout();
@@ -115,9 +117,10 @@
             this.rbtnBaoCaoDoanThuTheoNam,
             this.rbtnGhiKetQuaXS,
             this.barUser,
-            this.rbtnDotPhatHanh});
+            this.rbtnDotPhatHanh,
+            this.rbtnSaoLuuKhoiPhuc});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barUser);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -368,6 +371,26 @@
             this.barUser.Name = "barUser";
             this.barUser.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // rbtnDotPhatHanh
+            // 
+            this.rbtnDotPhatHanh.Caption = "Thêm đợt phát hành";
+            this.rbtnDotPhatHanh.Glyph = ((System.Drawing.Image)(resources.GetObject("rbtnDotPhatHanh.Glyph")));
+            this.rbtnDotPhatHanh.Id = 19;
+            this.rbtnDotPhatHanh.Name = "rbtnDotPhatHanh";
+            this.rbtnDotPhatHanh.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.rbtnDotPhatHanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.rbtnDotPhatHanh_ItemClick);
+            // 
+            // rbtnSaoLuuKhoiPhuc
+            // 
+            this.rbtnSaoLuuKhoiPhuc.Caption = "Sao lưu và khôi phục";
+            this.rbtnSaoLuuKhoiPhuc.Glyph = ((System.Drawing.Image)(resources.GetObject("rbtnSaoLuuKhoiPhuc.Glyph")));
+            this.rbtnSaoLuuKhoiPhuc.Id = 20;
+            this.rbtnSaoLuuKhoiPhuc.Name = "rbtnSaoLuuKhoiPhuc";
+            this.rbtnSaoLuuKhoiPhuc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.rbtnSaoLuuKhoiPhuc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.rbtnSaoLuuKhoiPhuc_ItemClick);
+            // 
             // pageTrangChu
             // 
             this.pageTrangChu.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -408,6 +431,12 @@
             this.pgTiepNhanDoiTac.Name = "pgTiepNhanDoiTac";
             this.pgTiepNhanDoiTac.Text = "Tiếp nhận đối tác";
             // 
+            // pgQuanLyNhanVien
+            // 
+            this.pgQuanLyNhanVien.ItemLinks.Add(this.rbtnTiepNhanNhanVien);
+            this.pgQuanLyNhanVien.Name = "pgQuanLyNhanVien";
+            this.pgQuanLyNhanVien.Text = "Quản lý nhân viên";
+            // 
             // pageBaoCaoTraCuu
             // 
             this.pageBaoCaoTraCuu.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -444,6 +473,7 @@
             this.pgQuyDinh,
             this.pgQuyDinhVe,
             this.pgTaiKhoan,
+            this.ribbonPageGroup1,
             this.pgGiaoDien});
             this.pageHeThong.Name = "pageHeThong";
             this.pageHeThong.Text = "Hệ thống";
@@ -453,12 +483,6 @@
             this.pgQuyDinh.ItemLinks.Add(this.rbtnQuyDinh);
             this.pgQuyDinh.Name = "pgQuyDinh";
             this.pgQuyDinh.Text = "Quy định";
-            // 
-            // pgQuanLyNhanVien
-            // 
-            this.pgQuanLyNhanVien.ItemLinks.Add(this.rbtnTiepNhanNhanVien);
-            this.pgQuanLyNhanVien.Name = "pgQuanLyNhanVien";
-            this.pgQuanLyNhanVien.Text = "Quản lý nhân viên";
             // 
             // pgQuyDinhVe
             // 
@@ -473,6 +497,12 @@
             this.pgTaiKhoan.ItemLinks.Add(this.rbtnCapNhat);
             this.pgTaiKhoan.Name = "pgTaiKhoan";
             this.pgTaiKhoan.Text = "Tài khoản";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.rbtnSaoLuuKhoiPhuc);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Dữ liệu";
             // 
             // pgGiaoDien
             // 
@@ -529,16 +559,6 @@
             this.ribbonPageGroup10});
             this.pageTraCuu.Name = "pageTraCuu";
             this.pageTraCuu.Text = "Tra cứu";
-            // 
-            // rbtnDotPhatHanh
-            // 
-            this.rbtnDotPhatHanh.Caption = "Thêm đợt phát hành";
-            this.rbtnDotPhatHanh.Glyph = ((System.Drawing.Image)(resources.GetObject("rbtnDotPhatHanh.Glyph")));
-            this.rbtnDotPhatHanh.Id = 19;
-            this.rbtnDotPhatHanh.Name = "rbtnDotPhatHanh";
-            this.rbtnDotPhatHanh.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.rbtnDotPhatHanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.rbtnDotPhatHanh_ItemClick);
             // 
             // frmMain
             // 
@@ -614,5 +634,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup pgGhiKQXS;
         private DevExpress.XtraBars.BarStaticItem barUser;
         private DevExpress.XtraBars.BarButtonItem rbtnDotPhatHanh;
+        private DevExpress.XtraBars.BarButtonItem rbtnSaoLuuKhoiPhuc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

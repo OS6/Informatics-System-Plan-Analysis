@@ -204,6 +204,12 @@
     <Compile Include="DTO\CT_KQXS_GIAITHUONG_VIEW.cs" />
     <Compile Include="DTO\TAIKHOAN.cs" />
     <Compile Include="DTO\THAMSO.cs" />
+    <Compile Include="PRESENT\frmSaoLuuVaKhoiPhuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRESENT\frmSaoLuuVaKhoiPhuc.Designer.cs">
+      <DependentUpon>frmSaoLuuVaKhoiPhuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="PRESENT\frmCapNhatTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,9 @@
     <Compile Include="REPORT\rptTieuThuDaiLy.Designer.cs">
       <DependentUpon>rptTieuThuDaiLy.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PRESENT\frmSaoLuuVaKhoiPhuc.resx">
+      <DependentUpon>frmSaoLuuVaKhoiPhuc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PRESENT\frmCapNhatTaiKhoan.resx">
       <DependentUpon>frmCapNhatTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
